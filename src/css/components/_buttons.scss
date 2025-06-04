@@ -1,0 +1,365 @@
+@use '../components/variables' as var;
+
+/*
+* Line button
+*/
+.links {
+    position: relative;
+    z-index: 5;
+
+    .button,
+    .line_button {
+        opacity: 0;
+        transition:
+            opacity 400ms ease,
+            600ms ease;
+        transform: translateY(40rem);
+
+        @for $i from 1 through 21 {
+            &:nth-child(#{$i}) {
+                transition-delay: ($i * 150ms);
+            }
+        }
+    }
+
+    &.show {
+        .button,
+        .line_button {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+.fixed_links {
+    .buttons {
+        margin: 0 auto;
+    }
+}
+
+.fixed_buttons {
+    position: fixed;
+    right: 25rem;
+    bottom: 25rem;
+    z-index: 100;
+    gap: 10rem;
+    justify-content: center;
+    opacity: 0;
+    transition: 400ms ease;
+    transform: translateY(60rem);
+
+    @include var.md {
+        right: unset;
+        bottom: 5rem;
+        left: 50%;
+        display: flex;
+        gap: 0;
+        align-items: center;
+        justify-content: space-around;
+        width: 98%;
+        transform: translateY(60rem) translateX(-50%);
+    }
+
+    &.show {
+        opacity: 1;
+        transform: translateY(0);
+
+        @include var.md {
+            transform: translateY(0) translateX(-50%);
+        }
+    }
+
+    .buttons {
+        margin: 0;
+
+        @include var.md {
+            flex-direction: row;
+        }
+    }
+}
+
+.button_title {
+    width: 82%;
+    margin: 0 auto 10rem;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 17rem;
+    align-items: center;
+    justify-content: center;
+    margin: 50rem auto 0;
+
+    @include var.md {
+        display: flex;
+        gap: 10rem;
+        margin-top: 30rem;
+    }
+
+    .button {
+        width: 289rem;
+
+        // @include var.md {
+        //     width: 145rem;
+        // }
+
+        a {
+            display: block;
+            padding: 10rem 12rem 12rem;
+            font-size: 16rem;
+            font-weight: 700;
+            color: #fff;
+            text-align: center;
+            letter-spacing: 0.01em;
+            background: linear-gradient(180deg, #ff005b 0%, #ce054d 100%);
+            border-radius: 12rem;
+            box-shadow: 4px 4px 20px 0 rgb(114 149 126 / 13%);
+            transition: 200ms ease;
+
+            @include var.md {
+                padding: 8.5rem 0;
+                font-size: 14rem;
+                letter-spacing: 0;
+            }
+
+            &:hover {
+                transform: scale(1.05);
+
+                @include var.md {
+                    transform: scale(1);
+                }
+            }
+        }
+
+        .text_link {
+            position: relative;
+            display: inline-block;
+            display: flex;
+            justify-content: center;
+            width: 267rem;
+            padding: 4rem 0;
+            margin: 8rem auto 0;
+            font-size: 13rem;
+            color: #ff005b;
+            text-align: center;
+            letter-spacing: 0.1em;
+            background: #fff;
+            border-radius: 4rem;
+            border-radius: 100px;
+
+            // @include var.md {
+            //     width: 130rem;
+            //     font-size: 12rem;
+
+            //     // line-height: 200%;
+            // }
+
+            .text_link {
+                display: inline-block;
+                color: #ff005b;
+            }
+        }
+    }
+}
+
+.line_button {
+    position: relative;
+    margin: 0;
+
+    @include var.md {
+        grid-row: 2 / 3;
+        grid-column: 1 / 3;
+        margin: 0 auto;
+    }
+
+    a {
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 64rem;
+        padding-left: 68rem;
+        font-weight: 700;
+        text-align: left;
+        background: #fff;
+        border-radius: 100px;
+        box-shadow: 0 0 16rem rgba($color: #000, $alpha: 10%);
+        transition: 200ms ease;
+
+        .line_text_wrap {
+            margin: 0 22rem 0 7rem;
+        }
+
+        &:hover {
+            .line_logo {
+                transform: translateY(-50%) scale(1.1);
+
+                @include var.md {
+                    transform: translateY(-50%) scale(1);
+                }
+            }
+
+            .arrow {
+                transform: translateX(3rem);
+
+                @include var.md {
+                    transform: translateX(0);
+                }
+            }
+        }
+    }
+
+    .line_logo {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 66rem;
+        height: 66rem;
+        border-radius: 100%;
+        box-shadow: 0 0 16rem rgba($color: #000, $alpha: 10%);
+        transition: 200ms ease;
+        transform: translateY(-50%);
+    }
+
+    .button_text {
+        display: block;
+        margin: 0 0 4rem;
+        font-size: 14rem;
+        line-height: 133%;
+        color: #00cf00;
+        letter-spacing: -0.01em;
+    }
+
+    .btn {
+        position: relative;
+        display: flex;
+        gap: 6rem;
+        align-items: center;
+        justify-content: space-between;
+        height: 24rem;
+        padding: 0 9rem 0 46rem;
+        font-size: 12rem;
+        font-weight: 700;
+        color: #fff;
+        letter-spacing: 0.1em;
+        background: #00cf00;
+        border-radius: 100px;
+
+        @include var.md {
+            gap: 5.31rem;
+            padding: 0 9rem 0 56rem;
+            font-size: 10.61rem;
+            line-height: 100%;
+        }
+
+        .arrow {
+            width: 13rem;
+            height: 13rem;
+            transition: 200ms ease;
+        }
+    }
+}
+
+.fixed_buttons {
+    @include var.md {
+        width: 100%;
+    }
+
+    .links {
+        @include var.md {
+            width: 100%;
+        }
+    }
+
+    .button,
+    .line_button {
+        opacity: 1;
+        transform: translateY(0);
+
+        .text_link {
+            @include var.md {
+                line-height: unset !important;
+            }
+        }
+    }
+
+    .buttons {
+        @include var.md {
+            gap: 5rem;
+        }
+
+        .button {
+            @include var.md {
+                width: calc(50% - 55rem);
+            }
+
+            a {
+                @include var.md {
+                    font-size: 11rem;
+                }
+            }
+
+            .text_link {
+                @include var.md {
+                    width: 85%;
+                    margin-top: 6rem;
+                    font-size: 11rem;
+                    letter-spacing: -0.02em;
+                }
+            }
+        }
+    }
+
+    .line_button {
+        @include var.md {
+            margin: 0;
+        }
+
+        .line_logo {
+            @include var.md {
+                width: 54rem;
+                height: 54rem;
+            }
+        }
+
+        a {
+            @include var.md {
+                height: 50rem;
+                padding-left: 51rem;
+            }
+
+            .line_text_wrap {
+                margin-right: 16rem;
+            }
+        }
+
+        .button_text {
+            @include var.md {
+                position: relative;
+                margin-bottom: 3rem;
+                font-size: 11rem;
+                letter-spacing: -0.03em;
+            }
+        }
+
+        .btn {
+            @include var.md {
+                justify-content: center;
+                height: 20rem;
+                padding: 0;
+                font-size: 10rem;
+            }
+
+            .arrow {
+                @include var.md {
+                    position: absolute;
+                    top: 50%;
+                    right: 8rem;
+                    width: 10rem;
+                    height: 10rem;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+    }
+}

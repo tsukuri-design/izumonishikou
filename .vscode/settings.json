@@ -1,0 +1,48 @@
+{
+    // VS Code Default Settings ----------
+    "html.format.wrapLineLength": 0, // 1行あたりの最大文字数 (0=無効にする)
+    "html.format.unformatted": "h1, h2, h3, h4, h5, h6, p, path, script, span, style, title",
+    // PHP ----------
+    "[php]": {
+        "editor.defaultFormatter": "DEVSENSE.phptools-vscode",
+    },
+    // ESling, Stylelint ----------
+    "css.validate": false,
+    "less.validate": false,
+    "scss.validate": false,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.stylelint": "explicit",
+        "eslint.autoFixOnSave": "explicit"
+    },
+    "stylelint.validate": [
+        "scss"
+    ],
+    "editor.formatOnSave": true,
+    // liveSassComplier ----------
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "compressed", //expanded, compressed
+            "extensionName": ".css",
+            "savePath": null,
+        }
+    ],
+    "liveSassCompile.settings.generateMap": false,
+    "liveSassCompile.settings.excludeList": [
+        "/**/wp-admin/**",
+        "/**/wp-include/**",
+        "/**/assets/plugins/**"
+    ],
+    // MinifyAll ----------
+    "MinifyAll.minifyOnSaveToNewFile": true,
+    "MinifyAll.PrefixOfNewMinifiedFiles": ".min",
+    "MinifyAll.disableHtml": true,
+    "MinifyAll.disablePhp": true,
+    "MinifyAll.disableCss": true,
+    "MinifyAll.disableScss": true,
+    "MinifyAll.disableJson": true,
+    "MinifyAll.disableJsonc": true,
+    "MinifyAll.disableXml": true,
+    "MinifyAll.openMinifiedDocument": false,
+    // other ----------
+    "editor.wordWrap": "on", // from Harris
+}
