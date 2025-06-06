@@ -42,6 +42,38 @@
         position: relative;
         width: 365rem;
 
+        &.coming {
+            pointer-events: none;
+
+            .image_wrap {
+                &::before,
+                &::after {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 3;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    height: 100%;
+                }
+
+                &::before {
+                    content: '';
+                    background: rgba($color: #000, $alpha: 68%);
+                }
+
+                &::after {
+                    font-family: var.$ship;
+                    font-size: 21rem;
+                    font-weight: 600;
+                    color: #fff;
+                    content: 'coming soon...';
+                }
+            }
+        }
+
         @include var.md {
             width: 100%;
             max-width: 350rem;

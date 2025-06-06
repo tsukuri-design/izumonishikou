@@ -103,7 +103,7 @@
 <section class="more inaction">
     <h2 class="heading2 shift_down">もっと知りたい！ 出雲西高校</h2>
     <div class="more_wrap">
-        <a class="item shift_down" href="">
+        <a class="item shift_down coming" href="">
             <span class="title"><?php echo Svg::MORE2()->get(); ?></span>
             <div class="image_wrap">
                 <figure class="image"><?php echo picture('', 'more2', 'jpg', '', 'webp', '', '', '', ''); ?></figure>
@@ -114,7 +114,7 @@
                 <div class="button">詳しくはこちら<span class="arrow"><?php echo Svg::ARROW()->get(); ?></span></div>
             </div>
         </a>
-        <a class="item shift_down" href="">
+        <a class="item shift_down coming" href="">
             <span class="title"><?php echo Svg::MORE3()->get(); ?></span>
             <div class="image_wrap">
                 <figure class="image"><?php echo picture('', 'more3', 'jpg', '', 'webp', '', '', '', ''); ?></figure>
@@ -124,7 +124,7 @@
                 <div class="button">詳しくはこちら<span class="arrow"><?php echo Svg::ARROW()->get(); ?></span></div>
             </div>
         </a>
-        <a class="item shift_down" href="">
+        <a class="item shift_down coming" href="">
             <span class="title"><?php echo Svg::MORE4()->get(); ?></span>
             <div class="image_wrap">
                 <figure class="image"><?php echo picture('', 'more4', 'jpg', '', 'webp', '', '', '', ''); ?></figure>
