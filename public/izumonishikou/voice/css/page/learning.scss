@@ -1,0 +1,617 @@
+@use '../components/variables' as var;
+@use '../components/section';
+@use '../components/more';
+@use '../components/footer';
+
+.firstview {
+    position: relative;
+    padding-top: 46%;
+
+    @include var.md {
+        padding-top: 140%;
+    }
+
+    .main_image {
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            object-fit: cover;
+            height: 100%;
+            transform: translate(-50%, -50%);
+
+            @include var.md {
+                left: 0;
+                width: auto;
+                min-width: 100%;
+                transform: translateY(-50%);
+            }
+        }
+    }
+
+    .logo {
+        position: absolute;
+        top: 40rem;
+        right: 55rem;
+        width: 260rem;
+
+        @include var.md {
+            top: 15rem;
+            left: 15rem;
+            width: 150rem;
+        }
+    }
+
+    .heading1 {
+        position: absolute;
+        top: 165rem;
+        right: 188rem;
+        z-index: 3;
+        width: max-content;
+
+        @include var.md {
+            top: unset;
+            bottom: 20rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .small {
+            display: block;
+            margin-left: -10rem;
+            font-family: var.$ship;
+            font-size: 23rem;
+            font-weight: 500;
+            line-height: 165%;
+            color: #242540;
+            text-align: left;
+            letter-spacing: 0.09em;
+
+            @include var.md {
+                font-size: 15rem;
+            }
+
+            .ul {
+                position: relative;
+
+                &::after {
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    z-index: -1;
+                    width: 115%;
+                    height: 12rem;
+                    content: '';
+                    background: #f5ee57;
+                    transform: translateX(-50%);
+                }
+            }
+        }
+
+        .line_text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: max-content;
+            height: 75rem;
+            padding: 0 10rem 3rem;
+            margin-top: 10rem;
+            font-family: var.$ship;
+            font-size: 42rem;
+            font-feature-settings: 'palt';
+            color: #fff;
+            letter-spacing: 0.09em;
+            background: #146293;
+
+            @include var.md {
+                height: 45rem;
+                font-size: 25rem;
+            }
+        }
+    }
+}
+
+.learning_info {
+    position: relative;
+    z-index: 2;
+    width: 915rem;
+    margin: 110rem auto;
+
+    @include var.md {
+        width: 100%;
+        margin: 60rem auto;
+    }
+
+    &::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: -1;
+        width: 100%;
+        height: calc(100% - 120rem);
+        content: '';
+        background: rgb(29 87 123 / 4%);
+        transform: translate(-50%, -50%);
+
+        @include var.md {
+            height: calc(100% - 60rem);
+        }
+    }
+
+    .quotes {
+        width: 858rem;
+        margin: 0 auto;
+
+        @include var.md {
+            width: 90%;
+        }
+    }
+
+    .heading2 {
+        width: 586rem;
+        padding: 20rem 0 25rem;
+        margin: 50rem auto;
+        font-family: var.$ship;
+        font-size: 26.366rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 150%;
+        color: #146293;
+        text-align: center;
+        letter-spacing: 0.1em;
+        background: #fff;
+        border: 1px dashed #146293;
+
+        @include var.md {
+            width: 90%;
+            margin: 30rem auto;
+            font-size: 16rem;
+            line-height: 170%;
+        }
+
+        .num {
+            font-size: 36rem;
+
+            @include var.md {
+                font-size: 25rem;
+            }
+        }
+
+        .med {
+            font-size: 32rem;
+
+            @include var.md {
+                font-size: 20rem;
+            }
+        }
+
+        .small {
+            font-size: 30rem;
+
+            @include var.md {
+                font-size: 20rem;
+            }
+        }
+
+        .text {
+            position: relative;
+            z-index: 2;
+        }
+    }
+
+    .ul {
+        position: relative;
+
+        &::after {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            z-index: -1;
+            width: 100%;
+            height: 18rem;
+            content: '';
+            background: #f5ee57;
+            transform: translateX(-50%);
+
+            @include var.md {
+                height: 12rem;
+            }
+        }
+    }
+
+    .info {
+        width: 700rem;
+        margin: 0 auto;
+
+        @include var.md {
+            width: 90%;
+        }
+    }
+}
+
+.points {
+    position: relative;
+    display: flex;
+    gap: 36rem;
+    justify-content: center;
+
+    @include var.md {
+        flex-direction: column;
+        gap: 50rem;
+        align-items: center;
+        margin: 100rem auto 0;
+    }
+
+    &::after {
+        position: absolute;
+        top: calc(50% + 20rem);
+        left: 50%;
+        z-index: -1;
+        width: 100vw;
+        height: 414rem;
+        content: '';
+        background: rgb(29 87 123 / 4%);
+        transform: translate(-50%, -50%);
+    }
+
+    .point {
+        width: 332rem;
+
+        @include var.md {
+            width: 90%;
+        }
+
+        .image {
+            position: relative;
+        }
+
+        &.point2 {
+            margin-top: 85rem;
+
+            @include var.md {
+                margin-top: 0;
+            }
+        }
+
+        &.point3 {
+            margin-top: 170rem;
+
+            @include var.md {
+                margin-top: 0;
+            }
+        }
+    }
+
+    .image_sub1 {
+        position: absolute;
+        top: -41rem;
+        left: -34rem;
+        width: 72rem;
+
+        @include var.md {
+            top: -20rem;
+            left: -10rem;
+            width: 70rem;
+        }
+    }
+
+    .image_sub2 {
+        position: absolute;
+        top: -40rem;
+        left: -34rem;
+        width: 115rem;
+
+        @include var.md {
+            top: -20rem;
+            left: -10rem;
+            width: 90rem;
+        }
+    }
+
+    .heading3 {
+        margin: 20rem auto 10rem;
+        font-family: var.$ship;
+        font-size: 20rem;
+        font-weight: 400;
+        line-height: 135%;
+        color: #146293;
+        text-align: left;
+        letter-spacing: 0.1em;
+    }
+
+    .text {
+        font-size: 16rem;
+        font-weight: 400;
+        line-height: 181%;
+        color: #242540;
+        text-align: justify;
+        letter-spacing: 0.02rem;
+
+        @include var.md {
+            font-size: 15rem;
+        }
+    }
+}
+
+.results {
+    margin: 100rem auto;
+
+    @include var.md {
+        margin: 60rem auto;
+    }
+
+    .heading2 {
+        position: relative;
+        width: max-content;
+        padding: 0 30rem;
+        margin: 0 auto;
+        font-family: var.$ship;
+        font-size: 21rem;
+        font-style: normal;
+        font-weight: 400;
+        font-feature-settings: 'palt';
+        color: #146293;
+        text-align: center;
+        letter-spacing: 0.1em;
+
+        @include var.md {
+            padding: 0;
+            font-size: 18rem;
+            line-height: 170%;
+        }
+
+        .large {
+            display: inline-block;
+            margin: 0 6rem;
+            font-size: 28rem;
+
+            @include var.md {
+                font-size: 26rem;
+            }
+        }
+
+        .num {
+            font-size: 36rem;
+            letter-spacing: -1.8rem;
+
+            @include var.md {
+                font-size: 28rem;
+            }
+        }
+
+        .percent {
+            font-size: 28rem;
+
+            @include var.md {
+                font-size: 24rem;
+            }
+        }
+
+        &::before,
+        &::after {
+            position: absolute;
+            top: calc(50% + 5rem);
+            width: 1.75px;
+            height: 110%;
+            content: '';
+            background: #146293;
+
+            @include var.md {
+                display: none;
+            }
+        }
+
+        &::before {
+            left: 0;
+            transform: translateY(-50%) rotate(-27deg);
+        }
+
+        &::after {
+            right: 0;
+            transform: translateY(-50%) rotate(27deg);
+        }
+    }
+
+    .results_info {
+        position: relative;
+        width: 1015rem;
+        padding: 55rem 55rem 45rem;
+        margin: 65rem auto 0;
+        background: rgba($color: #1d577b, $alpha: 4%);
+        border: 1px solid #146293;
+
+        @include var.md {
+            width: 90%;
+            padding: 50rem 25rem 25rem;
+            margin-top: 50rem;
+        }
+    }
+
+    .heading3 {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 409rem;
+        height: 42rem;
+        font-size: 21rem;
+        font-weight: 700;
+        color: #fff;
+        background: #146293;
+        transform: translate(-50%, -50%);
+
+        @include var.md {
+            width: max-content;
+            padding: 0 20rem;
+            font-size: 17rem;
+        }
+    }
+
+    .heading4 {
+        font-family: var.$ship;
+        font-size: 26rem;
+        color: #146293;
+        letter-spacing: 0.04em;
+
+        @include var.md {
+            font-size: 24rem;
+        }
+
+        .x_icon {
+            font-family: var.$ja;
+            font-size: 25rem;
+            color: #242540;
+
+            @include var.md {
+                display: inline-block;
+                margin-top: 4rem;
+                font-size: 20rem;
+                transform: translateY(2rem);
+            }
+        }
+
+        .num {
+            display: inline-block;
+            margin-left: -3rem;
+            font-size: 28rem;
+            letter-spacing: -0.13em;
+
+            @include var.md {
+                font-size: 26rem;
+            }
+        }
+    }
+
+    .ul {
+        position: relative;
+        z-index: 2;
+
+        &::after {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            z-index: -1;
+            width: 100%;
+            height: 16rem;
+            content: '';
+            background: #f5ee57;
+            transform: translateX(-50%);
+
+            @include var.md {
+                height: 12rem;
+            }
+        }
+    }
+
+    .results_wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20rem 35rem;
+        margin-top: 30rem;
+    }
+
+    .result {
+        display: flex;
+        align-items: flex-end;
+        width: 462rem;
+        padding-bottom: 10rem;
+        border-bottom: 1px dashed #146293;
+
+        @include var.md {
+            flex-flow: column wrap;
+            gap: 10rem;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding-bottom: 20rem;
+            text-align: center;
+        }
+
+        &:nth-child(even) {
+            width: 406rem;
+
+            @include var.md {
+                flex-wrap: wrap;
+                width: 100%;
+            }
+        }
+
+        .num {
+            font-family: var.$ship;
+            font-size: 33rem;
+            color: #146293;
+            letter-spacing: -0.03em;
+            transform: translateY(2rem);
+        }
+
+        .percent {
+            font-family: var.$ship;
+            font-size: 22rem;
+            color: #146293;
+            transform: translateY(2rem);
+        }
+
+        .small {
+            font-size: 12rem;
+            letter-spacing: 0.03em;
+        }
+
+        .text {
+            display: inline-block;
+            width: max-content;
+            margin-right: auto;
+            font-size: 17rem;
+            text-align: left;
+            letter-spacing: 0.03em;
+
+            @include var.md {
+                margin: 0;
+                font-size: 15rem;
+                line-height: 150%;
+                letter-spacing: 0;
+            }
+
+            b {
+                font-weight: 700;
+            }
+        }
+
+        .info {
+            display: inline-block;
+            margin-left: auto;
+
+            @include var.md {
+                margin: 0;
+            }
+        }
+    }
+}
+
+.more {
+    max-width: 100%;
+    padding: 95rem 0 133rem;
+    background: rgb(29 87 123 / 4%);
+
+    @include var.md {
+        width: 100%;
+        padding: 60rem 5%;
+    }
+
+    .heading2 {
+        @include var.md {
+            margin-bottom: 40rem;
+            font-size: 20rem;
+        }
+    }
+
+    .more_wrap {
+        gap: 20rem;
+
+        @include var.md {
+            gap: 40rem;
+        }
+    }
+}

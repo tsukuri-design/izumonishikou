@@ -32,7 +32,7 @@
                     <div class="button">詳しくはこちら<span class="arrow"><?php echo Svg::ARROW()->get(); ?></span></div>
                 </div>
             </a>
-            <a class="item shift_down coming" href="">
+            <a class="item shift_down" href="/lp/voice/">
                 <span class="title"><?php echo Svg::MORE2()->get(); ?></span>
                 <div class="image_wrap">
                     <figure class="image"><?php echo picture('', 'more2', 'jpg', '', 'webp', '', '', '', ''); ?></figure>
@@ -43,7 +43,7 @@
                     <div class="button">詳しくはこちら<span class="arrow"><?php echo Svg::ARROW()->get(); ?></span></div>
                 </div>
             </a>
-            <a class="item shift_down coming" href="">
+            <a class="item shift_down" href="/lp/school_life/">
                 <span class="title"><?php echo Svg::MORE3()->get(); ?></span>
                 <div class="image_wrap">
                     <figure class="image"><?php echo picture('', 'more3', 'jpg', '', 'webp', '', '', '', ''); ?></figure>
@@ -53,7 +53,7 @@
                     <div class="button">詳しくはこちら<span class="arrow"><?php echo Svg::ARROW()->get(); ?></span></div>
                 </div>
             </a>
-            <a class="item shift_down coming" href="">
+            <a class="item shift_down" href="/lp/course/">
                 <span class="title"><?php echo Svg::MORE4()->get(); ?></span>
                 <div class="image_wrap">
                     <figure class="image"><?php echo picture('', 'more4', 'jpg', '', 'webp', '', '', '', ''); ?></figure>

@@ -1,0 +1,27 @@
+@use '../components/variables' as var;
+
+.more {
+    max-width: 100%;
+    padding: 95rem 0 133rem;
+    background: rgb(29 87 123 / 4%);
+
+    @include var.md {
+        width: 100%;
+        padding: 60rem 5%;
+    }
+
+    .heading2 {
+        @include var.md {
+            margin-bottom: 40rem;
+            font-size: 20rem;
+        }
+    }
+
+    .more_wrap {
+        gap: 20rem;
+
+        @include var.md {
+            gap: 40rem;
+        }
+    }
+}
