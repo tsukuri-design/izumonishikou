@@ -1,0 +1,123 @@
+/**
+ * ViewPort Mixin and setting rem to pixel.
+ */
+
+/** ここでデザインファイルのサイズを入力 */
+$sp_design_size: 375;
+$pc_design_size: 1280;
+
+/**
+ * mixin
+ */
+
+@mixin ss {
+    @media (max-width: 414px) {
+        @content;
+    }
+}
+
+@mixin sm {
+    @media (max-width: 640px) {
+        @content;
+    }
+}
+
+@mixin md {
+    @media (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin lg {
+    @media (max-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin xl {
+    @media (max-width: 1280px) {
+        @content;
+    }
+}
+
+@mixin xxl {
+    @media (min-width: 1536px) {
+        @content;
+    }
+}
+
+@mixin land {
+    @media (orientation: landscape) {
+        @content;
+    }
+}
+
+@mixin port {
+    @media (orientation: portrait) {
+        @content;
+    }
+}
+
+/**
+ * pxをvwで返す関数
+ */
+
+/** デスクトップ上でpxをvwを返す */
+@function pixelToVWOnDesktop($pixel_size, $viewport: $pc_design_size) {
+    $rate: calc(100 / $viewport);
+
+    @return $rate * $pixel_size * 1vw;
+}
+
+/** モバイル上でpxをvwを返す */
+@function pixelToVWOnMobile($pixel_size, $viewport: $sp_design_size) {
+    $rate: calc(100 / $viewport);
+
+    @return $rate * $pixel_size * 1vw;
+}
+
+/** largeDisplay（1536px以上）でウィンドウサイズサイズに追従するための関数 */
+@function pixelOnLargeDisplay($pixel_size, $viewport: calc(1536 / 100)) {
+    @return calc(1 / $viewport) * $pixel_size * 1vw;
+}
+
+/**
+ * Colors
+ */
+
+$blk: #1a1311;
+$wht: #fff;
+
+/**
+ * Fonts
+ */
+$ja: 'dnp-shuei-gothic-gin-std', 'ヒラギノ角ゴ Pro W3',
+    'Hiragino Kaku Gothic Pro', 'Osaka', 'ＭＳ Ｐゴシック', 'MS PGothic',
+    'メイリオ', meiryo, sans-serif;
+$ship: 'shippori-mincho-b1', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro',
+    'Osaka', 'ＭＳ Ｐゴシック', 'MS PGothic', 'メイリオ', meiryo, sans-serif;
+$en: 'anek-gurmukhi-variable', $ja;
+
+/*
+* Animation
+*/
+
+@keyframes roll {
+    0% {
+        transform: translateY(0%);
+    }
+
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes roll2 {
+    0% {
+        transform: translate(-50%, 100%);
+    }
+
+    100% {
+        transform: translate(-50%, 0%);
+    }
+}
