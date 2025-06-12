@@ -246,22 +246,36 @@
 
             .text_wrap {
                 &::after {
+                    position: absolute;
+                    top: 80rem;
                     right: -20px;
-                    left: auto;
-                    border-color: transparent transparent transparent #fff;
+                    left: unset;
+                    z-index: 1;
+                    display: block;
+                    width: 0;
+                    content: '';
+                    border-color: transparent #fff;
+                    border-style: solid;
                     border-width: 20px 0 20px 20px;
                 }
 
                 &::before {
-                    right: -20.5px;
-                    left: auto;
-                    border-color: transparent transparent transparent #146293;
+                    position: absolute;
+                    top: 80rem;
+                    right: -21.5px;
+                    left: unset;
+                    z-index: 0;
+                    display: block;
+                    width: 0;
+                    content: '';
+                    border-color: transparent #146293;
+                    border-style: solid;
                     border-width: 21px 0 21px 21px;
                 }
 
                 @include var.md {
                     &::after {
-                        top: -20px;
+                        top: -21px;
                         left: 50%;
                         border-color: transparent transparent #fff;
                         border-width: 0 20px 20px;
@@ -269,7 +283,7 @@
                     }
 
                     &::before {
-                        top: -20.5px;
+                        top: -21.5px;
                         left: 50%;
                         border-color: transparent transparent #146293;
                         border-width: 0 21px 21px;
@@ -302,11 +316,12 @@
 
             &::after {
                 position: absolute;
-                top: 88rem;
+                top: 80rem;
                 left: -20px;
                 z-index: 1;
                 display: block;
                 width: 0;
+                margin-top: 1px;
                 content: '';
                 border-color: transparent #fff;
                 border-style: solid;
@@ -315,12 +330,11 @@
 
             &::before {
                 position: absolute;
-                top: 88rem;
-                left: -20.5px;
+                top: 80rem;
+                left: -21.5px;
                 z-index: 0;
                 display: block;
                 width: 0;
-                margin-top: -1px;
                 content: '';
                 border-color: transparent #146293;
                 border-style: solid;
@@ -329,7 +343,7 @@
 
             @include var.md {
                 &::after {
-                    top: -20px;
+                    top: -21px;
                     left: 50%;
                     border-color: transparent transparent #fff;
                     border-width: 0 20px 20px;
@@ -337,7 +351,7 @@
                 }
 
                 &::before {
-                    top: -20.5px;
+                    top: -21.5px;
                     left: 50%;
                     border-color: transparent transparent #146293;
                     border-width: 0 21px 21px;
@@ -358,6 +372,7 @@
             }
 
             .underline {
+                padding-bottom: 4rem;
                 font-weight: 700;
                 background: linear-gradient(
                     to bottom,

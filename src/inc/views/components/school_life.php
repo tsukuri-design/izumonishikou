@@ -80,7 +80,7 @@
             ?>
         </div>
     </div>
-    <h3 class="heading3"><span class="block">文化部・同窓会</span>放課後に、<br class="md">もうひとつの青春が始まる。</h3>
+    <h3 class="heading3"><span class="block">文化部・同好会</span>放課後に、<br class="md">もうひとつの青春が始まる。</h3>
     <div class="static_images">
         <?php
         echo '<div class="item">' . picture('', 'culture1', 'jpg', '', 'webp', '', '', '', '4') . '<span 
