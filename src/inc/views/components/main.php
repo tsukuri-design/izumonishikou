@@ -6,7 +6,7 @@
         <span class="sr_only">2025年度<Br>出雲西高等学校<Br>受験生向け特設ページ<Br>未知なる未来に、準備する</span>
         <?php echo Svg::TOP_TEXT()->get(); ?>
     </h1>
-    <div class="logo"><?php echo picture('', 'logo', 'png', '', 'webp', '', '', '', ''); ?></div>
+    <div class="logo"><a href="https://www.izumonishikou.jp/"><?php echo picture('', 'logo', 'png', '', 'webp', '', '', '', ''); ?></a></div>
     <!-- <div class="firstview_buttons">
         <div class="fv_inner">
             <?php $this->view('components/buttons', false, 'cv_firstview'); ?>

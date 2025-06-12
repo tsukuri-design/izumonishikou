@@ -2,7 +2,7 @@
     <figure class="main_image">
         <?php echo picture('', 'learning', 'jpg', '', 'webp', '', '', '', ''); ?>
     </figure>
-    <div class="logo"><?php echo picture('', 'logo', 'png', '', 'webp', '', '', '', ''); ?></div>
+    <div class="logo"><a href="https://www.izumonishikou.jp/"><?php echo picture('', 'logo', 'png', '', 'webp', '', '', '', ''); ?></a></div>
     <h1 class="heading1">
         <span class="small">「<span class="ul">答えのない時代</span>」で輝く、実践的な人材へ</span>
         <span class="line_text">社会で生き抜く力を伸ばし</span>
@@ -103,7 +103,7 @@
 <section class="more inaction">
     <h2 class="heading2 shift_down">もっと知りたい！ 出雲西高校</h2>
     <div class="more_wrap">
-        <a class="item shift_down coming" href="">
+        <a class="item shift_down" href="/lp/voice/">
             <span class="title"><?php echo Svg::MORE2()->get(); ?></span>
             <div class="image_wrap">
                 <figure class="image"><?php echo picture('', 'more2', 'jpg', '', 'webp', '', '', '', ''); ?></figure>
@@ -114,7 +114,7 @@
                 <div class="button">詳しくはこちら<span class="arrow"><?php echo Svg::ARROW()->get(); ?></span></div>
             </div>
         </a>
-        <a class="item shift_down coming" href="">
+        <a class="item shift_down" href="/lp/school_life/">
             <span class="title"><?php echo Svg::MORE3()->get(); ?></span>
             <div class="image_wrap">
                 <figure class="image"><?php echo picture('', 'more3', 'jpg', '', 'webp', '', '', '', ''); ?></figure>
@@ -124,7 +124,7 @@
                 <div class="button">詳しくはこちら<span class="arrow"><?php echo Svg::ARROW()->get(); ?></span></div>
             </div>
         </a>
-        <a class="item shift_down coming" href="">
+        <a class="item shift_down" href="/lp/course/">
             <span class="title"><?php echo Svg::MORE4()->get(); ?></span>
             <div class="image_wrap">
                 <figure class="image"><?php echo picture('', 'more4', 'jpg', '', 'webp', '', '', '', ''); ?></figure>

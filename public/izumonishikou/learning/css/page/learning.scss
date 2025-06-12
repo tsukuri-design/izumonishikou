@@ -41,6 +41,14 @@
             left: 15rem;
             width: 150rem;
         }
+
+        a {
+            display: block;
+
+            @include var.md {
+                height: 40rem;
+            }
+        }
     }
 
     .heading1 {
@@ -416,7 +424,7 @@
     .results_info {
         position: relative;
         width: 1015rem;
-        padding: 55rem 55rem 45rem;
+        padding: 55rem 45rem 45rem;
         margin: 65rem auto 0;
         background: rgba($color: #1d577b, $alpha: 4%);
         border: 1px solid #146293;

@@ -2,7 +2,7 @@
     <figure class="main_image">
         <?php echo picture('', 'voice', 'jpg', 'sp', 'webp', '', '', '', ''); ?>
     </figure>
-    <div class="logo"><?php echo picture('', 'logo_white', 'png', '', '', '', '', '', ''); ?></div>
+    <div class="logo"><a href="https://www.izumonishikou.jp/"><?php echo picture('', 'logo_white', 'png', '', '', '', '', '', ''); ?></a></div>
     <h1 class="heading1">
         <span class="line_text">在校生・卒業生・先生に聞いてみた</span>
     </h1>
@@ -78,7 +78,7 @@
     <h3 class="question"><span class="q">Q.</span> 生徒からはどのような相談が多いですか?</h3>
     <div class="voice_item inaction shift_down">
         <div class="image_wrap">
-            <figure class="image"><?php echo picture('', 'voice1', 'jpg', '', 'webp', '', '', '', ''); ?></figure>
+            <figure class="image"><?php echo picture('', 'voice6', 'jpg', '', 'webp', '', '', '', ''); ?></figure>
             <div class="name_wrap">
                 <span class="name">嘉藤 由起 <span class="san">さん</span></span>
                 <span class="info_text">国語科担当<br>写真部・ボクシング部顧問</span>

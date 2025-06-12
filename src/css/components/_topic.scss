@@ -1,0 +1,87 @@
+@use '../components/variables' as var;
+
+.topic {
+    position: relative;
+    display: flex !important;
+    gap: 51rem;
+    align-items: center;
+    width: 1018rem;
+    padding: 60rem 55rem 55rem;
+    margin: 140rem auto 115rem;
+    border: 1px solid #146293;
+    border-radius: 13rem;
+
+    @include var.md {
+        flex-direction: column;
+        gap: 20rem;
+        width: 90%;
+        padding: 40rem 25rem 25rem;
+        margin: 60rem auto;
+    }
+
+    .image {
+        width: 355rem;
+
+        @include var.md {
+            width: 100%;
+        }
+    }
+
+    .text_wrap {
+        flex: 1;
+    }
+
+    .heading2 {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 244rem;
+        height: 44rem;
+        font-size: 20rem;
+        font-weight: 300;
+        color: #fff;
+        letter-spacing: 0.07em;
+        background: #146293;
+        transform: translate(-50%, -50%);
+    }
+
+    .heading3 {
+        font-family: var.$ship;
+        font-size: 28rem;
+        font-feature-settings: 'palt';
+        line-height: 136%;
+        color: #146293;
+        text-align: left;
+        letter-spacing: 0.1em;
+
+        @include var.md {
+            font-size: 20rem;
+            text-align: center;
+        }
+
+        .underline {
+            background: linear-gradient(
+                to bottom,
+                #fff 0%,
+                #fff 60%,
+                #f5ee57 61%,
+                #f5ee57 100%
+            );
+        }
+    }
+
+    .text {
+        margin-top: 13rem;
+        font-size: 16rem;
+        font-weight: 400;
+        line-height: 182%;
+        text-align: justify;
+
+        @include var.md {
+            font-size: 15rem;
+        }
+    }
+}

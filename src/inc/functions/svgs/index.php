@@ -75,6 +75,10 @@ class Svg
     {
         return self::getInstance('arrow');
     }
+    public static function ARROW2(): Svg
+    {
+        return self::getInstance('arrow2');
+    }
 
     public static function PHONE(): Svg
     {
@@ -112,6 +116,10 @@ class Svg
     public static function LEARNING_INFO(): Svg
     {
         return self::getInstance('learning_info');
+    }
+    public static function HAND(): Svg
+    {
+        return self::getInstance('hand');
     }
 
 }
