@@ -1,8 +1,8 @@
 <section class="firstview">
     <figure class="main_image">
-        <?php echo picture('', 'learning', 'jpg', '', 'webp', '', '', '', ''); ?>
+        <?php echo picture($this->directoryLevel(), 'learning', 'jpg', '', 'webp', '', '', '', ''); ?>
     </figure>
-    <div class="logo"><a href="https://www.izumonishikou.jp/"><?php echo picture('', 'logo', 'png', '', 'webp', '', '', '', ''); ?></a></div>
+    <div class="logo"><a href="https://www.izumonishikou.jp/"><?php echo picture($this->directoryLevel(), 'logo', 'png', '', 'webp', '', '', '', ''); ?></a></div>
     <h1 class="heading1">
         <span class="small">「<span class="ul">答えのない時代</span>」で輝く、実践的な人材へ</span>
         <span class="line_text">社会で生き抜く力を伸ばし</span>
@@ -21,23 +21,23 @@
 <div class="points inaction">
     <div class="point shift_down">
         <figure class="image">
-            <div class="image_sub1"><?php echo picture('', 'point1_2', 'jpg', '', 'webp', '', '', '', ''); ?></div>
-            <?php echo picture('', 'point1', 'jpg', '', 'webp', '', '', '', ''); ?>
+            <div class="image_sub1"><?php echo picture($this->directoryLevel(), 'point1_2', 'jpg', '', 'webp', '', '', '', ''); ?></div>
+            <?php echo picture($this->directoryLevel(), 'point1', 'jpg', '', 'webp', '', '', '', ''); ?>
         </figure>
         <h3 class="heading3">世界が認めた「７つの習慣」で<br>“生き方”を学ぶ</h3>
         <p class="text">世界的ベストセラー「７つの習慣」に基づく授業を全学年で実施。毎週１時間の探究の時間を通じて、単なる知識の習得ではなく、目標を明確にし、人生を主体的に切り拓く力を養成していきます。</p>
     </div>
     <div class="point shift_down point2">
         <figure class="image">
-            <div class="image_sub2"><?php echo picture('', 'point2_2', 'jpg', '', 'webp', '', '', '', ''); ?></div>
-            <?php echo picture('', 'point2', 'jpg', '', 'webp', '', '', '', ''); ?>
+            <div class="image_sub2"><?php echo picture($this->directoryLevel(), 'point2_2', 'jpg', '', 'webp', '', '', '', ''); ?></div>
+            <?php echo picture($this->directoryLevel(), 'point2', 'jpg', '', 'webp', '', '', '', ''); ?>
         </figure>
         <h3 class="heading3">自分の成長を“見える化”する<br>５段階のルーブリック評価</h3>
         <p class="text">自己の成長を“見える化”するために５段階のルーブリック評価を導入。客観的に自分を振り返り、次の目標を明確にすることで主体性を育みます。自身の成長を実感しながら力を伸ばす独自の取り組みです。</p>
     </div>
     <div class="point shift_down point3">
         <figure class="image">
-            <?php echo picture('', 'point3', 'jpg', '', 'webp', '', '', '', ''); ?>
+            <?php echo picture($this->directoryLevel(), 'point3', 'jpg', '', 'webp', '', '', '', ''); ?>
         </figure>
         <h3 class="heading3">記録が成長の証になる<br>オリジナル手帳で育てる主体性</h3>
         <p class="text">本校ではオリジナルの「フォーサイト手帳」を使い、目標設定・行動・振り返りの習慣を日常に取り入れています。記録を通じて自分の強みや課題に気づくことで、“自分で考える力”が育まれていきます。</p>
@@ -100,40 +100,4 @@
         </div>
     </div>
 </section>
-<section class="more inaction">
-    <h2 class="heading2 shift_down">もっと知りたい！ 出雲西高校</h2>
-    <div class="more_wrap">
-        <a class="item shift_down" href="/lp/voice/">
-            <span class="title"><?php echo Svg::MORE2()->get(); ?></span>
-            <div class="image_wrap">
-                <figure class="image"><?php echo picture('', 'more2', 'jpg', '', 'webp', '', '', '', ''); ?></figure>
-                <div class="text_wrap">
-                    <span class="text_line">在校生・卒業生・先生に</span>
-                    <span class="text_line">聞いてみた</span>
-                </div>
-                <div class="button">詳しくはこちら<span class="arrow"><?php echo Svg::ARROW()->get(); ?></span></div>
-            </div>
-        </a>
-        <a class="item shift_down" href="/lp/school_life/">
-            <span class="title"><?php echo Svg::MORE3()->get(); ?></span>
-            <div class="image_wrap">
-                <figure class="image"><?php echo picture('', 'more3', 'jpg', '', 'webp', '', '', '', ''); ?></figure>
-                <div class="text_wrap">
-                    <span class="text_line">西高スクールライフ</span>
-                </div>
-                <div class="button">詳しくはこちら<span class="arrow"><?php echo Svg::ARROW()->get(); ?></span></div>
-            </div>
-        </a>
-        <a class="item shift_down" href="/lp/course/">
-            <span class="title"><?php echo Svg::MORE4()->get(); ?></span>
-            <div class="image_wrap">
-                <figure class="image"><?php echo picture('', 'more4', 'jpg', '', 'webp', '', '', '', ''); ?></figure>
-                <div class="text_wrap">
-                    <span class="text_line">幅広いコースと</span>
-                    <span class="text_line">進路実績</span>
-                </div>
-                <div class="button">詳しくはこちら<span class="arrow"><?php echo Svg::ARROW()->get(); ?></span></div>
-            </div>
-        </a>
-    </div>
-</section>
+<?php $this->view('components/more', false, 'learning'); ?>

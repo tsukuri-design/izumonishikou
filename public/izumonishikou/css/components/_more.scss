@@ -42,6 +42,10 @@
         position: relative;
         width: 365rem;
 
+        &.hide {
+            display: none !important;
+        }
+
         &.coming {
             pointer-events: none;
 

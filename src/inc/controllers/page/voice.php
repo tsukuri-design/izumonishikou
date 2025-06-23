@@ -55,6 +55,10 @@ class PageVoiceController extends Controller
             'page/voice',
         );
     }
+    protected function directoryLevel(): string
+    {
+        return '../'; // <-- for /learning/
+    }
 
     /** 
      * minファイル以外で指定します。

@@ -121,5 +121,9 @@ class Svg
     {
         return self::getInstance('hand');
     }
+    public static function LOGO_WHITE(): Svg
+    {
+        return self::getInstance('logo_white');
+    }
 
 }

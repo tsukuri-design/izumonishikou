@@ -21,6 +21,10 @@ class PageLearningController extends Controller
             'page_front'
         );
     }
+    protected function directoryLevel(): string
+    {
+        return '../'; // <-- for /learning/
+    }
 
     /** 
      * cssファイルを指定します。
