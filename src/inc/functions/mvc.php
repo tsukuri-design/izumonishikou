@@ -266,7 +266,7 @@ abstract class Controller extends BaseController
     /** Version Setting｜読み込みファイルのバージョン指定 */
     protected function version(): string
     {
-        return '?v612';
+        return '?v625v3';
     }
 
     /**

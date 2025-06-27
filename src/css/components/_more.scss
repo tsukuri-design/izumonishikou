@@ -42,6 +42,64 @@
         position: relative;
         width: 365rem;
 
+        &.item_wide {
+            width: 690rem;
+            margin-top: 55rem;
+
+            @include var.md {
+                width: 100%;
+                margin-top: 30rem;
+            }
+
+            .item_text_wrap {
+                position: absolute;
+                top: calc(50% - 5rem);
+                left: 50%;
+                width: 100%;
+                padding-left: 33rem;
+                transform: translate(-50%, -50%);
+
+                @include var.md {
+                    top: calc(50% - 2rem);
+                    padding-left: 10rem;
+                }
+            }
+
+            .school_name {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 138rem;
+                height: 30rem;
+                margin: 0 auto 10rem 0;
+                font-size: 16rem;
+                font-weight: 700;
+                color: #fff;
+                background: #1e2441;
+
+                @include var.md {
+                    width: 90rem;
+                    height: 20rem;
+                    font-size: 10rem;
+                }
+            }
+
+            .large_text {
+                display: block;
+                margin-top: 25rem;
+                font-size: 27rem;
+                font-weight: 700;
+                color: #35373f;
+                text-align: left;
+                letter-spacing: 0.07em;
+
+                @include var.md {
+                    margin-top: 12rem;
+                    font-size: 14rem;
+                }
+            }
+        }
+
         &.hide {
             display: none !important;
         }

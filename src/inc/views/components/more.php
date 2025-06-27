@@ -47,5 +47,14 @@ $this_page_item = $args[0];
                 <div class="button">詳しくはこちら<span class="arrow"><?php echo Svg::ARROW()->get(); ?></span></div>
             </div>
         </a>
+        <a class="item item_wide shift_down <?php echo $this_page_item === 'home' ? ' hide' : ''; ?>" href="/lp/">
+            <div class="image_wrap">
+                <figure class="image"><?php echo picture($this->directoryLevel(), 'more5', 'jpg', '', 'webp', '', '', '', '2'); ?></figure>
+                <div class="item_text_wrap">
+                    <div class="school_name">出雲西高等学校</div>
+                    <div class="large_text">受験生向け特設ページ TOPへ</div>
+                </div>
+            </div>
+        </a>
     </div>
 </section>
