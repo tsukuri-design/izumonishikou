@@ -18,6 +18,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="<?php echo htmlEsc(get_bloginfo('home_url')); ?>icon.png">
     <link rel="canonical" href="<?php echo htmlEsc(get_bloginfo('home_url')); ?>" />
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="format-detection" content="telephone=no">
     <meta property="twitter:title" content="<?php echo htmlEsc($this->title()); ?>">
     <meta property="twitter:description" content="<?php echo htmlEsc($this->description()); ?>">
     <meta name="twitter:image" content="<?php echo htmlEsc(get_bloginfo('home_url')); ?>ogp.jpg">

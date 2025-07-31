@@ -35,11 +35,11 @@ if (!is_dir($output_folder)) {
 
 $result = file_put_contents($output_file, $html_output);
 
-if ($result === false) {
-    die("❌ Failed to write to: $output_file");
-} else {
-    echo "✅ Successfully wrote to: $output_file";
-}
+// if ($result === false) {
+//     die("❌ Failed to write to: $output_file");
+// } else {
+//     echo "✅ Successfully wrote to: $output_file";
+// }
 
 /** htmlファイルを書き出し */
 $result = file_put_contents($output_file, $html_output);
