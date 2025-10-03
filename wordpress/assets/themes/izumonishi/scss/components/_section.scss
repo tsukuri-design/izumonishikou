@@ -1,0 +1,35 @@
+@use 'variables' as var;
+
+.section {
+    &__header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+
+        @include var.md {
+            flex-wrap: wrap;
+        }
+    }
+
+    &__heading {
+        &-en {
+            font-family: var.$en;
+            font-size: 36rem;
+            font-weight: 300;
+            color: var.$blu;
+
+            @include var.md {
+                font-size: 33rem;
+            }
+        }
+
+        &-ja {
+            display: inline-block;
+            margin-left: 15rem;
+            font-size: 15rem;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+            transform: translateY(-1rem);
+        }
+    }
+}

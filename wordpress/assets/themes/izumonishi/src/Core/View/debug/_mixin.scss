@@ -1,0 +1,54 @@
+@use 'variables';
+
+@mixin rebase($rebase03, $rebase02, $rebase01, $rebase00, $rebase0, $rebase1, $rebase2, $rebase3) {
+    background-color: $rebase03;
+    color: $rebase0;
+    font-family: #{variables.$fonts};
+
+    * {
+        color: $rebase0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: $rebase1;
+        border-color: $rebase0;
+    }
+
+    a,
+    a:active,
+    a:visited {
+        color: $rebase1;
+    }
+}
+
+@mixin light {
+    @include rebase(variables.$base3, variables.$base2, variables.$base1, variables.$base0, variables.$base00, variables.$base01, variables.$base02, variables.$base03);
+}
+
+@mixin dark {
+    @include rebase(variables.$base03, variables.$base02, variables.$base01, variables.$base00, variables.$base0, variables.$base1, variables.$base2, variables.$base3);
+}
+
+@mixin accentize($accent) {
+
+    a,
+    a:active,
+    a:visited,
+    code.url {
+        color: $accent;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: $accent
+    }
+}

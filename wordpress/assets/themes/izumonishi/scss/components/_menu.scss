@@ -1,0 +1,134 @@
+@use 'variables' as var;
+
+.menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+}
+
+.menu__inner {
+    position: sticky;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    width: 99rem;
+    height: 100vh;
+    min-height: 600rem;
+    background: #3d7abc;
+
+    .menu__item {
+        display: block;
+        padding: 24rem 0 20rem;
+        margin: 0 15rem;
+        font-size: 11rem;
+        font-weight: 400;
+        line-height: 136%;
+        color: #fff;
+        -webkit-text-stroke: 0.05px;
+        border-bottom: 1px solid #fff;
+
+        &:last-of-type {
+            margin-bottom: 20rem;
+            border-bottom: none;
+        }
+    }
+
+    .menu__item-icon {
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .menu__sns {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        gap: 28rem;
+        align-items: center;
+        justify-content: center;
+        padding: 25rem 16rem;
+        margin-top: auto;
+        background: #fff;
+
+        a {
+            width: 26rem;
+        }
+    }
+}
+
+.menu_top {
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 22rem 120rem 22rem 28rem;
+    background: #fff;
+    transition: 0.9s cubic-bezier(0.19, 1, 0.22, 1);
+
+    @include var.md {
+        padding: 16rem;
+    }
+
+    .logo {
+        width: 260rem;
+        margin-top: 9rem;
+        transition: 0.9s cubic-bezier(0.19, 1, 0.22, 1);
+
+        @include var.md {
+            width: 150rem;
+            margin-top: 2rem;
+        }
+    }
+
+    .links1 {
+        display: flex;
+        gap: 25rem;
+        margin-top: 14rem;
+
+        @include var.md {
+            display: none;
+        }
+
+        .link {
+            font-size: 15rem;
+            -webkit-text-stroke: 0.1px;
+        }
+    }
+
+    .links2 {
+        display: flex;
+        gap: 21rem;
+        align-items: center;
+        justify-content: flex-end;
+        margin-top: 2.5rem;
+        transition: 0.9s cubic-bezier(0.19, 1, 0.22, 1);
+
+        @include var.md {
+            display: none;
+        }
+    }
+
+    .links_wrap {
+        position: relative;
+        padding-right: 32rem;
+
+        @include var.md {
+            display: none;
+        }
+    }
+
+    .links_small {
+        display: flex;
+        gap: 20rem;
+        font-size: 15rem;
+
+        a {
+            color: #16569c;
+            -webkit-text-stroke: 0.1px;
+        }
+    }
+}

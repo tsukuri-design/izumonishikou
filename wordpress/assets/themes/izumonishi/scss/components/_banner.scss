@@ -1,0 +1,90 @@
+@use 'variables' as var;
+
+.banners {
+    position: relative;
+    display: flex;
+    gap: 45rem;
+    justify-content: center;
+    padding-right: 95rem;
+    margin: 60rem auto;
+
+    @include var.md {
+        flex-direction: column;
+        gap: 20rem;
+        align-items: center;
+        padding: 0;
+        margin: 40rem auto;
+    }
+
+    .arrows {
+        position: absolute;
+        top: 50%;
+        left: calc(50% - 70rem);
+        z-index: 10;
+        display: none;
+
+        // display: flex;
+        justify-content: space-between;
+        width: 87%;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+
+        @include var.md {
+            width: 88%;
+        }
+
+        .arrow {
+            width: 45rem;
+            padding: 0;
+            overflow: hidden;
+            line-height: 0;
+            pointer-events: all;
+            background: unset;
+            border-radius: 100%;
+
+            @include var.md {
+                width: 35rem;
+            }
+
+            &.banner_arrow_left {
+                svg {
+                    transform: scaleX(-1);
+                }
+            }
+        }
+    }
+
+    .slick-track {
+        display: flex;
+        gap: 45rem;
+    }
+
+    .slick-slide,
+    .banner_slide {
+        width: 504rem;
+        overflow: hidden;
+        line-height: 0;
+        border-radius: 9rem;
+
+        // box-shadow: 0 0 12px 0 rgb(0 0 0 / 11%);
+
+        @include var.md {
+            width: 300rem;
+        }
+
+        img {
+            line-height: 0;
+            transition: 300ms ease;
+        }
+
+        &:hover {
+            img {
+                transform: scale(1.05);
+
+                @include var.md {
+                    transform: scale(1);
+                }
+            }
+        }
+    }
+}

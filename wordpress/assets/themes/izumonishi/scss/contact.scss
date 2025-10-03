@@ -1,0 +1,288 @@
+@use 'components/variables' as var;
+@use 'components/global';
+
+/*
+* Privacy / checkbox
+*/
+.privacy_con {
+    position: relative;
+    display: flex;
+    gap: 15rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 25rem auto;
+    font-size: 16rem;
+    border: unset !important;
+
+    @include var.md {
+        flex-direction: row !important;
+        gap: 15rem !important;
+        width: 90%;
+    }
+
+    .error_label {
+        position: absolute;
+        bottom: -5rem;
+        left: 50%;
+        font-size: 11rem;
+        transform: translateX(-50%);
+    }
+
+    a {
+        color: var.$black;
+        text-decoration: underline;
+    }
+
+    .container {
+        display: flex;
+        margin: 0;
+    }
+}
+
+.container {
+    position: relative;
+    display: block;
+    align-items: center;
+    width: auto !important;
+    font-size: 20rem;
+    cursor: pointer;
+    user-select: none;
+
+    @include var.md {
+        font-size: 15rem;
+    }
+}
+
+.privacy {
+    @include var.md {
+        flex-basis: 80%;
+        margin: 0;
+        font-size: 13rem;
+    }
+
+    a {
+        transition: 300ms ease;
+
+        @include var.md {
+            padding-bottom: 1rem;
+            font-size: 13rem;
+        }
+
+        &:hover {
+            opacity: 0.5;
+
+            @include var.md {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.container input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    cursor: pointer;
+    opacity: 0 !important;
+}
+
+/*
+* Checkbox animation
+*/
+$checked_color: #fff;
+$unchecked_color: rgb(255 255 255);
+$checkbox_height: 32rem;
+$background_color: #fff;
+$font_color: #efefef;
+$duration: 0.4s;
+$check_color: var.$black;
+
+@keyframes bottomCheck {
+    0% {
+        height: 0;
+    }
+
+    100% {
+        height: ($checkbox_height / 3);
+    }
+}
+
+@keyframes topCheck {
+    0% {
+        height: 0;
+    }
+
+    50% {
+        height: 0;
+    }
+
+    100% {
+        height: ($checkbox_height * 0.7);
+    }
+}
+
+@include var.md {
+    @keyframes bottomCheck {
+        0% {
+            height: 0;
+        }
+
+        100% {
+            height: ($checkbox_height / 4);
+        }
+    }
+
+    @keyframes topCheck {
+        0% {
+            height: 0;
+        }
+
+        50% {
+            height: 0;
+        }
+
+        100% {
+            height: ($checkbox_height * 0.55);
+        }
+    }
+}
+
+input[type='checkbox'] {
+    display: none;
+}
+
+.check_box {
+    position: relative;
+    box-sizing: border-box;
+    display: inline-block;
+    width: $checkbox_height !important;
+    height: $checkbox_height !important;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid var.$black;
+    border-radius: 5px;
+    transition: border-color ease ($duration / 2);
+    transition-delay: 0s;
+
+    &:hover {
+        background: #fff;
+
+        @include var.md {
+            background: transparent;
+        }
+    }
+
+    @include var.md {
+        width: 25rem !important;
+        height: 25rem !important;
+    }
+
+    &::before,
+    &::after {
+        position: absolute;
+        box-sizing: border-box;
+        display: inline-block;
+        width: ($checkbox_height * 0.12);
+        height: 0;
+        content: ' ';
+        background-color: $check_color;
+        transition: opacity ease 0.5;
+        transform-origin: left top;
+    }
+
+    &::before {
+        top: ($checkbox_height * 0.75);
+        left: ($checkbox_height * 0.35);
+        transform: rotate(-135deg);
+
+        @include var.md {
+            top: 19rem;
+            left: 9.2rem;
+            transform: rotate(-135deg);
+        }
+    }
+
+    &::after {
+        top: ($checkbox_height * 0.5);
+        left: ($checkbox_height * 0.075);
+        transform: rotate(-45deg);
+
+        @include var.md {
+            top: 13rem;
+            left: 3rem;
+            transform: rotate(-45deg);
+        }
+    }
+}
+
+input[type='checkbox']:checked + .check_box,
+.check_box.checked {
+    background-color: #fff;
+    border-color: $checked_color;
+
+    &::after {
+        height: ($checkbox_height * 0.4);
+        animation: bottomCheck ($duration / 2) ease 0s forwards;
+    }
+
+    &::before {
+        height: ($checkbox_height * 0.8);
+        animation: topCheck $duration ease 0s forwards;
+    }
+}
+
+/*
+* Complete
+*/
+
+$black: var.$black;
+$white: var.$white;
+$key_color: var.$key_color;
+
+.send_complete {
+    .complete_ico {
+        width: 240rem;
+        margin: 30rem auto 40rem;
+        fill: $key_color;
+
+        @include var.md {
+            width: 100rem;
+            margin: 0 auto 30rem;
+        }
+    }
+
+    .heading3 {
+        margin-bottom: 30rem;
+        font-size: 25rem;
+        font-weight: 700;
+        text-align: center;
+
+        // letter-spacing: .04em;
+        letter-spacing: 0.08em;
+
+        @include var.md {
+            font-size: 20rem;
+        }
+    }
+
+    .explain {
+        margin: 0 0 30rem;
+        font-size: 16rem;
+        line-height: 211%;
+        letter-spacing: 0.06em;
+
+        @include var.md {
+            font-size: 12rem;
+            line-height: 200%;
+        }
+    }
+
+    .back_to_top_button {
+        padding: 10rem 24rem;
+        font-family: var.$ja;
+        font-size: 14rem;
+        background: transparent;
+        border: 1px solid $black;
+    }
+}

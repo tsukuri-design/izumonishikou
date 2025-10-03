@@ -1,0 +1,489 @@
+@use '../components/variables' as var;
+@use '../components/global';
+@use '../components/block_editor_content';
+
+
+
+/** 
+ * このファイルは整理が必要です。
+ */
+
+
+/**
+ * Write ContactPage-only CSS from below
+ */
+
+// $blk: #444;
+// $wht: #fff;
+// $red: #d92b26;
+// $dred: #d10600;
+
+// ///new check
+// $checked-color: $dred;
+// $unchecked-color: #ccc;
+// $checkbox-height: 32rem;
+// $background-color: #ccc;
+// $font-color: #efefef;
+// $duration: .3s;
+// $check-color: $dred;
+// @include var.md() {
+//     @keyframes dothabottomcheck {
+//         0% {
+//             height: 0;
+//         }
+//         100% {
+//             height: calc($checkbox-height / 4);
+//         }
+//     }
+//     @keyframes dothatopcheck {
+//         0% {
+//             height: 0;
+//         }
+//         50% {
+//             height: 0;
+//         }
+//         100% {
+//             height: $checkbox-height * .55;
+//         }
+//     }
+// }
+
+// .btn {
+//     position: relative;
+//     width: max-content;
+
+//     @include var.md() {
+//         width: 100%;
+//     }
+//     .arw {
+//         width: 20rem;
+
+//         @include var.md() {
+//             right: 25rem;
+//             width: 16rem;
+//         }
+//     }
+//     input {
+//         width: 475rem;
+//         margin: 0 auto;
+//         padding: 10rem 0;
+//         font-size: 18rem;
+
+//         @include var.md() {
+//             width: 285rem;
+//             padding: 9rem 0;
+//             font-size: 16rem;
+//         }
+//     }
+// }
+
+// .contact_content {
+//     @include var.md() {
+//         padding-bottom: 0;
+//     }
+//     .faq_top {
+//         @include var.md() {
+//             width: 200%;
+//         }
+//     }
+//     .inner {
+//         width: 650rem;
+//         margin: 50rem auto 0;
+
+//         @include var.md() {
+//             width: 89%;
+//             margin: 0 auto;
+//         }
+//     }
+//     .arrow {
+//         color: #fff;
+//     }
+//     label {
+//         display: block;
+//         width: max-content;
+//         // max-width: max-content;
+//         margin: 35rem auto 16rem 0;
+//         padding: 0 70rem 0 0;
+//         color: $blk;
+//         font-weight: 800;
+//         font-size: 17rem;
+//         text-align: left;
+
+//         @include var.md() {
+//             margin: 23rem auto 11rem 0;
+//             font-size: 15rem;
+//         }
+//         &.req {
+//             position: relative;
+//             &:after {
+//                 position: absolute;
+//                 top: 50%;
+//                 right: 25rem;
+//                 transform: translate(0, -50%);
+//                 padding: 3rem 5rem;
+//                 border-radius: 3rem;
+//                 background: #d92b26;
+//                 color: #fff;
+//                 font-size: 11rem;
+//                 content: '必須';
+//             }
+//         }
+//     }
+//     select, input[type='text'], textarea {
+//         display: block;
+//         width: 100%;
+//         padding: 21rem 24rem;
+//         border: none;
+//         border-radius: 6rem;
+//         background: #f2f3f4;
+//         color: $blk;
+//         font-weight: 500;
+//         font-size: 15rem;
+//         // letter-spacing: .04em;
+//         letter-spacing: .08em;
+
+//         @include var.md() {
+//             padding: 15rem 18rem 14rem;
+//             font-size: 15rem;
+//         }
+//         &::placeholder, .hidden {
+//             color: #ccc;
+//         }
+//     }
+//     .btn {
+//         .arw {
+//             color: #fff;
+//         }
+//     }
+
+//     select {
+//         appearance: none;       /* Remove default arrow */
+//         background-image: url(img/arrow.png);   /* Add custom arrow */
+//         background-repeat: no-repeat;
+
+//         background-position-x: 95%;
+//         background-position-y: 50%;
+//         -webkit-appearance: none;
+//         -moz-appearance: none;
+//         @include var.md() {
+//             padding-left: 18rem;
+//             // letter-spacing: .04em;
+//             letter-spacing: .08em;
+//         }
+//     }
+//     input {
+//         &[type='checkbox'] {
+//             // display: none;
+//             &:checked + .box::after {
+//                 opacity: 1;
+//             }
+//         }
+//     }
+//     .double {
+//         display: flex;
+//         justify-content: space-between;
+//         input, select {
+//             flex-basis: 49%;
+//             width: unset;
+//         }
+//         select {
+//             &[name='pref'] {
+//                 @include var.md() {
+//                     flex-basis: 35%;
+//                 }
+//             }
+//         }
+//         input {
+//             &[name='zip1'] {
+//                 flex-basis: 20%;
+
+//                 @include var.md() {
+//                     flex-basis: 23%;
+//                 }
+//             }
+//             &[name='zip2'] {
+//                 flex-basis: 23%;
+
+//                 @include var.md() {
+//                     flex-basis: 25%;
+//                 }
+//             }
+//         }
+//     }
+//     .hyphen {
+//         display: flex;
+//         align-items: center;
+//         font-size: 30rem;
+//     }
+//     .address1 {
+//         display: block;
+//         margin: 15rem 0;
+//     }
+//     .exp {
+//         margin: 40rem 0;
+//         font-size: 15rem;
+//         text-align: center;
+
+//         @include var.md() {
+//             margin: 20rem 0;
+//             font-size: 12rem;
+//             line-height: 1.8;
+//         }
+//         a {
+//             color: $dred;
+//             text-decoration: underline;
+//             // transition: 400ms $cb;
+//             &:hover {
+//                 opacity: .5;
+
+//                 @include var.md() {
+//                     opacity: 1;
+//                 }
+//             }
+//         }
+//     }
+//     .post_request {
+//         label {
+//             display: flex;
+//             align-items: center;
+//             justify-content: center;
+//             max-width: none;
+//             margin: 40rem auto 20rem;
+
+//             @include var.md() {
+//                 margin: 40rem auto 30rem;
+//                 font-size: 14rem;
+//             }
+//         }
+//         .box {
+//             display: block;
+//             position: relative;
+//             width: 25rem;
+//             height: 25rem;
+//             margin-right: 20rem;
+//             border-radius: 3rem;
+//             box-shadow: 0 0 16rem rgba(0,0,0,.16);
+//             background: #fff;
+//             &::after {
+//                 display: block;
+//                 position: absolute;
+//                 top: 50%;
+//                 left: 8rem;
+//                 transform: rotate(45deg);
+//                 width: 7rem;
+//                 height: 12rem;
+//                 margin-top: -10rem;
+//                 border-right: 3rem solid #ccc;
+//                 border-bottom: 3rem solid #ccc;
+//                 opacity: 0;
+//                 content: '';
+//                 transition: .2s;
+//             }
+//         }
+//     }
+//     .btn {
+//         position: relative;
+//         width: max-content;
+
+//         @include var.md() {
+//             width: 100%;
+//         }
+//         .arw {
+//             width: 20rem;
+
+//             @include var.md() {
+//                 right: 25rem;
+//                 width: 16rem;
+//             }
+//         }
+//         input {
+//             width: 475rem;
+//             margin: 0 auto;
+//             padding: 10rem 0;
+//             font-size: 18rem;
+
+//             @include var.md() {
+//                 width: 285rem;
+//                 padding: 9rem 0;
+//                 font-size: 16rem;
+//             }
+//         }
+//     }
+// }
+// .contact_page {
+//     .privacy_con {
+//         display: flex;
+//         width: 360rem;
+//         margin: 10rem auto 10rem;
+//         padding: 20rem 0 20rem;
+
+//         @include var.md() {
+//             display: flex;
+//             align-items: center;
+//             justify-content: center;
+//             width: 83%;
+//             margin: 0 auto;
+//             padding: 10rem 0 10rem;
+//         }
+//     }
+//     .privacy {
+//         margin: 17rem 0 0 0;
+//         font-weight: 800;
+//         font-size: 16rem;
+
+//         @include var.md() {
+//             flex-basis: 80%;
+//             margin: 0;
+//             font-size: 13rem;
+//         }
+//         a {
+//             // padding-bottom: 5rem;
+//             border-bottom: 1px solid $dred;
+//             color: $dred;
+//             font-size: 16rem;
+//             // transition: 300ms $cb2;
+
+//             @include var.md() {
+//                 padding-bottom: 1rem;
+//                 font-size: 13rem;
+//             }
+//             &:hover {
+//                 opacity: .5;
+
+//                 @include var.md() {
+//                     opacity: 1;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// .complete_svg {
+//     width: 120rem;
+//     margin: 0 auto 40rem;
+
+//     @include var.md() {
+//         width: 100rem;
+//         margin: 0 auto 30rem;
+//     }
+// }
+// .complete {
+//     h3 {
+//         padding-left: .5em;
+//         font-weight: 700;
+//         font-size: 25rem;
+//         text-align: center;
+//         // letter-spacing: .04em;
+//         letter-spacing: .08em;
+
+//         @include var.md() {
+//             font-size: 20rem;
+//         }
+//     }
+//     .exp {
+//         font-size: 16rem;
+//         line-height: 211%;
+//         // letter-spacing: .02em;
+//         letter-spacing: .06em;
+
+//         @include var.md() {
+//             font-size: 12rem;
+//             line-height: 200%;
+//         }
+//     }
+// }
+
+// @keyframes dothabottomcheck {
+//     0% {
+//         height: 0;
+//     }
+//     100% {
+//         height: calc($checkbox-height / 3);
+//     }
+// }
+// @keyframes dothatopcheck {
+//     0% {
+//         height: 0;
+//     }
+//     50% {
+//         height: 0;
+//     }
+//     100% {
+//         height: $checkbox-height * .7;
+//     }
+// }
+// input[type=checkbox] {
+//     display: none;
+// }
+// .check-box {
+//     display: inline-block;
+//     position: relative;
+//     box-sizing: border-box;
+//     width: 32rem !important;
+//     height: 32rem !important;
+//     padding: 0 15rem !important;
+//     border: 1px solid #d3d8dd;
+//     border-radius: 6rem;
+//     background-color: #f2f3f4;
+//     cursor: pointer;
+//     transition: 200ms linear !important;
+//     transition-delay: 0s !important;
+
+//     @include var.md() {
+//         width: 28rem !important;
+//         height: 28rem !important;
+//         padding: 11rem !important;
+//     }
+//     &::before, &::after {
+//         display: inline-block;
+//         position: absolute;
+//         transform-origin: left top;
+//         box-sizing: border-box;
+//         width: $checkbox-height * .12;
+//         height: 0;
+//         background-color: $check-color;
+//         content: ' ';
+//         transition: opacity ease .5;
+//     }
+//     &::before {
+//         top: $checkbox-height * .75;
+//         left: $checkbox-height * .35;
+//         transform: rotate(-135deg);
+
+//         @include var.md() {
+//             top: 22rem;
+//             left: 9.2rem;
+//             transform: rotate(-135deg);
+//         }
+//     }
+//     &::after {
+//         top: $checkbox-height * .5;
+//         left: $checkbox-height * .075;
+//         transform: rotate(-45deg);
+
+//         @include var.md() {
+//             top: 14.5rem;
+//             left: 1.8rem;
+//             transform: rotate(-45deg);
+//         }
+//     }
+// }
+// input[type=checkbox]:checked + .check-box, .check-box.checked {
+//     border-color: $checked-color;
+//     background-color: #fff;
+//     &::after {
+//         height: $checkbox-height * .4;
+//         animation: dothabottomcheck calc($duration / 2) ease 0s forwards;
+//     }
+//     &::before {
+//         height: $checkbox-height * .8;
+//         animation: dothatopcheck $duration ease 0s forwards;
+//     }
+// }
+// .check-box {
+//     margin: 10rem 14rem 14rem !important;
+
+//     @include var.md() {
+//         margin: 14rem 4rem 12rem !important;
+//     }
+// }

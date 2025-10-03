@@ -1,0 +1,96 @@
+@use 'variables' as var;
+
+.site-footer {
+    padding: 80rem 90rem 80rem 0;
+    color: #fff;
+    background: #08284c;
+
+    @include var.md {
+        padding: 60rem 0;
+    }
+
+    a {
+        color: #fff;
+        -webkit-text-stroke: 0.1px #fff;
+    }
+
+    &__logo {
+        display: block;
+        width: 275rem;
+        margin: 0 auto 22rem;
+    }
+
+    &__address {
+        margin: 0 auto;
+        font-size: 15rem;
+        font-weight: 300;
+        line-height: 173%;
+        letter-spacing: 0.01em;
+    }
+
+    &__sns {
+        display: flex;
+        gap: 30rem;
+        align-items: center;
+        justify-content: center;
+        margin: 35rem auto;
+    }
+
+    &__sns-link {
+        width: 26rem;
+        transition: 300ms ease;
+
+        &:hover {
+            opacity: 0.5;
+
+            @include var.md {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__links {
+        display: flex;
+        gap: 28rem;
+        justify-content: center;
+        font-size: 14rem;
+        letter-spacing: 0.1em;
+
+        @include var.md {
+            flex-wrap: wrap;
+            gap: 15rem;
+            padding: 0;
+            margin: 0 auto;
+            font-size: 14rem;
+        }
+
+        &--small {
+            position: relative;
+            flex-wrap: wrap;
+            gap: 20rem;
+            max-width: 800rem;
+            margin: 30rem auto 0;
+            font-size: 14rem;
+        }
+    }
+
+    &__link {
+        font-weight: 300;
+        transition: 300ms ease;
+
+        &:hover {
+            opacity: 0.5;
+
+            @include var.md {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__copy {
+        display: block;
+        margin-top: 45rem;
+        font-size: 14rem;
+        font-weight: 400;
+    }
+}

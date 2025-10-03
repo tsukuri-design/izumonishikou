@@ -1,10 +1,14 @@
 *.DS_Store
+*debug.log
+wordpress/assets/themes/mvc4wp/log/*
+wordpress/.htaccess
 wordpress/wp-config-inc.php
 wordpress/wp-content/ai1wm-backups/
 wordpress/wp-content/themes/twentynineteen/
 wordpress/wp-content/themes/twentytwenty/
 wordpress/wp-content/themes/twentytwentyone/
 wordpress/wp-content/themes/twentytwentytwo/
+wordpress/wp-content/themes/twentytwentythree/
 wordpress/wp-content/uploads/
 wordpress/assets/library/
 wordpress/assets/ai1wm-backups/
@@ -12,4 +16,5 @@ wordpress/assets/themes/twentynineteen/
 wordpress/assets/themes/twentytwenty/
 wordpress/assets/themes/twentytwentyone/
 wordpress/assets/themes/twentytwentytwo/
+wordpress/assets/themes/twentytwentythree/
 wordpress/assets/uploads/

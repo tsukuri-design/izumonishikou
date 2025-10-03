@@ -1,0 +1,47 @@
+<?php
+add_action('init', function () {
+    register_post_type('topics', array(
+        'labels' => array(
+            'name' => 'お知らせ',
+            'singular_name' => 'お知らせ',
+            'menu_name' => 'お知らせ',
+            'all_items' => 'お知らせ 一覧',
+            'edit_item' => 'お知らせ を編集',
+            'view_item' => 'お知らせ を表示',
+            'view_items' => 'お知らせ を表示',
+            'add_new_item' => '新規お知らせを追加',
+            'add_new' => '新規お知らせを追加',
+            'new_item' => '新規 お知らせ',
+            'parent_item_colon' => '親のお知らせ:',
+            'search_items' => 'お知らせ を検索',
+            'not_found' => 'お知らせ が見つかりませんでした。',
+            'not_found_in_trash' => 'ゴミ箱にお知らせはありません',
+            'archives' => 'お知らせ アーカイブ',
+            'attributes' => 'お知らせ の属性',
+            'insert_into_item' => 'お知らせ に挿入',
+            'uploaded_to_this_item' => 'Uploaded to this お知らせ',
+            'filter_items_list' => 'お知らせ リストを絞り込み',
+            'filter_by_date' => 'お知らせ 日時で絞り込み',
+            'items_list_navigation' => 'お知らせ list navigation',
+            'items_list' => 'お知らせ リスト',
+            'item_published' => 'お知らせ を公開しました。',
+            'item_published_privately' => 'お知らせ published privately.',
+            'item_reverted_to_draft' => 'お知らせ reverted to draft.',
+            'item_scheduled' => 'お知らせ を予約しました。',
+            'item_updated' => 'お知らせ を更新しました。',
+            'item_link' => 'お知らせ リンク',
+            'item_link_description' => 'お知らせ へのリンク。',
+        ),
+        'public' => true,
+        'show_in_rest' => true,
+        'has_archive' => true,
+        'supports' => array(
+            0 => 'title',
+            1 => 'editor',
+            2 => 'revisions',
+            3 => 'thumbnail',
+        ),
+        'delete_with_user' => false,
+    ));
+});
+

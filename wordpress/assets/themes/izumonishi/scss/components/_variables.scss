@@ -1,0 +1,138 @@
+/**
+ * ViewPort Mixin and setting rem to pixel.
+ */
+
+/** ここでデザインファイルのサイズを入力 */
+$sp_design_size: 390;
+$pc_design_size: 1280;
+
+/**
+ * mixin
+ */
+
+@mixin ss {
+    @media (max-width: 414px) {
+        @content;
+    }
+}
+
+@mixin sm {
+    @media (max-width: 640px) {
+        @content;
+    }
+}
+
+@mixin md {
+    @media (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin lg {
+    @media (max-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin xl {
+    @media (max-width: 1280px) {
+        @content;
+    }
+}
+
+@mixin xxl {
+    @media (min-width: 1536px) {
+        @content;
+    }
+}
+
+@mixin land {
+    @media (orientation: landscape) {
+        @content;
+    }
+}
+
+@mixin port {
+    @media (orientation: portrait) {
+        @content;
+    }
+}
+
+@mixin print {
+    @media print {
+        @content;
+    }
+}
+
+// line-heightをテキストエレメントに含めないように
+@mixin trim_text_box($edge: cap alphabetic) {
+    // ① Chrome / Edge (Chromium) – current reality
+    @supports (text-box-trim: trim-both) {
+        text-box-trim: trim-both;
+        text-box-edge: #{$edge};
+    }
+
+    // ② Future spec-compliant browsers (Chrome, Edge, Firefox)
+    @supports (text-box-trim: both) {
+        text-box-trim: both;
+        text-box-edge: #{$edge};
+    }
+
+    // ③ Safari & iOS Safari v18.2~
+    @supports (leading-trim: both) {
+        leading-trim: both;
+        text-edge: #{$edge};
+    }
+}
+
+/**
+ * pxをvwで返す関数
+ */
+
+/** デスクトップ上でpxをvwを返す */
+@function pixelToVWOnDesktop($pixel_size, $viewport: $pc_design_size) {
+    $rate: calc(100 / $viewport);
+
+    @return $rate * $pixel_size * 1vw;
+}
+
+/** モバイル上でpxをvwを返す */
+@function pixelToVWOnMobile($pixel_size, $viewport: $sp_design_size) {
+    $rate: calc(100 / $viewport);
+
+    @return $rate * $pixel_size * 1vw;
+}
+
+/** largeDisplay（1536px以上）でウィンドウサイズサイズに追従するための関数 */
+@function pixelOnLargeDisplay($pixel_size, $viewport: calc(1536 / 100)) {
+    @return calc(1 / $viewport) * $pixel_size * 1vw;
+}
+
+/**
+ * Colors
+ */
+
+$black: #26282c;
+$white: #fff;
+$key_color: #3d7abc;
+$yel: #000;
+$blu: #16569c;
+
+/**
+ * Fonts
+ */
+$font_path: '/assets/themes/mvc4wp/fonts/';
+
+@font-face {
+    font-family: PPFragment;
+    font-style: normal;
+    font-weight: normal;
+    src:
+        url('#{$font_path}PPFragment-GlareLight.woff2') format('woff2'),
+        url('#{$font_path}PPFragment-GlareLight.woff') format('woff');
+}
+
+$ja: 'Zen Kaku Gothic New', 'shippori-mincho', 'ヒラギノ角ゴ Pro W3',
+    'Hiragino Kaku Gothic Pro', 'Osaka', 'ＭＳ Ｐゴシック', 'MS PGothic',
+    'メイリオ', meiryo, sans-serif;
+$en: 'Zen Kurenaido', $ja;

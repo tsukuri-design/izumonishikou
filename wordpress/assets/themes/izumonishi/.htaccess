@@ -1,0 +1,25 @@
+# Enable Rewrite Engine
+RewriteEngine On
+RewriteBase /
+
+# Allow access to coverage files
+RewriteRule ^coverage/(.+)$ - [L]
+
+# Allow access to screenshot.png
+RewriteRule ^screenshot.png$ - [L]
+
+# Allow access to static files (images, CSS, JS, fonts, etc.)
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule \.(jpg|jpeg|png|gif|webp|css|js|woff|woff2|ttf|svg|eot|ico)$ - [L]
+
+# Allow access to files in the /fonts/ directory
+RewriteCond %{REQUEST_URI} ^/fonts/
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^fonts/(.*)$ - [L]
+
+# WordPress default rules for dynamic content
+<IfModule mod_rewrite.c>
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>

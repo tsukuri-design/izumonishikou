@@ -9,6 +9,4 @@ https://www.notion.so/t-d/Coding-Rule-f4bb69ecf2f74b1cb248e767ff5c4333?pvs=25#b5
 
 ---
 
-①　index.htmlなどが書き出せない場合、パーミッションを変更する必要があります。
-   ターミナルで cd localhost/ディレクトリー名
-   sudo chmod -R 777 *
+以下には、このプロジェクトにおける独自のルールのみ追記してください。
