@@ -26,32 +26,63 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	die( 'Kangaroos cannot jump here' );
 }
-?>
 
-<div id="ai1wm-modal-dialog-<?php echo esc_attr( $modal ); ?>" class="ai1wm-modal-dialog">
-	<div class="ai1wm-modal-container" role="dialog">
-		<h2><?php _e( 'Enter your Purchase ID', AI1WM_PLUGIN_NAME ); ?></h2>
-		<p><?php _e( 'To update your plugin/extension to the latest version, please fill your Purchase ID below.', AI1WM_PLUGIN_NAME ); ?></p>
-		<p class="ai1wm-modal-error"></p>
-		<p>
-			<input type="text" class="ai1wm-purchase-id" placeholder="<?php _e( 'Purchase ID', AI1WM_PLUGIN_NAME ); ?>" />
-			<input type="hidden" class="ai1wm-update-link" value="<?php echo esc_url( $url ); ?>" />
-		</p>
-		<p>
-			<?php _e( "Don't have a Purchase ID? You can find your Purchase ID", AI1WM_PLUGIN_NAME ); ?>
-			<a href="https://servmask.com/lost-purchase" target="_blank" class="ai1wm-help-link"><?php _e( 'here', AI1WM_PLUGIN_NAME ); ?></a>
-		</p>
-		<p class="ai1wm-modal-buttons submitbox">
-			<button type="button" class="ai1wm-purchase-add ai1wm-button-green">
-				<?php _e( 'Save', AI1WM_PLUGIN_NAME ); ?>
-			</button>
-			<a href="#" class="submitdelete ai1wm-purchase-discard"><?php _e( 'Discard', AI1WM_PLUGIN_NAME ); ?></a>
-		</p>
-	</div>
-</div>
+if ( ! class_exists( 'Ai1wmve_Array_Sorter' ) ) {
 
-<span id="ai1wm-update-section-<?php echo esc_attr( $modal ); ?>">
-	<i class="ai1wm-icon-update"></i>
-	<?php _e( 'There is an update available. To update, you must enter your', AI1WM_PLUGIN_NAME ); ?>
-	<a class="ai1wm-modal-dialog-purchase-id" href="#ai1wm-modal-dialog-<?php echo esc_attr( $modal ); ?>"><?php _e( 'Purchase ID', AI1WM_PLUGIN_NAME ); ?></a>.
-</span>
+	class Ai1wmve_Array_Sorter {
+
+		public static function string_asc( $key = null ) {
+			if ( is_null( $key ) ) {
+				return function ( $a, $b ) {
+					return strcasecmp( $a, $b );
+				};
+			}
+
+			return static::on_key( $key, static::string_asc() );
+		}
+
+		public static function string_desc( $key = null ) {
+			if ( is_null( $key ) ) {
+				return static::reverse( static::string_asc() );
+			}
+
+			return static::on_key( $key, static::string_desc() );
+		}
+
+		public static function numeric_asc( $key = null ) {
+			if ( is_null( $key ) ) {
+				return function ( $a, $b ) {
+					return $a < $b ? -1 : ( $a === $b ? 0 : 1 );
+				};
+			}
+
+			return static::on_key( $key, static::numeric_asc() );
+		}
+
+		public static function numeric_desc( $key = null ) {
+			if ( is_null( $key ) ) {
+				return static::reverse( static::numeric_asc() );
+			}
+
+			return static::on_key( $key, static::numeric_desc() );
+		}
+
+		public static function reverse( $comparator ) {
+			return function ( $a, $b ) use ( $comparator ) {
+				return $comparator( $b, $a );
+			};
+		}
+
+		public static function on_key( $key, $function ) {
+			return function ( $a, $b ) use ( $key, $function ) {
+				return $function( $a[ $key ], $b[ $key ] );
+			};
+		}
+
+		public static function sort( &$array, $comparator ) {
+			usort( $array, $comparator );
+
+			return $array;
+		}
+	}
+}

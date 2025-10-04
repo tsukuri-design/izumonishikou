@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2020 ServMask Inc.
+ * Copyright (C) 2014-2025 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,6 +14,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Attribution: This code is part of the All-in-One WP Migration plugin, developed by
  *
  * ███████╗███████╗██████╗ ██╗   ██╗███╗   ███╗ █████╗ ███████╗██╗  ██╗
  * ██╔════╝██╔════╝██╔══██╗██║   ██║████╗ ████║██╔══██╗██╔════╝██║ ██╔╝
@@ -65,7 +67,11 @@ class Ai1wmue_Main_Controller extends Ai1wmve_Main_Controller {
 	 */
 	public function ai1wm_commands() {
 		if ( ai1wmue_is_running() ) {
-			add_filter( 'ai1wm_export', 'Ai1wmue_Export_Retention::execute', 270 );
+			remove_all_filters( 'ai1wm_export', 280 );
+			remove_all_filters( 'ai1wm_import', 5 );
+
+			add_filter( 'ai1wm_export', 'Ai1wmue_Export_Retention::execute', 280 );
+			add_filter( 'ai1wm_import', 'Ai1wmue_Import_Upload::execute', 5 );
 			add_filter( 'ai1wm_import', 'Ai1wmue_Import_Settings::execute', 290 );
 			add_filter( 'ai1wm_import', 'Ai1wmue_Import_Database::execute', 310 );
 		}
@@ -117,19 +123,42 @@ class Ai1wmue_Main_Controller extends Ai1wmve_Main_Controller {
 	 * @return void
 	 */
 	public function ai1wm_notice() {
-		?>
-		<div class="error">
-			<p>
-				<?php
-				_e(
-					'Unlimited Extension requires <a href="https://wordpress.org/plugins/all-in-one-wp-migration/" target="_blank">All-in-One WP Migration plugin</a> to be activated. ' .
-					'<a href="https://help.servmask.com/knowledgebase/install-instructions-for-unlimited-extension/" target="_blank">Unlimited Extension install instructions</a>',
-					AI1WMUE_PLUGIN_NAME
-				);
-				?>
-			</p>
-		</div>
-		<?php
+		// Check if the base plugin is installed but not activated
+		if ( ai1wmue_is_base_plugin_installed() && ! ai1wmue_is_base_plugin_active() ) {
+			?>
+			<div class="error">
+				<p>
+					<?php
+					_e(
+						sprintf(
+							'Unlimited Extension requires All-in-One WP Migration plugin to be activated. <a href="%s">Activate Now</a>',
+							wp_nonce_url( 'plugins.php?action=activate&plugin=all-in-one-wp-migration/all-in-one-wp-migration.php', 'activate-plugin_all-in-one-wp-migration/all-in-one-wp-migration.php' )
+						),
+						AI1WMUE_PLUGIN_NAME
+					);
+					?>
+				</p>
+			</div>
+			<?php
+		} elseif ( ! ai1wmue_is_base_plugin_installed() ) {
+			// Base plugin is not installed
+			?>
+			<div class="error">
+				<p>
+					<?php
+					_e(
+						sprintf(
+							'Unlimited Extension requires All-in-One WP Migration plugin to be installed. <a href="%s">Install Now</a> or <a href="%s" target="_blank">Download Manually</a>',
+							wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=all-in-one-wp-migration' ), 'install-plugin_all-in-one-wp-migration' ),
+							'https://wordpress.org/plugins/all-in-one-wp-migration/'
+						),
+						AI1WMUE_PLUGIN_NAME
+					);
+					?>
+				</p>
+			</div>
+			<?php
+		}
 	}
 
 	/**
@@ -142,6 +171,48 @@ class Ai1wmue_Main_Controller extends Ai1wmve_Main_Controller {
 		if ( stripos( 'all-in-one-wp-migration_page_ai1wm_import', $hook ) === false ) {
 			return;
 		}
+
+		wp_enqueue_script(
+			'ai1wmue_import',
+			Ai1wm_Template::asset_link( 'javascript/import.min.js', 'AI1WMUE' ),
+			array( 'ai1wm_import' )
+		);
+
+		wp_enqueue_script(
+			'ai1wmue_wasm_exec',
+			Ai1wm_Template::asset_link( 'javascript/vendor/wasm_exec.js', 'AI1WMUE' ),
+			array( 'ai1wmue_import' )
+		);
+
+		// Base service
+		wp_localize_script(
+			'ai1wmue_import',
+			'ai1wmue_base_service',
+			array(
+				'url' => AI1WMUE_SERVICE_URL,
+				'key' => AI1WMUE_PURCHASE_ID,
+			)
+		);
+
+		// File uploader
+		wp_localize_script(
+			'ai1wmue_import',
+			'ai1wmue_file_uploader',
+			array(
+				'config'  => array(
+					'chunk_size'  => (int) apply_filters( 'ai1wm_max_chunk_size', AI1WM_MAX_CHUNK_SIZE ),
+					'max_retries' => (int) apply_filters( 'ai1wm_max_chunk_retries', AI1WM_MAX_CHUNK_RETRIES ),
+				),
+				'url'     => wp_make_link_relative( add_query_arg( array( 'ai1wm_import' => 1 ), admin_url( 'admin-ajax.php?action=ai1wm_import' ) ) ),
+				'params'  => array(
+					'priority'   => 5,
+					'secret_key' => get_option( AI1WM_SECRET_KEY ),
+				),
+				'filters' => array(
+					'ai1wm_archive_extension' => array( 'wpress' ),
+				),
+			)
+		);
 
 		add_action( 'admin_print_scripts', array( $this, 'google_tag_manager' ) );
 	}
@@ -210,7 +281,7 @@ class Ai1wmue_Main_Controller extends Ai1wmve_Main_Controller {
 			'ai1wm_feedback',
 			array(
 				'ajax'       => array(
-					'url' => wp_make_link_relative( admin_url( 'admin-ajax.php?action=ai1wm_feedback' ) ),
+					'url' => wp_make_link_relative( add_query_arg( array( 'ai1wm_import' => 1 ), admin_url( 'admin-ajax.php?action=ai1wm_feedback' ) ) ),
 				),
 				'secret_key' => get_option( AI1WM_SECRET_KEY ),
 			)
@@ -221,7 +292,7 @@ class Ai1wmue_Main_Controller extends Ai1wmve_Main_Controller {
 			'ai1wmue_folder_browser',
 			array(
 				'ajax'       => array(
-					'url' => wp_make_link_relative( admin_url( 'admin-ajax.php?action=ai1wmue_folder_browser' ) ),
+					'url' => wp_make_link_relative( add_query_arg( array( 'ai1wm_import' => 1 ), admin_url( 'admin-ajax.php?action=ai1wmue_folder_browser' ) ) ),
 				),
 				'secret_key' => get_option( AI1WM_SECRET_KEY ),
 			)

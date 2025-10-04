@@ -161,10 +161,9 @@ if ( ! class_exists( 'Ai1wmve_Main_Controller' ) ) {
 		 * @return void
 		 */
 		public function ai1wmve_activation_hook() {
-			// Create activation request
-			if ( $this->purchase_id && defined( 'AI1WMVE_PURCHASE_ACTIVATION_URL' ) ) {
-				global $wpdb;
+			global $wpdb;
 
+			if ( ! empty( $this->purchase_id ) ) {
 				wp_remote_post(
 					AI1WMVE_PURCHASE_ACTIVATION_URL,
 					array(
@@ -235,17 +234,25 @@ if ( ! class_exists( 'Ai1wmve_Main_Controller' ) ) {
 					add_action( 'ai1wm_export_exclude_db_tables', 'Ai1wmve_Export_Controller::exclude_db_tables' );
 				}
 
+				// Add export include db tables
+				if ( ! has_action( 'ai1wm_export_include_db_tables' ) ) {
+					add_action( 'ai1wm_export_include_db_tables', 'Ai1wmve_Export_Controller::include_db_tables' );
+				}
+
 				// Schedule event save
 				if ( ! has_action( 'admin_post_ai1wm_schedule_event_save' ) ) {
 					add_action( 'admin_post_ai1wm_schedule_event_save', 'Ai1wmve_Schedules_Controller::save' );
 				}
+
 				// Schedule event cron run action
 				if ( ! has_action( Ai1wmve_Schedule_Event::CRON_HOOK ) ) {
 					add_action( Ai1wmve_Schedule_Event::CRON_HOOK, 'Ai1wmve_Schedules_Controller::run' );
 				}
+
 				// Schedule event log actions
 				add_action( 'ai1wm_status_export_done', 'Ai1wmve_Schedules_Controller::log_success' );
-				add_action( 'ai1wm_status_export_fail', 'Ai1wmve_Schedules_Controller::log_failed' );
+				add_action( 'ai1wm_status_export_init', 'Ai1wmve_Schedules_Controller::log_running' );
+				add_action( 'ai1wm_status_export_error', 'Ai1wmve_Schedules_Controller::log_failed', 10, 2 );
 
 				// Register stats collect actions if URL is defined
 				if ( defined( 'AI1WMVE_STATS_URL' ) ) {
@@ -258,6 +265,9 @@ if ( ! class_exists( 'Ai1wmve_Main_Controller' ) ) {
 
 				// Add import unlimited
 				add_filter( 'ai1wm_max_file_size', array( $this, 'ai1wmve_max_file_size' ) );
+
+				// Add support for incremental backups
+				add_filter( 'ai1wmve_incremental_storages', array( $this, 'ai1wmve_incremental_storages' ) );
 
 				$this->ai1wm_loaded();
 			}
@@ -341,6 +351,7 @@ if ( ! class_exists( 'Ai1wmve_Main_Controller' ) ) {
 					'selected_no_tables'                 => __( 'No tables selected', $this->plugin_name ),
 					'selected_one_table'                 => __( '{x} table selected', $this->plugin_name ),
 					'selected_multiple_tables'           => __( '{x} tables selected', $this->plugin_name ),
+					'empty_table_list_message'           => __( 'No tables found.', $this->plugin_name ),
 					'database_name'                      => DB_NAME,
 				)
 			);
@@ -367,30 +378,6 @@ if ( ! class_exists( 'Ai1wmve_Main_Controller' ) ) {
 			if ( stripos( 'all-in-one-wp-migration_page_ai1wm_import', $hook ) === false ) {
 				return;
 			}
-
-			wp_enqueue_script(
-				'ai1wmve_uploader',
-				Ai1wm_Template::asset_link( 'javascript/pro-uploader.min.js', $this->plugin_prefix ),
-				array( 'jquery' )
-			);
-
-			wp_localize_script(
-				'ai1wmve_uploader',
-				'ai1wmve_uploader',
-				array(
-					'chunk_size'  => apply_filters( 'ai1wm_max_chunk_size', AI1WM_MAX_CHUNK_SIZE ),
-					'max_retries' => apply_filters( 'ai1wm_max_chunk_retries', AI1WM_MAX_CHUNK_RETRIES ),
-					'url'         => wp_make_link_relative( admin_url( 'admin-ajax.php?action=ai1wm_import' ) ),
-					'params'      => array(
-						'priority'   => 5,
-						'secret_key' => get_option( AI1WM_SECRET_KEY ),
-					),
-					'filters'     => array(
-						'ai1wm_archive_extension' => array( 'wpress' ),
-						'ai1wm_archive_size'      => apply_filters( 'ai1wm_max_file_size', $this->ai1wmve_max_file_size() ),
-					),
-				)
-			);
 		}
 
 		/**
@@ -471,9 +458,18 @@ if ( ! class_exists( 'Ai1wmve_Main_Controller' ) ) {
 				'ai1wmve_schedules',
 				array(
 					'ajax'       => array(
-						'delete' => wp_make_link_relative( admin_url( 'admin-ajax.php?action=ai1wm_schedule_event_delete' ) ),
-						'log'    => wp_make_link_relative( admin_url( 'admin-ajax.php?action=ai1wm_schedule_event_log' ) ),
-						'run'    => wp_make_link_relative( admin_url( 'admin-ajax.php?action=ai1wm_schedule_event_manual_run' ) ),
+						'delete' => wp_make_link_relative( add_query_arg( array( 'ai1wm_import' => 1 ), admin_url( 'admin-ajax.php?action=ai1wm_schedule_event_delete' ) ) ),
+						'log'    => wp_make_link_relative( add_query_arg( array( 'ai1wm_import' => 1 ), admin_url( 'admin-ajax.php?action=ai1wm_schedule_event_log' ) ) ),
+						'clean'  => wp_make_link_relative( add_query_arg( array( 'ai1wm_import' => 1 ), admin_url( 'admin-ajax.php?action=ai1wm_schedule_event_clean' ) ) ),
+						'run'    => wp_make_link_relative( add_query_arg( array( 'ai1wm_import' => 1 ), admin_url( 'admin-ajax.php?action=ai1wm_schedule_event_manual_run' ) ) ),
+						'status' => wp_make_link_relative( add_query_arg( array( 'ai1wm_import' => 1 ), admin_url( 'admin-ajax.php?action=ai1wm_schedule_event_status' ) ) ),
+						'cron'   => wp_make_link_relative( add_query_arg( array( 'ai1wm_import' => 1 ), site_url( 'wp-cron.php' ) ) ),
+					),
+					'status'     => array(
+						'none'    => Ai1wmve_Schedule_Event::LAST_STATUS_NONE,
+						'failed'  => Ai1wmve_Schedule_Event::LAST_STATUS_FAILED,
+						'success' => Ai1wmve_Schedule_Event::LAST_STATUS_SUCCESS,
+						'running' => Ai1wmve_Schedule_Event::LAST_STATUS_RUNNING,
 					),
 					'secret_key' => get_option( AI1WM_SECRET_KEY ),
 				)
@@ -495,17 +491,17 @@ if ( ! class_exists( 'Ai1wmve_Main_Controller' ) ) {
 				'ai1wmve_schedules_options_locale',
 				array(
 					Ai1wmve_Schedule_Event::TYPE_EXPORT => array(
-						'no_spam_comments'    => __( 'Do <strong>not</strong> export spam comments', AI1WM_PLUGIN_NAME ),
-						'no_post_revisions'   => __( 'Do <strong>not</strong> export post revisions', AI1WM_PLUGIN_NAME ),
-						'no_media'            => __( 'Do <strong>not</strong> export media library (files)', AI1WM_PLUGIN_NAME ),
-						'no_inactive_themes'  => __( 'Do <strong>not</strong> export inactive themes (files)', AI1WM_PLUGIN_NAME ),
-						'no_themes'           => __( 'Do <strong>not</strong> export themes (files)', AI1WM_PLUGIN_NAME ),
-						'no_muplugins'        => __( 'Do <strong>not</strong> export must-use plugins (files)', AI1WM_PLUGIN_NAME ),
-						'no_plugins'          => __( 'Do <strong>not</strong> export plugins (files)', AI1WM_PLUGIN_NAME ),
-						'no_inactive_plugins' => __( 'Do <strong>not</strong> export inactive plugins (files)', AI1WM_PLUGIN_NAME ),
-						'no_cache'            => __( 'Do <strong>not</strong> export cache (files)', AI1WM_PLUGIN_NAME ),
-						'no_database'         => __( 'Do <strong>not</strong> export database (sql)', AI1WM_PLUGIN_NAME ),
+						'no_spam_comments'    => __( 'Exclude spam comments', AI1WM_PLUGIN_NAME ),
+						'no_post_revisions'   => __( 'Exclude post revisions', AI1WM_PLUGIN_NAME ),
+						'no_database'         => __( 'Exclude database (sql)', AI1WM_PLUGIN_NAME ),
 						'no_email_replace'    => __( 'Do <strong>not</strong> replace email domain (sql)', AI1WM_PLUGIN_NAME ),
+						'no_media'            => __( 'Exclude media library (files)', AI1WM_PLUGIN_NAME ),
+						'no_inactive_themes'  => __( 'Exclude inactive themes (files)', AI1WM_PLUGIN_NAME ),
+						'no_themes'           => __( 'Exclude themes (files)', AI1WM_PLUGIN_NAME ),
+						'no_muplugins'        => __( 'Exclude must-use plugins (files)', AI1WM_PLUGIN_NAME ),
+						'no_plugins'          => __( 'Exclude plugins (files)', AI1WM_PLUGIN_NAME ),
+						'no_inactive_plugins' => __( 'Exclude inactive plugins (files)', AI1WM_PLUGIN_NAME ),
+						'no_cache'            => __( 'Exclude cache (files)', AI1WM_PLUGIN_NAME ),
 					),
 					Ai1wmve_Schedule_Event::TYPE_IMPORT => array(),
 				)
@@ -519,6 +515,7 @@ if ( ! class_exists( 'Ai1wmve_Main_Controller' ) ) {
 					'how_may_we_help_you'                 => __( 'How may we help you?', AI1WM_PLUGIN_NAME ),
 					'thanks_for_submitting_your_feedback' => __( 'Thanks for submitting your feedback!', AI1WM_PLUGIN_NAME ),
 					'thanks_for_submitting_your_request'  => __( 'Thanks for submitting your request!', AI1WM_PLUGIN_NAME ),
+					'want_to_clean_this_log'              => __( 'Are you sure you want to clean this log?', AI1WM_PLUGIN_NAME ),
 					'want_to_delete_this_event'           => __( 'Are you sure you want to delete this event?', AI1WM_PLUGIN_NAME ),
 					'want_to_start_this_event'            => __( 'Are you sure you want to start this event?', AI1WM_PLUGIN_NAME ),
 					'event_log_modal_title'               => __( 'Event log', AI1WM_PLUGIN_NAME ),
@@ -546,6 +543,7 @@ if ( ! class_exists( 'Ai1wmve_Main_Controller' ) ) {
 					'selected_no_tables'                  => __( 'No tables selected', $this->plugin_name ),
 					'selected_one_table'                  => __( '{x} table selected', $this->plugin_name ),
 					'selected_multiple_tables'            => __( '{x} tables selected', $this->plugin_name ),
+					'empty_table_list_message'            => __( 'No tables found.', $this->plugin_name ),
 					'database_name'                       => DB_NAME,
 				)
 			);
@@ -861,7 +859,9 @@ if ( ! class_exists( 'Ai1wmve_Main_Controller' ) ) {
 		public function ai1wmve_router() {
 			add_action( 'wp_ajax_ai1wm_schedule_event_delete', 'Ai1wmve_Schedules_Controller::delete' );
 			add_action( 'wp_ajax_ai1wm_schedule_event_log', 'Ai1wmve_Schedules_Controller::event_log' );
+			add_action( 'wp_ajax_ai1wm_schedule_event_clean', 'Ai1wmve_Schedules_Controller::event_clean' );
 			add_action( 'wp_ajax_ai1wm_schedule_event_manual_run', 'Ai1wmve_Schedules_Controller::manual_run' );
+			add_action( 'wp_ajax_ai1wm_schedule_event_status', 'Ai1wmve_Schedules_Controller::event_status' );
 
 			if ( current_user_can( 'export' ) ) {
 				add_action( 'wp_ajax_ai1wmve_file_list', 'Ai1wmve_Export_Controller::list_files' );
@@ -869,18 +869,6 @@ if ( ! class_exists( 'Ai1wmve_Main_Controller' ) ) {
 			}
 
 			$this->router();
-		}
-
-		/**
-		 * Register initial parameters
-		 *
-		 * @return void
-		 */
-		public function ai1wmve_init() {
-			if ( $this->purchase_id ) {
-				$option = strtolower( $this->plugin_prefix ) . '_plugin_key';
-				update_option( $option, $this->purchase_id );
-			}
 		}
 
 		public static function ai1wmve_pro() {
@@ -952,7 +940,6 @@ if ( ! class_exists( 'Ai1wmve_Main_Controller' ) ) {
 		 * @return void
 		 */
 		protected function ai1wmve_activate_actions() {
-			add_action( 'admin_init', array( $this, 'ai1wmve_init' ) );
 			add_action( 'admin_init', array( $this, 'ai1wmve_load_textdomain' ) );
 			add_action( 'admin_init', array( $this, 'ai1wmve_router' ) );
 			add_action( 'admin_head', array( $this, 'ai1wmve_admin_head' ) );
@@ -1008,9 +995,9 @@ if ( ! class_exists( 'Ai1wmve_Main_Controller' ) ) {
 		}
 
 		protected function ai1wmve_send_stats( $action ) {
-			if ( $this->purchase_id ) {
-				global $wpdb;
+			global $wpdb;
 
+			if ( ! empty( $this->purchase_id ) ) {
 				$url = implode(
 					'/',
 					array(
@@ -1167,6 +1154,14 @@ if ( ! class_exists( 'Ai1wmve_Main_Controller' ) ) {
 				} catch ( Ai1wm_Backups_Exception $e ) {
 				}
 			}
+		}
+
+		public function ai1wmve_incremental_storages( $incremental_storages ) {
+			if ( defined( $this->plugin_prefix . '_PRO_INCREMENTAL' ) ) {
+				$incremental_storages[] = $this->plugin_params_key;
+			}
+
+			return $incremental_storages;
 		}
 	}
 }

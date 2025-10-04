@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2020 ServMask Inc.
+ * Copyright (C) 2014-2025 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,6 +14,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Attribution: This code is part of the All-in-One WP Migration plugin, developed by
  *
  * ███████╗███████╗██████╗ ██╗   ██╗███╗   ███╗ █████╗ ███████╗██╗  ██╗
  * ██╔════╝██╔════╝██╔══██╗██║   ██║████╗ ████║██╔══██╗██╔════╝██║ ██╔╝
@@ -123,14 +125,16 @@ class Ai1wmue_Settings_Controller {
 		// Iterate over content directory
 		$iterator = new Ai1wm_Recursive_Directory_Iterator( $directory );
 
+		$abs_path = realpath( ABSPATH );
+
 		// Loop over content directory
 		$names = $files = array();
 		foreach ( $iterator as $item ) {
 			if ( $item->isDir() && ! $item->isLink() && $item->isReadable() ) {
 				try {
 					$files[] = array(
-						'name'     => $item->getRealPath(),
-						'writable' => $item->isWritable(),
+						'name'     => $name = $item->getRealPath(),
+						'writable' => $item->isWritable() && realpath( $name ) !== $abs_path,
 						'date'     => human_time_diff( $item->getMTime() ),
 					);
 					$names[] = strtolower( $item->getRealPath() );

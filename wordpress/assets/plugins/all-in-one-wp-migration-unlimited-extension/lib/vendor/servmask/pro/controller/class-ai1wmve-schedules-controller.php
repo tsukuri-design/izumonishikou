@@ -42,23 +42,40 @@ if ( ! class_exists( 'Ai1wmve_Schedules_Controller' ) ) {
 					$events = new Ai1wmve_Schedule_Events();
 					$event  = $events->find_or_new( $event_id );
 
+					// List DB tables with default WP table prefix
 					$mysql = Ai1wm_Database_Utility::create_client();
 
 					// Include table prefixes
 					if ( ai1wm_table_prefix() ) {
 						$mysql->add_table_prefix_filter( ai1wm_table_prefix() );
 
-						// Include table prefixes (Webba Booking)
-						foreach ( array( 'wbk_services', 'wbk_days_on_off', 'wbk_locked_time_slots', 'wbk_appointments', 'wbk_cancelled_appointments', 'wbk_email_templates', 'wbk_service_categories', 'wbk_gg_calendars', 'wbk_coupons' ) as $table_name ) {
+						// Include table prefixes (Webba Booking and CiviCRM)
+						foreach ( array( 'wbk_', 'civicrm_' ) as $table_name ) {
 							$mysql->add_table_prefix_filter( $table_name );
 						}
 					}
+					$exclude_tables = $mysql->get_tables();
+
+					// List db tables without WP default table prefix
+					$mysql = Ai1wm_Database_Utility::create_client();
+
+					// Exclude default wp table prefix
+					if ( ai1wm_table_prefix() ) {
+						$mysql->add_table_prefix_filter( '', sprintf( '(%s|%s|%s)', ai1wm_table_prefix(), 'wbk_', 'civicrm_' ) );
+					} else {
+						$mysql->add_table_prefix_filter( '', sprintf( '(%s|%s)', 'wbk_', 'civicrm_' ) );
+					}
+					$include_tables = $mysql->get_tables();
+
+					$incremental_storages = apply_filters( 'ai1wmve_incremental_storages', array() );
 
 					Ai1wm_Template::render(
 						'schedules/create-edit',
 						array(
-							'event'  => $event,
-							'tables' => $mysql->get_tables(),
+							'event'                => $event,
+							'exclude_tables'       => $exclude_tables,
+							'include_tables'       => $include_tables,
+							'incremental_storages' => $incremental_storages,
 						),
 						AI1WMVE_TEMPLATES_PATH
 					);
@@ -155,6 +172,47 @@ if ( ! class_exists( 'Ai1wmve_Schedules_Controller' ) ) {
 			exit;
 		}
 
+		public static function event_clean() {
+			ai1wm_setup_environment();
+
+			// Set params
+			if ( empty( $params ) ) {
+				$params = stripslashes_deep( $_POST );
+			}
+
+			// Set secret key
+			$secret_key = null;
+			if ( isset( $params['secret_key'] ) ) {
+				$secret_key = trim( $params['secret_key'] );
+			}
+
+			// Check for event_id
+			if ( ! isset( $params['event_id'] ) ) {
+				ai1wm_json_response( array( 'errors' => __( 'Unable to find event', AI1WM_PLUGIN_NAME ) ) );
+				exit;
+			}
+
+			try {
+				// Ensure that unauthorized people cannot access delete action
+				ai1wm_verify_secret_key( $secret_key );
+			} catch ( Ai1wm_Not_Valid_Secret_Key_Exception $e ) {
+				exit;
+			}
+
+			try {
+				$events = new Ai1wmve_Schedule_Events();
+				$event  = $events->find( $params['event_id'] );
+				$event->delete_logs();
+				exit;
+			} catch ( Ai1wmve_Schedules_Exception $e ) {
+				ai1wm_json_response( array( 'errors' => array( $e->getMessage() ) ) );
+				exit;
+			}
+
+			ai1wm_json_response( array( 'errors' => array() ) );
+			exit;
+		}
+
 		public static function save( $params = array() ) {
 			ai1wm_setup_environment();
 			// Set params
@@ -222,6 +280,8 @@ if ( ! class_exists( 'Ai1wmve_Schedules_Controller' ) ) {
 				exit;
 			}
 
+			delete_transient( 'doing_cron' );
+
 			try {
 				$events = new Ai1wmve_Schedule_Events();
 				$event  = $events->find( $params['event_id'] );
@@ -244,6 +304,48 @@ if ( ! class_exists( 'Ai1wmve_Schedules_Controller' ) ) {
 			return file_put_contents( AI1WM_STORAGE_PATH . DIRECTORY_SEPARATOR . 'cron.log', 'Event not found ' . $event_id . PHP_EOL, FILE_APPEND );
 		}
 
+
+		public static function event_status() {
+			ai1wm_setup_environment();
+
+			// Set params
+			if ( empty( $params ) ) {
+				$params = stripslashes_deep( $_GET );
+			}
+
+			// Set secret key
+			$secret_key = null;
+			if ( isset( $params['secret_key'] ) ) {
+				$secret_key = trim( $params['secret_key'] );
+			}
+
+			// Check for event_id
+			if ( ! isset( $params['event_id'] ) ) {
+				ai1wm_json_response( array( 'errors' => __( 'Unable to find event', AI1WM_PLUGIN_NAME ) ) );
+				exit;
+			}
+
+			try {
+				// Ensure that unauthorized people cannot access delete action
+				ai1wm_verify_secret_key( $secret_key );
+			} catch ( Ai1wm_Not_Valid_Secret_Key_Exception $e ) {
+				exit;
+			}
+
+			try {
+				$events = new Ai1wmve_Schedule_Events();
+				$event  = $events->find( $params['event_id'] );
+				ai1wm_json_response( array( 'status' => $event->last_run() ) );
+				exit;
+			} catch ( Ai1wmve_Schedules_Exception $e ) {
+				ai1wm_json_response( array( 'errors' => array( $e->getMessage() ) ) );
+				exit;
+			}
+
+			ai1wm_json_response( array( 'errors' => array() ) );
+			exit;
+		}
+
 		public static function log_success( $params ) {
 			if ( isset( $params['event_id'] ) ) {
 				$event_id = $params['event_id'];
@@ -254,12 +356,25 @@ if ( ! class_exists( 'Ai1wmve_Schedules_Controller' ) ) {
 			}
 		}
 
-		public static function log_failed( $params ) {
+		public static function log_running( $params ) {
 			if ( isset( $params['event_id'] ) ) {
 				$event_id = $params['event_id'];
 				$events   = new Ai1wmve_Schedule_Events();
 				if ( $event = $events->find( $event_id ) ) {
-					$message = isset( $params['error_message'] ) ? $params['error_message'] : __( 'Unknown cron error', AI1WM_PLUGIN_NAME );
+					$event->mark_running( $params );
+				}
+			}
+		}
+
+		public static function log_failed( $params, $exception ) {
+			if ( isset( $params['event_id'] ) ) {
+				$event_id = $params['event_id'];
+				$events   = new Ai1wmve_Schedule_Events();
+				if ( $event = $events->find( $event_id ) ) {
+					$message = $exception->getMessage();
+					if ( empty( $message ) ) {
+						$message = __( 'Unknown cron error', AI1WM_PLUGIN_NAME );
+					}
 					$event->mark_failed( $message );
 				}
 			}

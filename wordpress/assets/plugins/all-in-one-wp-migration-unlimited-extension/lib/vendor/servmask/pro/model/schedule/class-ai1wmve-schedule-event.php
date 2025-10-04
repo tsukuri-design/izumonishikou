@@ -36,9 +36,10 @@ if ( ! class_exists( 'Ai1wmve_Schedule_Event' ) ) {
 		const TYPE_EXPORT = 'Export';
 		const TYPE_IMPORT = 'Import';
 
-		const LAST_RUN_NONE    = 'None';
-		const LAST_RUN_FAILED  = 'Failed';
-		const LAST_RUN_SUCCESS = 'Success';
+		const LAST_STATUS_NONE    = 'None';
+		const LAST_STATUS_FAILED  = 'Failed';
+		const LAST_STATUS_SUCCESS = 'Success';
+		const LAST_STATUS_RUNNING = 'Running';
 
 		const INTERVAL_HOURLY  = 'Hourly';
 		const INTERVAL_DAILY   = 'Daily';
@@ -50,6 +51,7 @@ if ( ! class_exists( 'Ai1wmve_Schedule_Event' ) ) {
 		const REMINDER_NONE    = 'Off';
 		const REMINDER_SUCCESS = 'Success';
 		const REMINDER_FAILED  = 'Failed';
+		const REMINDER_ALWAYS  = 'Always';
 
 		const CRON_HOOK = 'ai1wmve_schedule_event';
 
@@ -87,6 +89,8 @@ if ( ! class_exists( 'Ai1wmve_Schedule_Event' ) ) {
 		protected $excluded_files;
 
 		protected $excluded_db_tables;
+
+		protected $included_db_tables;
 
 		protected $password;
 
@@ -200,6 +204,7 @@ if ( ! class_exists( 'Ai1wmve_Schedule_Event' ) ) {
 				'notification'       => $this->notification,
 				'excluded_files'     => $this->excluded_files,
 				'excluded_db_tables' => $this->excluded_db_tables,
+				'included_db_tables' => $this->included_db_tables,
 				'password'           => $this->password(),
 				'incremental'        => $this->incremental,
 				'sites'              => array_map( 'intval', $this->sites ),
@@ -330,19 +335,28 @@ if ( ! class_exists( 'Ai1wmve_Schedule_Event' ) ) {
 		}
 
 		public function mark_success( $params = null ) {
-			$this->last_run( self::LAST_RUN_SUCCESS );
+			$this->last_run( self::LAST_STATUS_SUCCESS );
 
 			$log = new Ai1wmve_Schedule_Event_Log( $this->event_id );
-			$log->add( self::LAST_RUN_SUCCESS );
+			$log->add( self::LAST_STATUS_SUCCESS );
 
 			$this->notify_success( $params );
 		}
 
-		public function mark_failed( $message = null ) {
-			$this->last_run( self::LAST_RUN_FAILED );
+		public function mark_running( $params = null ) {
+			$this->last_run( self::LAST_STATUS_RUNNING );
 
 			$log = new Ai1wmve_Schedule_Event_Log( $this->event_id );
-			$log->add( self::LAST_RUN_FAILED, $message );
+			$log->add( self::LAST_STATUS_RUNNING );
+
+			$this->notify_running( $params );
+		}
+
+		public function mark_failed( $message = null ) {
+			$this->last_run( self::LAST_STATUS_FAILED );
+
+			$log = new Ai1wmve_Schedule_Event_Log( $this->event_id );
+			$log->add( self::LAST_STATUS_FAILED, $message );
 
 			$this->notify_failed( $message );
 		}
@@ -353,15 +367,16 @@ if ( ! class_exists( 'Ai1wmve_Schedule_Event' ) ) {
 				return update_option( $option_key, $status );
 			}
 
-			return get_option( $option_key, self::LAST_RUN_NONE );
+			return get_option( $option_key, self::LAST_STATUS_NONE );
 		}
 
 		protected function notify_success( $params ) {
 			add_filter( 'ai1wm_notification_ok_toggle', array( $this, 'is_success_notification_enabled' ) );
 			add_filter( 'ai1wm_notification_ok_email', array( $this, 'notification_email' ) );
 
-			$file_size = ai1wm_backup_size( $params );
-			if ( ! $file_size ) {
+			if ( is_file( ai1wm_backup_path( $params ) ) ) {
+				$file_size = ai1wm_backup_size( $params );
+			} else {
 				$file_size = ai1wm_archive_size( $params );
 			}
 
@@ -374,11 +389,14 @@ if ( ! class_exists( 'Ai1wmve_Schedule_Event' ) ) {
 			}
 
 			Ai1wm_Notification::ok(
-				sprintf( __( '✅ Scheduled event has completed (%s)', AI1WM_PLUGIN_NAME ), parse_url( site_url(), PHP_URL_HOST ) . parse_url( site_url(), PHP_URL_PATH ) ),
+				sprintf( __( 'Scheduled event has completed (%s)', AI1WM_PLUGIN_NAME ), parse_url( site_url(), PHP_URL_HOST ) . parse_url( site_url(), PHP_URL_PATH ) ),
 				$notification
 			);
 		}
 
+		protected function notify_running( $params ) {
+
+		}
 
 		protected function notify_failed( $error ) {
 			add_filter( 'ai1wm_notification_error_toggle', array( $this, 'is_failed_notification_enabled' ) );
@@ -392,17 +410,17 @@ if ( ! class_exists( 'Ai1wmve_Schedule_Event' ) ) {
 			}
 
 			Ai1wm_Notification::error(
-				sprintf( __( '❌ Scheduled event has failed (%s)', AI1WM_PLUGIN_NAME ), parse_url( site_url(), PHP_URL_HOST ) . parse_url( site_url(), PHP_URL_PATH ) ),
+				sprintf( __( 'Scheduled event has failed (%s)', AI1WM_PLUGIN_NAME ), parse_url( site_url(), PHP_URL_HOST ) . parse_url( site_url(), PHP_URL_PATH ) ),
 				$notification
 			);
 		}
 
 		public function is_success_notification_enabled() {
-			return $this->notification['reminder'] === static::REMINDER_SUCCESS && $this->notification['status'] === static::STATUS_ENABLED;
+			return $this->notification['status'] === static::STATUS_ENABLED && ( $this->notification['reminder'] === static::REMINDER_SUCCESS || $this->notification['reminder'] === static::REMINDER_ALWAYS );
 		}
 
 		public function is_failed_notification_enabled() {
-			return $this->notification['reminder'] === static::REMINDER_FAILED && $this->notification['status'] === static::STATUS_ENABLED;
+			return $this->notification['status'] === static::STATUS_ENABLED && ( $this->notification['reminder'] === static::REMINDER_FAILED || $this->notification['reminder'] === static::REMINDER_ALWAYS );
 		}
 
 		public function notification_email() {
@@ -419,7 +437,7 @@ if ( ! class_exists( 'Ai1wmve_Schedule_Event' ) ) {
 			return array_map(
 				function ( $log ) {
 					$log['id']            = $log['time'];
-					$log['time']          = date_i18n( 'd.m.Y', $log['time'] );
+					$log['time']          = date_i18n( 'Y-m-d H:i:s', $log['time'] );
 					$log['status_locale'] = __( $log['status'], AI1WM_PLUGIN_NAME );
 					$log['status_class']  = strtolower( $log['status'] );
 
@@ -429,7 +447,7 @@ if ( ! class_exists( 'Ai1wmve_Schedule_Event' ) ) {
 			);
 		}
 
-		public function delete_data() {
+		public function delete_logs() {
 			delete_option( self::option_key( 'last_run', $this->event_id ) );
 			delete_option( self::option_key( 'log', $this->event_id ) );
 		}
@@ -468,6 +486,11 @@ if ( ! class_exists( 'Ai1wmve_Schedule_Event' ) ) {
 			if ( ! empty( $this->excluded_db_tables ) ) {
 				$params['options']['exclude_db_tables'] = 1;
 				$params['excluded_db_tables']           = $this->excluded_db_tables;
+			}
+
+			if ( ! empty( $this->included_db_tables ) ) {
+				$params['options']['include_db_tables'] = 1;
+				$params['included_db_tables']           = $this->included_db_tables;
 			}
 
 			if ( $this->incremental ) {

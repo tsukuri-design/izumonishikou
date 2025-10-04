@@ -1,5 +1,4 @@
-/******/ (function() { // webpackBootstrap
-var __webpack_exports__ = {};
+<?php
 /**
  * Copyright (C) 2014-2023 ServMask Inc.
  *
@@ -23,58 +22,67 @@ var __webpack_exports__ = {};
  * ███████║███████╗██║  ██║ ╚████╔╝ ██║ ╚═╝ ██║██║  ██║███████║██║  ██╗
  * ╚══════╝╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
  */
-jQuery(document).ready(function ($) {
-  'use strict';
 
-  $('.ai1wm-purchase-add').on('click', function (e) {
-    var self = $(this);
-    self.attr('disabled', true);
-    var dialog = self.closest('.ai1wm-modal-dialog');
-    var error = dialog.find('.ai1wm-modal-error');
-    var index = dialog.attr('id').split('-').pop();
-    var purchaseId = dialog.find('.ai1wm-purchase-id').val();
-    var updateLink = dialog.find('.ai1wm-update-link').val(); // Check Purchase ID
+if ( ! defined( 'ABSPATH' ) ) {
+	die( 'Kangaroos cannot jump here' );
+}
 
-    $.ajax({
-      url: 'https://servmask.com/purchase/' + purchaseId + '/check',
-      type: 'GET',
-      dataType: 'json',
-      dataFilter: function dataFilter(data) {
-        return Ai1wm.Util.json(data);
-      }
-    }).done(function (product) {
-      // Update Purchase ID
-      $.ajax({
-        url: ai1wm_updater.ajax.url,
-        type: 'POST',
-        dataType: 'json',
-        data: {
-          ai1wm_uuid: product.uuid,
-          ai1wm_extension: product.extension
-        },
-        dataFilter: function dataFilter(data) {
-          return Ai1wm.Util.json(data);
-        }
-      }).done(function () {
-        window.location.hash = ''; // Update plugin row
+if ( ! class_exists( 'Ai1wmve_File_Sorter' ) ) {
 
-        $('#ai1wm-update-section-' + index).html($('<a />').attr('href', updateLink).text(ai1wm_locale.check_for_updates));
-        self.attr('disabled', false);
-      });
-    }).fail(function () {
-      self.attr('disabled', false);
-      error.html(ai1wm_locale.invalid_purchase_id);
-    });
-    e.preventDefault();
-  });
-  $('.ai1wm-purchase-discard').on('click', function (e) {
-    window.location.hash = '';
-    e.preventDefault();
-  }); // This is to prevent W3TC plugin showing our Purchase ID modal
+	class Ai1wmve_File_Sorter extends Ai1wmve_Array_Sorter {
 
-  setTimeout(function () {
-    $('.ai1wm-modal-dialog-purchase-id').unbind('click');
-  }, 300);
-});
-/******/ })()
-;
+		public static function by_date_asc( $date_key = 'date' ) {
+			return static::numeric_asc( $date_key );
+		}
+
+		public static function by_date_desc( $date_key = 'date' ) {
+			return static::reverse( static::by_date_asc( $date_key ) );
+		}
+
+		public static function by_type_desc( $type_key = 'type' ) {
+			return static::string_desc( $type_key );
+		}
+
+		public static function by_type_desc_name_asc( $name_key = 'name', $type_key = 'type' ) {
+			$sorted_type = static::by_type_desc( $type_key );
+			$sorted_name = static::string_asc( $name_key );
+
+			return function ( $a, $b ) use ( $sorted_type, $sorted_name ) {
+				$sorted_items = $sorted_type( $a, $b );
+				if ( $sorted_items !== 0 ) {
+					return $sorted_items;
+				}
+
+				return $sorted_name( $a, $b );
+			};
+		}
+
+		public static function by_type_desc_date_asc( $date_key = 'date', $type_key = 'type' ) {
+			$sorted_type = static::by_type_desc( $type_key );
+			$sorted_date = static::by_date_asc( $date_key );
+
+			return function ( $a, $b ) use ( $sorted_type, $sorted_date ) {
+				$sorted_items = $sorted_type( $a, $b );
+				if ( $sorted_items !== 0 ) {
+					return $sorted_items;
+				}
+
+				return $sorted_date( $a, $b );
+			};
+		}
+
+		public static function by_type_desc_date_desc( $date_key = 'date', $type_key = 'type' ) {
+			$sorted_type = static::by_type_desc( $type_key );
+			$sorted_date = static::by_date_desc( $date_key );
+
+			return function ( $a, $b ) use ( $sorted_type, $sorted_date ) {
+				$sorted_items = $sorted_type( $a, $b );
+				if ( $sorted_items !== 0 ) {
+					return $sorted_items;
+				}
+
+				return $sorted_date( $a, $b );
+			};
+		}
+	}
+}
