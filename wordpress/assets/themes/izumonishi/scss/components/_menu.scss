@@ -18,6 +18,7 @@
     height: 100vh;
     min-height: 600rem;
     background: #3d7abc;
+    box-shadow: 0 0 12rem rgb(57 57 57 / 11%);
 
     .menu__item {
         display: block;
@@ -49,7 +50,8 @@
         gap: 28rem;
         align-items: center;
         justify-content: center;
-        padding: 25rem 16rem;
+        justify-content: flex-end;
+        padding: 35rem 16rem;
         margin-top: auto;
         background: #fff;
 
@@ -65,7 +67,7 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 22rem 120rem 22rem 28rem;
+    padding: 17rem 120rem 22rem 28rem;
     background: #fff;
     transition: 0.9s cubic-bezier(0.19, 1, 0.22, 1);
 
@@ -75,7 +77,6 @@
 
     .logo {
         width: 260rem;
-        margin-top: 9rem;
         transition: 0.9s cubic-bezier(0.19, 1, 0.22, 1);
 
         @include var.md {
