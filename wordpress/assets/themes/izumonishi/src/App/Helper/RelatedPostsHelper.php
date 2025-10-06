@@ -1,11 +1,42 @@
 <?php declare(strict_types=1);
 
-function get_custom_related_posts(): string
+function get_custom_related_posts(array $custom_posts = []): string
 {
     global $post;
 
-    $related_posts = get_field('related', $post ? $post->ID : 0);
-    if (empty($related_posts) || !is_array($related_posts)) {
+    // 引数が指定された場合は、指定された記事を使用
+    if (!empty($custom_posts)) {
+        $related_posts = [];
+
+        foreach ($custom_posts as $post_identifier) {
+            $post_obj = null;
+
+            // post_id（数値）の場合
+            if (is_numeric($post_identifier)) {
+                $post_obj = get_post((int) $post_identifier);
+            }
+            // slug（文字列）の場合
+            elseif (is_string($post_identifier)) {
+                $post_obj = get_page_by_path($post_identifier, OBJECT, 'page');
+                if (!$post_obj) {
+                    // 固定ページ以外も検索
+                    $post_obj = get_page_by_path($post_identifier);
+                }
+            }
+
+            if ($post_obj && $post_obj->post_status === 'publish') {
+                $related_posts[] = $post_obj;
+            }
+        }
+    } else {
+        // 引数がない場合は従来通りACFフィールドから取得
+        $related_posts = get_field('related', $post ? $post->ID : 0);
+        if (empty($related_posts) || !is_array($related_posts)) {
+            return '';
+        }
+    }
+
+    if (empty($related_posts)) {
         return '';
     }
 
