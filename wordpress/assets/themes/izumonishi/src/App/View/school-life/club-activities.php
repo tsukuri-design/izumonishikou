@@ -54,24 +54,30 @@
         </div>
 
         <div class="club-activities-image-loop">
-            <figure class="club-activities-image-loop-image">
-                <?php echo picture(
-                    get_theme_file_uri(),
-                    'school-life/club-activities/image-loop1',
-                    'jpg',
-                    '',
-                    'webp',
-                ); ?>
-            </figure>
-            <figure class="club-activities-image-loop-image">
-                <?php echo picture(
-                    get_theme_file_uri(),
-                    'school-life/club-activities/image-loop2',
-                    'jpg',
-                    '',
-                    'webp',
-                ); ?>
-            </figure>
+            <div class="club-activities-image-loop__track">
+                <?php for ($i = 1; $i <= 11; $i++): ?>
+                    <figure class="club-activities-image-loop-image">
+                        <?php echo picture(
+                            get_theme_file_uri(),
+                            'school-life/club-activities/loop' . $i,
+                            'jpg',
+                            '',
+                            'webp',
+                        ); ?>
+                    </figure>
+                <?php endfor; ?>
+                <?php for ($i = 1; $i <= 11; $i++): // duplicate for seamless loop ?>
+                    <figure class="club-activities-image-loop-image">
+                        <?php echo picture(
+                            get_theme_file_uri(),
+                            'school-life/club-activities/loop' . $i,
+                            'jpg',
+                            '',
+                            'webp',
+                        ); ?>
+                    </figure>
+                <?php endfor; ?>
+            </div>
         </div>
 
 

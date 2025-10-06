@@ -5,8 +5,6 @@
 }
 
 .club-activities {
-    display: flex;
-
     &-first-view {
         display: flex;
 
@@ -40,5 +38,32 @@
         &-en {
             margin-top: 20rem;
         }
+    }
+}
+
+.club-activities-image-loop {
+    margin: 85rem auto;
+    overflow: hidden;
+
+    &__track {
+        display: flex;
+        gap: 0;
+        width: max-content;
+        animation: club-activities-loop 100s linear infinite;
+    }
+
+    &-image {
+        flex: 0 0 auto;
+        width: 390rem;
+    }
+}
+
+@keyframes club-activities-loop {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
     }
 }
