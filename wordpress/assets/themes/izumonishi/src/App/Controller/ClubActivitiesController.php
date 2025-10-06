@@ -121,7 +121,21 @@ class ClubActivitiesController extends PlainPhpController
                 'coach_description' => '中学校時代に全国大会出場。高校でもインターハイ出場、中国大会３位の実績を持つ。岡山商大在籍時も中四国大会優勝やインカレ出場など、島根県を代表する競技者としての実力と実績を有している。',
                 'coach_image' => 'school-life/club-activities/pickup2_add',
                 'reverse' => true
-            ]
+            ],
+            [
+                'badge' => 'NEW',
+                'bracket' => '目指せ中国大会出場！',
+                'club_name' => '男子ソフトテニス部',
+                'captain_name' => '顧問 比護 洋介 先生',
+                'image' => 'school-life/club-activities/pickup3',
+                'comment' => '中学校から引き続き活動したい人、高校から始めたい人も大歓迎です。私と一緒に楽しみながら、強くなっていきましょう。そして生涯にわたってソフトテニスを楽しみましょう。',
+                'achievements' => null,
+                'coach_title' => '指導者の横顔',
+                'coach_description' => '競技者数が多い東京都で、中学生時代には強化指定選手に選ばれ、専修大学附属高校在学時は全国私立大会出場。学習院大学在学中も競技者として活躍。今後、出雲西高校での指導者としての活躍もご期待ください。',
+                'coach_image' => 'school-life/club-activities/pickup3_add',
+                'reverse' => false
+            ],
+
         ];
 
         $data = [
