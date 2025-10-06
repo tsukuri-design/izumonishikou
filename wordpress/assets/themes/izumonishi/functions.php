@@ -101,6 +101,10 @@ Helper::load('Breadcrumb');
 Helper::load('RelatedPosts');
 Helper::load('TopicsCategory');
 Helper::load('RobustBlockEditorComment');
+Helper::load('PageSequenceHelper');
+
+// 通し番号機能を初期化
+\App\Helper\PageSequenceHelper::init();
 
 /**
  * Side menu
@@ -175,3 +179,4 @@ function get_current_page_hierarchy(): string
         return '';
     return '<div class="side_menu inaction inaction_opacity"><ul>' . $items_html . '</ul></div>';
 }
+
