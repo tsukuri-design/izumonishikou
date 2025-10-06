@@ -1,5 +1,112 @@
 <?php declare(strict_types=1);
 
+/**
+ * ショートコード: 関連記事を表示
+ * 
+ * 使用方法:
+ * [related_posts] - ACFフィールドから関連記事を取得
+ * [related_posts posts="123,456,789"] - 指定したpost_idの記事を表示
+ * [related_posts posts="about,contact,news"] - 指定したslugの記事を表示
+ * [related_posts posts="123,about,456,contact"] - post_idとslugを混在
+ */
+function related_posts_shortcode($atts): string
+{
+    $atts = shortcode_atts([
+        'posts' => '',
+        'debug' => 'false',
+    ], $atts);
+
+    $custom_posts = [];
+
+    if (!empty($atts['posts'])) {
+        // カンマ区切りで分割
+        $post_identifiers = array_map('trim', explode(',', $atts['posts']));
+
+        foreach ($post_identifiers as $identifier) {
+            if (!empty($identifier)) {
+                $custom_posts[] = $identifier;
+            }
+        }
+    }
+
+    // デバッグモードの場合は、見つからない記事を表示
+    if ($atts['debug'] === 'true') {
+        return get_custom_related_posts_with_debug($custom_posts);
+    }
+
+    return get_custom_related_posts($custom_posts);
+}
+
+// ショートコードを登録
+add_shortcode('related_posts', 'related_posts_shortcode');
+
+/**
+ * デバッグ用: 見つからない記事の情報を表示
+ */
+function get_custom_related_posts_with_debug(array $custom_posts = []): string
+{
+    global $post;
+
+    if (empty($custom_posts)) {
+        return get_custom_related_posts($custom_posts);
+    }
+
+    $related_posts = [];
+    $debug_info = '<div style="background: #f0f0f0; padding: 10px; margin: 10px 0; border: 1px solid #ccc;">';
+    $debug_info .= '<h4>デバッグ情報:</h4>';
+
+    foreach ($custom_posts as $post_identifier) {
+        $post_obj = null;
+        $found_method = '';
+
+        // post_id（数値）の場合
+        if (is_numeric($post_identifier)) {
+            $post_obj = get_post((int) $post_identifier);
+            $found_method = $post_obj ? 'get_post()' : 'not found';
+        }
+        // slug（文字列）の場合
+        elseif (is_string($post_identifier)) {
+            $post_obj = get_page_by_path($post_identifier, OBJECT, 'page');
+            $found_method = $post_obj ? 'get_page_by_path(page)' : '';
+
+            if (!$post_obj) {
+                $post_obj = get_page_by_path($post_identifier, OBJECT, 'post');
+                $found_method = $post_obj ? 'get_page_by_path(post)' : '';
+            }
+
+            if (!$post_obj) {
+                $query = new WP_Query([
+                    'name' => $post_identifier,
+                    'post_type' => ['page', 'post'],
+                    'post_status' => 'publish',
+                    'posts_per_page' => 1,
+                ]);
+
+                if ($query->have_posts()) {
+                    $post_obj = $query->posts[0];
+                    $found_method = 'WP_Query';
+                }
+                wp_reset_postdata();
+            }
+        }
+
+        if ($post_obj && $post_obj->post_status === 'publish') {
+            $related_posts[] = $post_obj;
+            $debug_info .= '<p>✓ ' . esc_html($post_identifier) . ' → ' . esc_html($post_obj->post_title) . ' (ID: ' . $post_obj->ID . ') [' . $found_method . ']</p>';
+        } else {
+            $debug_info .= '<p>✗ ' . esc_html($post_identifier) . ' → 見つかりませんでした</p>';
+        }
+    }
+
+    $debug_info .= '</div>';
+
+    if (empty($related_posts)) {
+        return $debug_info . '<p>表示する記事がありません。</p>';
+    }
+
+    return $debug_info . get_custom_related_posts($custom_posts);
+}
+
 function get_custom_related_posts(array $custom_posts = []): string
 {
     global $post;
@@ -17,10 +124,27 @@ function get_custom_related_posts(array $custom_posts = []): string
             }
             // slug（文字列）の場合
             elseif (is_string($post_identifier)) {
+                // より確実なslug検索
                 $post_obj = get_page_by_path($post_identifier, OBJECT, 'page');
+
+                // 固定ページで見つからない場合は、他の投稿タイプも検索
                 if (!$post_obj) {
-                    // 固定ページ以外も検索
-                    $post_obj = get_page_by_path($post_identifier);
+                    $post_obj = get_page_by_path($post_identifier, OBJECT, 'post');
+                }
+
+                // それでも見つからない場合は、WP_Queryで検索
+                if (!$post_obj) {
+                    $query = new WP_Query([
+                        'name' => $post_identifier,
+                        'post_type' => ['page', 'post'],
+                        'post_status' => 'publish',
+                        'posts_per_page' => 1,
+                    ]);
+
+                    if ($query->have_posts()) {
+                        $post_obj = $query->posts[0];
+                    }
+                    wp_reset_postdata();
                 }
             }
 

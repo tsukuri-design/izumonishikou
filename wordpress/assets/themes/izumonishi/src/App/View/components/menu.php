@@ -32,7 +32,7 @@
         <div class="links2">
             <ul class="links_small">
                 <li><a href="<?php echo get_home_url(); ?>/access/">アクセス</a></li>
-                <li><a href="<?php echo get_home_url(); ?>/current-students/">在校生・保護者</a></li>
+                <li><a href="<?php echo get_home_url(); ?>/students-parents/">在校生・保護者</a></li>
                 <li><a href="<?php echo get_home_url(); ?>/graduates/">卒業生</a></li>
                 <li><a href="<?php echo get_home_url(); ?>/recruit/">教員募集</a></li>
             </ul>

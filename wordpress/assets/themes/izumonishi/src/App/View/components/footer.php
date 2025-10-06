@@ -27,7 +27,7 @@
 
     <div class="site-footer__links site-footer__links--small">
         <a href="<?php echo get_home_url(); ?>/access/" class="site-footer__link">アクセス</a>
-        <a href="<?php echo get_home_url(); ?>/current-students/" class="site-footer__link">在校生・保護者</a>
+        <a href="<?php echo get_home_url(); ?>/students-parents/" class="site-footer__link">在校生・保護者</a>
         <a href="<?php echo get_home_url(); ?>/graduates/" class="site-footer__link">卒業生</a>
         <a href="<?php echo get_home_url(); ?>/recruit/" class="site-footer__link">教員採用</a>
     </div>

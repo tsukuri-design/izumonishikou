@@ -316,11 +316,10 @@
     }
 
     .related-post {
-        width: calc(50% - 20rem);
-        max-width: 310rem;
+        flex-basis: calc(33.3333% - 32rem);
 
         @include var.md {
-            width: 100%;
+            flex-basis: 100%;
         }
 
         .thumb {
