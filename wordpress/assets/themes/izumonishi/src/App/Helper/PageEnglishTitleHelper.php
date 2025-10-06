@@ -48,8 +48,8 @@ class PageEnglishTitleHelper
                 <label>
                     <span class="title">英語タイトル</span>
                     <span class="input-text-wrap">
-                                        <input type="text" name="<?php echo esc_attr(self::FIELD_NAME); ?>" class="ptitle" value="" placeholder="例: English Title" maxlength="100">
-                                    </span>
+                                                <input type="text" name="<?php echo esc_attr(self::FIELD_NAME); ?>" class="ptitle" value="" placeholder="例: English Title" maxlength="100">
+                                            </span>
                 </label>
             </div>
         </fieldset>
