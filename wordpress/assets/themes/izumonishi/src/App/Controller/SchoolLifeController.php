@@ -93,6 +93,7 @@ class SchoolLifeController extends PlainPhpController
             'styles' => [
                 'components/global',
                 'components/block_editor_content',
+                'singular',
                 'school-life',
             ],
             'scripts' => [

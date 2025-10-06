@@ -37,8 +37,46 @@
                     運動部・文化部ともに多彩なクラブが活動しており、<br>
                     一人ひとりの興味や個性を伸ばせる環境です。
                 </p>
+                <div class="club-activities-first-view-en">
+                    <?php echo picture(
+                        get_theme_file_uri(),
+                        'school-life/club-activities/our-stage',
+                        'svg',
+                        '',
+                        '',
+                        '',
+                        '',
+                        '',
+                        ''
+                    ); ?>
+                </div>
             </div>
         </div>
+
+        <div class="club-activities-image-loop">
+            <figure class="club-activities-image-loop-image">
+                <?php echo picture(
+                    get_theme_file_uri(),
+                    'school-life/club-activities/image-loop1',
+                    'jpg',
+                    '',
+                    'webp',
+                ); ?>
+            </figure>
+            <figure class="club-activities-image-loop-image">
+                <?php echo picture(
+                    get_theme_file_uri(),
+                    'school-life/club-activities/image-loop2',
+                    'jpg',
+                    '',
+                    'webp',
+                ); ?>
+            </figure>
+        </div>
+
+
+
+
     </div>
 
 
