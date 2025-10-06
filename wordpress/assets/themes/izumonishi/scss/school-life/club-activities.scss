@@ -1,0 +1,303 @@
+@use '../components/variables' as var;
+
+.singular__main {
+    max-width: unset;
+}
+
+.club-activities {
+    &-first-view {
+        display: flex;
+
+        &-image {
+            flex-basis: 736rem;
+        }
+
+        &-text {
+            display: flex;
+            flex-basis: fill;
+            flex-direction: column;
+            gap: 30rem;
+            justify-content: center;
+            margin-left: -70rem;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        &-heading2 {
+            font-size: 30rem;
+            line-height: 150%;
+            letter-spacing: 0.01em;
+        }
+
+        &-explain {
+            font-size: 16rem;
+            line-height: 206%;
+            letter-spacing: 0.05em;
+        }
+
+        &-en {
+            margin-top: 20rem;
+        }
+    }
+}
+
+.club-activities-image-loop {
+    margin: 85rem auto;
+    overflow: hidden;
+
+    &__track {
+        display: flex;
+        gap: 0;
+        width: max-content;
+        animation: club-activities-loop 100s linear infinite;
+    }
+
+    &-image {
+        flex: 0 0 auto;
+        width: 390rem;
+    }
+}
+
+@keyframes club-activities-loop {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.club-activities-content {
+    max-width: 855rem;
+    margin: 0 auto;
+
+    &-heading2 {
+        display: flex;
+        flex-direction: column;
+        gap: 12rem;
+        padding-bottom: 30rem;
+        margin-bottom: 54rem;
+
+        // border-bottom: 1px dashed #16569c;
+        border-bottom: 1.5px solid transparent;
+        border-image: url("data:image/svg+xml;utf8,\
+        <svg xmlns='http://www.w3.org/2000/svg' width='10' height='2'>\
+            <line x1='0' y1='1' x2='10' y2='1' stroke='%2316569c' stroke-width='1' stroke-dasharray='5 5' />\
+        </svg>")
+            1 repeat;
+
+        .ja {
+            font-size: 30rem;
+        }
+
+        .en {
+            font-size: 18rem;
+            color: #16569c;
+        }
+    }
+
+    &-items {
+        display: flex;
+        flex-direction: column;
+        gap: 50rem;
+    }
+
+    &-item_wrap {
+        display: flex;
+        flex-direction: row;
+        gap: 25rem;
+
+        &--reverse {
+            flex-direction: row-reverse;
+        }
+    }
+
+    &-item {
+        display: flex;
+        flex-basis: 300rem;
+        flex-direction: column;
+    }
+
+    &-item_profile {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+
+        &--text {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            gap: 14rem;
+            padding-bottom: 25rem;
+        }
+
+        &--badge {
+            width: max-content;
+            padding: 7rem 10rem 8rem;
+            font-size: 12rem;
+            color: #fff;
+            letter-spacing: 0.06em;
+            white-space: nowrap;
+            background: #16569c;
+        }
+
+        &--bracket {
+            position: relative;
+            width: max-content;
+            padding: 5rem 12rem;
+            margin: 0 auto;
+            font-size: 12rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+
+            &::before,
+            &::after {
+                position: absolute;
+                top: 50%;
+                width: 0.75px;
+                height: 100%;
+                content: '';
+                background: #16569c;
+            }
+
+            &::before {
+                left: 0;
+                transform: translateY(-50%) rotate(-30deg);
+            }
+
+            &::after {
+                right: 0;
+                transform: translateY(-50%) rotate(30deg);
+            }
+        }
+
+        &--club-name {
+            margin-bottom: 7rem;
+            font-size: 18rem;
+            font-weight: 500;
+            color: #16569c;
+        }
+
+        &--name {
+            position: relative;
+            width: max-content;
+            padding-bottom: 9rem;
+            margin: 0 auto;
+            font-size: 12rem;
+
+            &::after {
+                position: absolute;
+                inset: auto 0 0;
+                height: 0.5px;
+                content: '';
+                background: repeating-linear-gradient(
+                    to right,
+                    #11151a 0 2.5px,
+                    transparent 2.5px 5px
+                );
+            }
+        }
+
+        &--image {
+            flex-basis: 146rem;
+        }
+    }
+
+    &-item-comment {
+        position: relative;
+        padding: 19rem 20rem;
+        font-size: 13rem;
+        line-height: 179%;
+        text-align: left;
+        letter-spacing: 0.03em;
+        border: 1px solid rgba(#16569c, 0.6);
+        -webkit-text-stroke-width: 0.1px;
+        -webkit-text-stroke-color: #11151a;
+
+        &::before {
+            position: absolute;
+            top: 0;
+            left: calc(50% - 25%);
+            width: 15rem;
+            height: 15rem;
+            content: '';
+            background: #fff;
+            border-top: 1px solid rgba(#16569c, 0.6);
+            border-right: 1px solid rgba(#16569c, 0.6);
+            transform: translate(-50%, -56%) rotate(-45deg);
+        }
+    }
+
+    &-item-add-content {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        gap: 10rem;
+        padding: 23rem 25rem;
+        text-align: left;
+        background: rgba(#dbe7f3, 0.5);
+        -webkit-text-stroke-width: 0.1px;
+        -webkit-text-stroke-color: #11151a;
+
+        &_heading4 {
+            position: relative;
+            padding: 0 0 5rem;
+            margin-bottom: 10rem;
+            font-size: 13rem;
+            font-weight: 500;
+            line-height: 150%;
+            letter-spacing: 0.03em;
+
+            &::after {
+                position: absolute;
+                inset: auto 0 0;
+                height: 0.5px;
+                content: '';
+                background: repeating-linear-gradient(
+                    to right,
+                    #11151a 0 2.5px,
+                    transparent 2.5px 5px
+                );
+            }
+        }
+
+        &_explain {
+            font-size: 13rem;
+            line-height: 161%;
+            letter-spacing: 0.03em;
+        }
+
+        &_list {
+            display: flex;
+            flex-direction: column;
+            margin-top: -8rem;
+            margin-bottom: 10rem;
+        }
+
+        &_list--item {
+            font-size: 13rem;
+            line-height: 161%;
+            letter-spacing: 0.03em;
+
+            &::before {
+                margin-right: 4rem;
+                content: '・';
+            }
+        }
+
+        &_image-text {
+            display: flex;
+            gap: 20rem;
+            align-items: flex-end;
+        }
+
+        &_text {
+            flex: 1;
+        }
+
+        &_image {
+            flex-basis: 119rem;
+        }
+    }
+}

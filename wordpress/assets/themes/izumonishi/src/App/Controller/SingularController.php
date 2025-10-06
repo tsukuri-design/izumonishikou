@@ -64,7 +64,7 @@ class SingularController extends PlainPhpController
 
         $data = [
             'title' => get_the_title() . '',
-            'styles' => ['singular'],
+            'styles' => ['components/global', 'components/block_editor_content', 'singular'],
             'scripts' => [
                 'typekit',
                 'noie',
@@ -90,7 +90,7 @@ class SingularController extends PlainPhpController
         $data = [
             'title' => wp_strip_all_tags(html_entity_decode(get_the_title())) . '｜' . get_bloginfo('name'),
             'content' => get_the_content(),
-            'styles' => ['singular'],
+            'styles' => ['components/global', 'components/block_editor_content', 'singular'],
             'scripts' => [
                 'typekit',
                 'noie',

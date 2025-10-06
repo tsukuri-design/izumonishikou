@@ -11,6 +11,7 @@ use App\Controller\InformationSessionController;
 use App\Controller\FaqController;
 use App\Controller\TopicsController;
 use App\Controller\SchoolLifeController;
+use App\Controller\ClubActivitiesController;
 use Mvc4Wp\Core\Service\App;
 
 /*
@@ -54,7 +55,7 @@ App::get()->router()->GET('/current-students/information/page/{page}', [TopicsCo
 App::get()->router()->GET('/current-students/information/page/{page}/', [TopicsController::class, 'index']);
 
 // School Life
-App::get()->router()->GET('/school-life/club-activities/', [SchoolLifeController::class, 'club_activities']);
+App::get()->router()->GET('/school-life/club-activities/', [ClubActivitiesController::class, 'club_activities']);
 
 // //faq
 // App::get()->router()->GET('/contact/faq/', [FaqController::class, 'index']);

@@ -27,7 +27,7 @@ class HomeController extends PlainPhpController
     {
         $data = [
             'title' => $this->name,
-            'styles' => ['home'],
+            'styles' => ['components/global', 'home'],
             'scripts' => [
                 'typekit',
                 'noie',

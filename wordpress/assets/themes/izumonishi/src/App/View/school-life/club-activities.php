@@ -88,99 +88,61 @@
 
             <div class="club-activities-content-items">
 
-                <div class="club-activities-content-item_wrap">
+                <?php foreach ($data['club_activities_pickup'] as $activity): ?>
+                    <div class="club-activities-content-item_wrap<?php echo $activity['reverse'] ? ' club-activities-content-item_wrap--reverse' : ''; ?>">
 
-                    <div class="club-activities-content-item">
-                        <div class="club-activities-content-item_profile">
-                            <p class="club-activities-content-item_profile--badge">かみあり国スポ強化指定校</p>
-                            <p class="club-activities-content-item_profile--bracket">目指せ全国大会出場</p>
-                            <p class="club-activities-content-item_profile--club-name">女子柔道部</p>
-                            <div class="club-activities-content-item_profile--name">主将 國谷 菜々心 さん</div>
-                            <figure class="club-activities-content-item-profile--image">
-                                <?php echo picture(
-                                    get_theme_file_uri(),
-                                    'school-life/club-activities/pickup1',
-                                    'jpg',
-                                    '',
-                                    'webp',
-                                ); ?>
-                            </figure>
-                        </div>
-                        <p class="club-activities-content-item-comment">３年生４人、２年生２人、１年生７人の計13人で活動しています。みんなで声をかけ、助け合いながら心身ともに成長できるよう日々練習をしています。県大会で優勝する感動など、充実した学校生活を一緒に体験しましょう。</p>
-                    </div>
-
-                    <section class="club-activities-content-item-add-content">
-                        <h4 class="club-activities-content-item-add-content_heading4">過去の実績</h4>
-                        <ul class="club-activities-content-item-add-content_list">
-                            <li class="club-activities-content-item-add-content_list--item">令和４年度 インターハイ57kg級第３位</li>
-                            <li class="club-activities-content-item-add-content_list--item">・令和５年度 インターハイ48kg,52kg,70kg,78kg,78kg超級出場</li>
-                            <li class="club-activities-content-item-add-content_list--item">令和６年度 全国高校選手権個人52kg,57kg,無差別級・団体出場</li>
-                        </ul>
-                        <div class="club-activities-content-item-add-content_image-text">
-                            <div class="club-activities-content-item-add-content_text">
-                                <h4 class="club-activities-content-item-add-content_heading4">指導者の横顔　監督 青木 聡美</h4>
-                                <p class="club-activities-content-item-add-content-explain">出雲西高校在学中は、インターハイ出場、中国大会団体・個人優勝、金鷲旗（全国大会） ３位などの実績を持つ。あさひ銀行（現・りそな銀行）・日水製薬など実業団でも全国大会で入賞。本校の指導者としても多くの選手をインターハイや国体などに出場させている。</p>
+                        <div class="club-activities-content-item">
+                            <div class="club-activities-content-item_profile">
+                                <div class="club-activities-content-item_profile--text">
+                                    <?php if ($activity['badge']): ?>
+                                        <p class="club-activities-content-item_profile--badge"><?php echo esc_html($activity['badge']); ?></p>
+                                    <?php endif; ?>
+                                    <p class="club-activities-content-item_profile--bracket"><?php echo esc_html($activity['bracket']); ?></p>
+                                    <p class="club-activities-content-item_profile--club-name"><?php echo esc_html($activity['club_name']); ?></p>
+                                    <div class="club-activities-content-item_profile--name"><?php echo esc_html($activity['captain_name']); ?></div>
+                                </div>
+                                <figure class="club-activities-content-item_profile--image">
+                                    <?php echo picture(
+                                        get_theme_file_uri(),
+                                        $activity['image'],
+                                        'jpg',
+                                        '',
+                                        'webp',
+                                    ); ?>
+                                </figure>
                             </div>
-                            <figure class="club-activities-content-item-add-content_image-text--image">
-                                <?php echo picture(
-                                    get_theme_file_uri(),
-                                    'school-life/club-activities/pickup1_add',
-                                    'jpg',
-                                    '',
-                                    'webp',
-                                ); ?>
-                            </figure>
+                            <p class="club-activities-content-item-comment"><?php echo esc_html($activity['comment']); ?></p>
                         </div>
-                    </section>
 
-                </div>
+                        <section class="club-activities-content-item-add-content">
+                            <h4 class="club-activities-content-item-add-content_heading4">過去の実績</h4>
+                            <ul class="club-activities-content-item-add-content_list">
+                                <?php foreach ($activity['achievements'] as $achievement): ?>
+                                    <li class="club-activities-content-item-add-content_list--item"><?php echo esc_html($achievement); ?></li>
+                                <?php endforeach; ?>
+                            </ul>
 
-                <div class="club-activities-content-item_wrap club-activities-content-item_wrap--reverse">
+                            <?php if ($activity['coach_title'] && $activity['coach_description'] && $activity['coach_image']): ?>
+                                <div class="club-activities-content-item-add-content_image-text">
+                                    <div class="club-activities-content-item-add-content_text">
+                                        <h4 class="club-activities-content-item-add-content_heading4"><?php echo esc_html($activity['coach_title']); ?></h4>
+                                        <p class="club-activities-content-item-add-content_explain"><?php echo esc_html($activity['coach_description']); ?></p>
+                                    </div>
+                                    <figure class="club-activities-content-item-add-content_image">
+                                        <?php echo picture(
+                                            get_theme_file_uri(),
+                                            $activity['coach_image'],
+                                            'jpg',
+                                            '',
+                                            'webp',
+                                        ); ?>
+                                    </figure>
+                                </div>
+                            <?php endif; ?>
+                        </section>
 
-                    <div class="club-activities-content-item">
-                        <div class="club-activities-content-item_profile">
-                            <?php /* <p class="club-activities-content-item_profile--badge">かみあり国スポ強化指定校</p> */ ?>
-                            <p class="club-activities-content-item_profile--bracket">目指せ全国大会出場</p>
-                            <p class="club-activities-content-item_profile--club-name">女子柔道部</p>
-                            <div class="club-activities-content-item_profile--name">主将 國谷 菜々心 さん</div>
-                            <figure class="club-activities-content-item-profile--image">
-                                <?php echo picture(
-                                    get_theme_file_uri(),
-                                    'school-life/club-activities/pickup1',
-                                    'jpg',
-                                    '',
-                                    'webp',
-                                ); ?>
-                            </figure>
-                        </div>
-                        <p class="club-activities-content-item-comment">３年生４人、２年生２人、１年生７人の計13人で活動しています。みんなで声をかけ、助け合いながら心身ともに成長できるよう日々練習をしています。県大会で優勝する感動など、充実した学校生活を一緒に体験しましょう。</p>
                     </div>
-
-                    <section class="club-activities-content-item-add-content">
-                        <h4 class="club-activities-content-item-add-content_heading4">過去の実績</h4>
-                        <ul class="club-activities-content-item-add-content_list">
-                            <li class="club-activities-content-item-add-content_list--item">令和４年度 インターハイ57kg級第３位</li>
-                            <li class="club-activities-content-item-add-content_list--item">・令和５年度 インターハイ48kg,52kg,70kg,78kg,78kg超級出場</li>
-                            <li class="club-activities-content-item-add-content_list--item">令和６年度 全国高校選手権個人52kg,57kg,無差別級・団体出場</li>
-                        </ul>
-                        <div class="club-activities-content-item-add-content_image-text">
-                            <div class="club-activities-content-item-add-content_text">
-                                <h4 class="club-activities-content-item-add-content_heading4">指導者の横顔　監督 青木 聡美</h4>
-                                <p class="club-activities-content-item-add-content-explain">出雲西高校在学中は、インターハイ出場、中国大会団体・個人優勝、金鷲旗（全国大会） ３位などの実績を持つ。あさひ銀行（現・りそな銀行）・日水製薬など実業団でも全国大会で入賞。本校の指導者としても多くの選手をインターハイや国体などに出場させている。</p>
-                            </div>
-                            <figure class="club-activities-content-item-add-content_image-text--image">
-                                <?php echo picture(
-                                    get_theme_file_uri(),
-                                    'school-life/club-activities/pickup1_add',
-                                    'jpg',
-                                    '',
-                                    'webp',
-                                ); ?>
-                            </figure>
-                        </div>
-                    </section>
-
-                </div>
+                <?php endforeach; ?>
 
             </div>
         </section>
