@@ -91,7 +91,7 @@ function getHeaderLinks($content)
     foreach ($matches[3] as $index => $header) {
         // Generate link with numeric header IDs, matching the header ID generation
         $id = 'header-' . $header_counter++;  // Ensure this matches with the ID generation in addHeaderIds
-        $links[] = '<a href="#' . $id . '" class="header_link inaction_opacity">' . wp_trim_words($header, 10, '…') . '<span class="arrow"><svg width="13" height="9" viewBox="0 0 13 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.157 2.26367L6.35718 8.0625L5.91577 7.62012L0.115967 1.82129L0.999756 0.937499L1.44214 1.37891L6.35815 6.29395L11.2722 1.37891L11.7146 0.9375L12.5984 1.82129L12.157 2.26367Z" fill="#208B4E"/></svg></span></a>';
+        $links[] = '<a href="#' . $id . '" class="header_link inaction_opacity">' . wp_trim_words($header, 10, '…') . '<span class="arrow"><svg width="13" height="9" viewBox="0 0 13 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.157 2.26367L6.35718 8.0625L5.91577 7.62012L0.115967 1.82129L0.999756 0.937499L1.44214 1.37891L6.35815 6.29395L11.2722 1.37891L11.7146 0.9375L12.5984 1.82129L12.157 2.26367Z" fill="#16569C"/></svg></span></a>';
     }
 
     return implode('', $links);

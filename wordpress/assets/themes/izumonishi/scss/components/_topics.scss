@@ -191,6 +191,7 @@
 
         .topics__date {
             display: block;
+            font-family: var.$en;
             font-size: 15rem;
             color: #3d7abc;
             text-align: left;
@@ -215,7 +216,7 @@
                 height: 100%;
                 content: '';
                 background: rgb(129 195 248 / 22%);
-                mix-blend-mode: plus-darker;
+                mix-blend-mode: plus-lighter;
             }
 
             img {
