@@ -102,6 +102,11 @@
         + p {
             margin-top: 1em;
         }
+
+        a {
+            color: #16569c;
+            text-decoration: underline;
+        }
     }
 
     :not(p, h1, h2, h3, h4, h5, h6) {
@@ -408,8 +413,7 @@
      * iframe
      */
     iframe {
-        &[src*='https://www.google.com/maps/embed']
-        {
+        &[src*='https://www.google.com/maps/embed'] {
             width: 100%;
 
             @include var.md {
