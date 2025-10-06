@@ -65,8 +65,12 @@ class StylesHelper
                 @exec($command, $out, $code);
             }
 
-            // preserve slashes in href
+            // preserve slashes in href and append cache-busting version
             $href = $publicBase . '/' . $rel . '.css';
+            $ver = file_exists($cssPath) ? (string) @filemtime($cssPath) : '';
+            if ($ver !== '') {
+                $href .= '?ver=' . rawurlencode($ver);
+            }
             echo '<link rel="stylesheet" href="' . htmlspecialchars($href, ENT_QUOTES, 'UTF-8') . '">';
         }
     }

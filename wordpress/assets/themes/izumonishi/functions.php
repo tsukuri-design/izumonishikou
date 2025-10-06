@@ -26,6 +26,8 @@ use Mvc4Wp\Core\Service\Logging;
 App::get()->config()->set('error_handler.handlers.403', ErrorController::class);
 App::get()->config()->set('error_handler.handlers.404', ErrorController::class);
 App::get()->config()->set('js.use_minify', 'false');
+App::get()->config()->set('js.js_directory', __MVC4WP_ROOT__ . '/js');
+App::get()->config()->set('js.public_url_base', get_template_directory_uri() . '/js');
 App::get()->config()->set('css.scss_directory', __MVC4WP_ROOT__ . '/scss');
 App::get()->config()->set('css.css_directory', __MVC4WP_ROOT__ . '/scss');
 App::get()->config()->set('css.public_url_base', get_template_directory_uri() . '/scss');
@@ -106,6 +108,7 @@ Helper::load('RobustBlockEditorComment');
 Helper::load('PageSequenceHelper');
 Helper::load('PageEnglishTitleHelper');
 Helper::load('StylesHelper');
+Helper::load('ScriptsHelper');
 
 // 通し番号機能を初期化
 \App\Helper\PageSequenceHelper::init();

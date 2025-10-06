@@ -36,13 +36,7 @@
 </footer>
 </div>
 
-<?php
-if (!empty($data['scripts']) && is_array($data['scripts'])) {
-    foreach ($data['scripts'] as $script) {
-        js($script);
-    }
-}
-?>
+<?php \App\Helper\ScriptsHelper::print($data['scripts'] ?? []); ?>
 </body>
 
 </html>

@@ -90,7 +90,11 @@ class SchoolLifeController extends PlainPhpController
         $data = [
             'title' => wp_strip_all_tags(html_entity_decode(get_the_title())) . '｜' . get_bloginfo('name'),
             'content' => get_the_content(),
-            'styles' => ['components/global', 'components/block_editor_content', 'school-life'],
+            'styles' => [
+                'components/global',
+                'components/block_editor_content',
+                'school-life',
+            ],
             'scripts' => [
                 'typekit',
                 'noie',
