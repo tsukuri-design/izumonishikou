@@ -102,9 +102,13 @@ Helper::load('RelatedPosts');
 Helper::load('TopicsCategory');
 Helper::load('RobustBlockEditorComment');
 Helper::load('PageSequenceHelper');
+Helper::load('PageEnglishTitleHelper');
 
 // 通し番号機能を初期化
 \App\Helper\PageSequenceHelper::init();
+
+// 英語タイトル機能を初期化
+\App\Helper\PageEnglishTitleHelper::init();
 
 /**
  * Side menu
