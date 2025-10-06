@@ -27,8 +27,11 @@
      */
     h1,
     h2 {
-        font-size: 30rem;
+        padding-bottom: 12rem;
+        font-size: 23rem;
+        font-weight: 500;
         line-height: 142%;
+        border-bottom: 0.75px solid #16569c;
 
         @include var.md {
             font-size: $p_mobile * 1.333;
@@ -36,12 +39,12 @@
         }
     }
 
-    h3,
-    h2.has_underline {
+    h3 {
         padding-bottom: 12rem;
         font-size: 23rem;
+        font-weight: 500;
         line-height: 154%;
-        border-bottom: 0.75px solid #16569c;
+        color: #16569c;
 
         @include var.md {
             font-size: $p_mobile * 1.125;
@@ -53,7 +56,9 @@
     h5,
     h6 {
         font-size: $p * 1.125;
+        font-weight: 500;
         line-height: 166%;
+        color: #16569c;
 
         @include var.md {
             font-size: $p_mobile * 1.066;
@@ -83,6 +88,15 @@
 
         @include var.md {
             font-size: $p_mobile;
+        }
+
+        &.has-large-font-size {
+            font-size: 23rem;
+        }
+
+        &.has-xlarge-font-size {
+            font-size: 30rem;
+            line-height: 183%;
         }
 
         + p {
