@@ -18,11 +18,17 @@
     <div class="club-activities">
 
         <div class="club-activities-first-view">
-            <figure class="club-activities-first-view-image"><?php echo picture_array([
-                'src' => 'img/school-life/club-activities/',
-                'name' => 'first-view',
-                'alt' => '部活動画像'
-            ]); ?></figure>
+            <figure class="club-activities-first-view-image"><?php echo picture(
+                get_theme_file_uri(),
+                'school-life/club-activities/firstview',
+                'jpg',
+                '',
+                'webp',
+                '',
+                '',
+                '',
+                ''
+            ); ?></figure>
             <div class="club-activities-first-view-text">
                 <h2 class="club-activities-first-view-heading2">打ち込める場所が<br>きっと見つかる</h2>
                 <p class="club-activities-first-view-explain">
