@@ -36,11 +36,11 @@ add_action('acf/include_fields', function () {
             ),
             array(
                 'key' => 'field_68cb5f6fe7964',
-                'label' => 'リンク設定',
+                'label' => 'リンクを使用しない',
                 'name' => 'no_link',
                 'aria-label' => '',
                 'type' => 'true_false',
-                'instructions' => '',
+                'instructions' => '「はい」にすると一覧でリンクをクリックできないように変更します',
                 'required' => 0,
                 'conditional_logic' => 0,
                 'wrapper' => array(
@@ -48,7 +48,7 @@ add_action('acf/include_fields', function () {
                     'class' => '',
                     'id' => '',
                 ),
-                'message' => '「はい」に設定すると一覧などにリンクなしになります',
+                'message' => '',
                 'default_value' => 0,
                 'allow_in_bindings' => 0,
                 'ui_on_text' => '',
