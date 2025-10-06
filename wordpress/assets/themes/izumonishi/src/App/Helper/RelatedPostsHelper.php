@@ -40,7 +40,14 @@ function get_custom_related_posts(array $custom_posts = []): string
         return '';
     }
 
-    $html = '<div class="related_posts_wrap inaction inaction_opacity">';
+    $html = '<section class="related-posts">' . "\n";
+
+    // 引数を持っていない場合（ACFフィールドから取得した場合）にタイトルを追加
+    if (empty($custom_posts)) {
+        $html .= '<h3 class="heading3"><span class="en">RELATED PAGES</span><span class="ja">関連ページ</span></h3>' . "\n";
+    }
+
+    $html .= '<div class="related-posts-wrap inaction inaction_opacity">' . "\n";
 
     foreach ($related_posts as $related) {
         if (!$related instanceof WP_Post) {
@@ -86,13 +93,13 @@ function get_custom_related_posts(array $custom_posts = []): string
         }
 
 
-        $html .= '<div class="related_post">';
+        $html .= '<div class="related-post">';
 
 
         if ($no_link) {
-            $html .= '<span class="related_post__inner">';
+            $html .= '<span class="related-post__inner">';
         } else {
-            $html .= '<a href="' . esc_url($href) . '" target="' . esc_attr($target) . '"' . $rel_attr . ' class="related_post__inner">';
+            $html .= '<a href="' . esc_url($href) . '" target="' . esc_attr($target) . '"' . $rel_attr . ' class="related-post__inner">';
         }
 
         if ($thumb_html) {
@@ -102,7 +109,7 @@ function get_custom_related_posts(array $custom_posts = []): string
             $html .= '<div class="sub">' . esc_html($sub) . '</div>';
         }
 
-        $html .= '<div class="text_wrap"><h3 class="heading3">' . esc_html($title) . '</h3>';
+        $html .= '<div class="text_wrap"><h4 class="heading4">' . esc_html($title) . '</h4>';
         if (!empty($exp)) {
 
             $html .= '<p class="text">' . esc_html($exp) . '</p>';
@@ -116,5 +123,6 @@ function get_custom_related_posts(array $custom_posts = []): string
     }
 
     $html .= '</div>';
+    $html .= '</section>';
     return $html;
 }
