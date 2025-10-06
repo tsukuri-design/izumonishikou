@@ -37,18 +37,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Zen+Kurenaido&display=swap" rel="stylesheet">
-    <?php
-    $found = false;
-    for ($i = 0; $i < 5; $i++) {
-        if (!empty($data['styles'][$i])) {
-            scss($data['styles'][$i]);
-            $found = true;
-        }
-    }
-    if (!$found) {
-        scss('front');
-    }
-    ?>
+    <?php \App\Helper\StylesHelper::print($data['styles'] ?? []); ?>
 </head>
 
 <body>

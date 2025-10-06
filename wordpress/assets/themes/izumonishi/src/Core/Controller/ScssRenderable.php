@@ -40,7 +40,6 @@ trait ScssRenderable
         }
 
         debug_view_end($view . '.scss', $data, $this->with_tag);
-
         return $this;
     }
 
