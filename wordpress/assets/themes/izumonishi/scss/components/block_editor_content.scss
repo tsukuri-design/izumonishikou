@@ -199,12 +199,18 @@
         &.big-buttons {
             .block-button {
                 a {
+                    display: flex;
                     justify-content: center;
                     padding: 42rem 20rem;
                     font-size: 20rem;
                     color: #fff;
+                    text-decoration-line: underline;
+                    text-decoration-thickness: 0.75px; // 太さ
+                    text-decoration-color: #fff;
+                    text-underline-offset: 10rem; // 文字からの離れ
                     background: #16569c;
                     border-radius: 8rem;
+                    text-decoration-skip-ink: auto;
 
                     &::after {
                         display: none;
@@ -483,8 +489,7 @@
      * iframe
      */
     iframe {
-        &[src*='https://www.google.com/maps/embed']
-        {
+        &[src*='https://www.google.com/maps/embed'] {
             width: 100%;
 
             @include var.md {
