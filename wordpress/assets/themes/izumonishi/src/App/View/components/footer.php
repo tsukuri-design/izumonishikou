@@ -9,9 +9,9 @@
     <span class="site-footer__address">〒<span class="en">693-0032</span> 島根県出雲市下古志町<span class="en">1163</span><br><span class="en">TEL: 0853-21-1183</span>　<span class="en">FAX: 0853-21-1397</span></span>
 
     <div class="site-footer__sns">
-        <a href="" target="_blank" class="site-footer__sns-link"><?php svg('youtube_white'); ?></a>
-        <a href="" target="_blank" class="site-footer__sns-link"><?php svg('facebook_white'); ?></a>
-        <a href="" target="_blank" class="site-footer__sns-link"><?php svg('instagram_white'); ?></a>
+        <a href="https://www.youtube.com/@%E5%87%BA%E9%9B%B2%E8%A5%BF%E9%AB%98%E7%AD%89%E5%AD%A6%E6%A0%A1" target="_blank" class="site-footer__sns-link"><?php svg('youtube_white'); ?></a>
+        <a href="https://www.facebook.com/izumonishi.education?ref=embed_page" target="_blank" class="site-footer__sns-link"><?php svg('facebook_white'); ?></a>
+        <a href="https://www.instagram.com/izumo_nishi.education/" target="_blank" class="site-footer__sns-link"><?php svg('instagram_white'); ?></a>
         <a href="" target="_blank" class="site-footer__sns-link"><?php svg('line_white'); ?></a>
     </div>
 

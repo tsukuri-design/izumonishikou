@@ -49,3 +49,4 @@ var scroll = new SmoothScroll('a[href*="#"]', {
     easing: 'easeInOutQuint',
     offset: 100,
 });
+

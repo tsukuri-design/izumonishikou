@@ -634,4 +634,39 @@
             }
         }
     }
+
+    .post_password {
+        display: flex;
+        gap: 10rem;
+        max-width: 755rem;
+        margin-top: 30rem;
+
+        input[type='password'] {
+            flex: 1;
+            height: 58rem;
+            padding-left: 15rem;
+            border: 0.75px solid #16569c;
+
+            @include var.md {
+                height: 48rem;
+            }
+        }
+
+        input[type='submit'] {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 138rem;
+            height: 58rem;
+            font-family: var.$en;
+            font-size: 21rem;
+            color: #fff;
+            background: #16569c;
+
+            @include var.md {
+                width: 90rem;
+                height: 48rem;
+            }
+        }
+    }
 }
