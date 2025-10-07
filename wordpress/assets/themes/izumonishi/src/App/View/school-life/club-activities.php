@@ -149,7 +149,7 @@
             </div>
         </section>
 
-        <section class="club-activities-content has_margin-top">
+        <section class="club-activities-content club-activities-content--sports-culture">
             <h2 class="club-activities-content-heading2">
                 <span class="ja">運動部</span>
                 <span class="en">SPORTS CLUB</span>
@@ -186,7 +186,7 @@
             </div>
         </section>
 
-        <section class="club-activities-content has_margin-top">
+        <section class="club-activities-content club-activities-content--sports-culture">
             <h2 class="club-activities-content-heading2">
                 <span class="ja">文化部・同好会</span>
                 <span class="en">CULTURE CLUB</span>
@@ -223,9 +223,7 @@
             </div>
         </section>
 
-
     </div>
-
 
     <?php echo get_custom_related_posts(); ?>
 </div>
