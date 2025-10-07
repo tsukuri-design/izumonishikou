@@ -115,17 +115,19 @@
                         </div>
 
                         <section class="club-activities-content-item-add-content">
-                            <h4 class="club-activities-content-item-add-content_heading4">過去の実績</h4>
-                            <ul class="club-activities-content-item-add-content_list">
-                                <?php foreach ($activity['achievements'] as $achievement): ?>
-                                    <li class="club-activities-content-item-add-content_list--item"><?php echo esc_html($achievement); ?></li>
-                                <?php endforeach; ?>
-                            </ul>
+                            <?php if ($activity['achievements']): ?>
+                                <h4 class="club-activities-content-item-add-content_heading4">過去の実績</h4>
+                                <ul class="club-activities-content-item-add-content_list">
+                                    <?php foreach ($activity['achievements'] as $achievement): ?>
+                                        <li class="club-activities-content-item-add-content_list--item"><?php echo esc_html($achievement); ?></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php endif; ?>
 
                             <?php if ($activity['coach_title'] && $activity['coach_description'] && $activity['coach_image']): ?>
                                 <div class="club-activities-content-item-add-content_image-text">
                                     <div class="club-activities-content-item-add-content_text">
-                                        <h4 class="club-activities-content-item-add-content_heading4"><?php echo esc_html($activity['coach_title']); ?></h4>
+                                        <h4 class="club-activities-content-item-add-content_heading4"><?php echo esc_html($activity['coach_title']); ?><?php echo $activity['coach_name'] ? '<span class="club-activities-content-item-add-content_heading4--name">' . esc_html($activity['coach_name']) . '</span>' : ''; ?></h4>
                                         <p class="club-activities-content-item-add-content_explain"><?php echo esc_html($activity['coach_description']); ?></p>
                                     </div>
                                     <figure class="club-activities-content-item-add-content_image">
