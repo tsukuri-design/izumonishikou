@@ -127,7 +127,9 @@
 
     &__arrows {
         position: absolute;
-        top: 70rem;
+
+        // top: 70rem;
+        top: var.pixelOnLargeDisplay(70);
         left: calc(50% - 50rem);
         z-index: 10;
         display: flex;
@@ -181,7 +183,9 @@
     &__post,
     .slick-slide {
         display: block;
-        width: 270rem;
+
+        // width: 270rem;
+        width: var.pixelOnLargeDisplay(318);
         text-emphasis: left;
 
         .topics__text-wrap {
