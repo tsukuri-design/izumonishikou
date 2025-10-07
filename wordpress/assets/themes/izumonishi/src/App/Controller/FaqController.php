@@ -38,6 +38,7 @@ class FaqController extends PlainPhpController
                 'smooth-scroll.polyfills',
                 'faq',
                 'inview',
+                'global',
                 'menu',
             ],
 

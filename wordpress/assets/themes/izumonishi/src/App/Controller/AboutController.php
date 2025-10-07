@@ -77,6 +77,7 @@ class AboutController extends PlainPhpController
                 'check_analytics',
                 'lazysizes',
                 'smooth-scroll.polyfills',
+                'global',
                 'inview',
             ],
         ];
@@ -108,6 +109,7 @@ class AboutController extends PlainPhpController
                 'check_analytics',
                 'lazysizes',
                 'smooth-scroll.polyfills',
+                'global',
             ],
         ];
 

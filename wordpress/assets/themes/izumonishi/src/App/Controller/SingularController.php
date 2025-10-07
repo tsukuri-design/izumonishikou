@@ -73,6 +73,7 @@ class SingularController extends PlainPhpController
                 'lazysizes',
                 'smooth-scroll.polyfills',
                 'inview',
+                'global',
             ],
         ];
 
@@ -98,6 +99,7 @@ class SingularController extends PlainPhpController
                 'check_analytics',
                 'lazysizes',
                 'smooth-scroll.polyfills',
+                'global',
             ],
         ];
 

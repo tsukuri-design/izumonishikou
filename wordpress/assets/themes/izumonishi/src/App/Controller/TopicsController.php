@@ -50,6 +50,7 @@ class TopicsController extends PlainPhpController
                 'lazysizes',
                 'smooth-scroll.polyfills',
                 'inview',
+                'global',
                 'menu',
             ],
             'topics' => $this->getTopicsData($paged, $category_slug),
