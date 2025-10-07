@@ -157,10 +157,14 @@ svg {
 
 .body_inner {
     position: relative;
+    padding-top: 102rem;
 
     // overflow: hidden;
     // clip allows position: sticky;
     overflow: clip;
+    @include var.md() {
+        padding-top: 72rem;
+    }
 }
 
 .breadcrumbs {

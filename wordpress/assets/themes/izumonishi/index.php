@@ -56,6 +56,9 @@ App::get()->router()->GET('/current-students/information/page/{page}/', [TopicsC
 
 // School Life
 App::get()->router()->GET('/school-life/club-activities/', [ClubActivitiesController::class, 'club_activities']);
+App::get()->router()->GET('/school-life/school-events/', [SchoolLifeController::class, 'school_events']);
+App::get()->router()->GET('/school-life/school-uniform/', [SchoolLifeController::class, 'uniform']);
+App::get()->router()->GET('/school-life/facilities/', [SchoolLifeController::class, 'facilities']);
 
 // //faq
 // App::get()->router()->GET('/contact/faq/', [FaqController::class, 'index']);
