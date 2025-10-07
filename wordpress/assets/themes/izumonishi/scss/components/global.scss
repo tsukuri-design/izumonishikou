@@ -62,14 +62,22 @@
  */
 
 html {
-    font-size: var.pixelToVWOnDesktop(1);
+    // font-size: var.pixelToVWOnDesktop(1);
+    font-size: 1px;
 
     @include var.xxl {
         // font-size: var.pixelOnLargeDisplay(1);
-        font-size: var.pixelToVWOnDesktop(1);
+        // font-size: var.pixelToVWOnDesktop(1);
+        font-size: 1px;
     }
 
     @include var.xl {
+        // font-size: var.pixelToVWOnDesktop(1);
+        font-size: 1px;
+    }
+
+    @include var.lg {
+        // font-size: var.pixelToVWOnDesktop(1);
         font-size: var.pixelToVWOnDesktop(1);
     }
 
@@ -123,6 +131,14 @@ body {
 a {
     color: var.$black;
     text-decoration: none;
+}
+
+.ja {
+    font-family: var.$ja;
+}
+
+.en {
+    font-family: var.$en;
 }
 
 img,

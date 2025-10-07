@@ -142,6 +142,7 @@ class ContactController extends PlainPhpController
                     'lazysizes',
                     'smooth-scroll.polyfills',
                     'inview',
+                    'global',
                     'form',
                     'recaptcha',
                 ],

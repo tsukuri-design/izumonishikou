@@ -84,6 +84,7 @@ class InformationSessionController extends PlainPhpController
                 'inview',
                 'menu',
                 'singular',
+                'global',
             ],
             'sessions' => $normalized,         // ← flat list for the view
             'custom_related_posts' => '',                  // not used here

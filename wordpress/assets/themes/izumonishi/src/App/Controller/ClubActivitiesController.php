@@ -339,6 +339,7 @@ class ClubActivitiesController extends PlainPhpController
                 'check_analytics',
                 'lazysizes',
                 'smooth-scroll.polyfills',
+                'global',
             ],
         ];
 

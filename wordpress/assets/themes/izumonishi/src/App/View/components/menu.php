@@ -8,7 +8,7 @@
             <span class="menu__item-icon menu__item-icon--1"><?php svg('menu2'); ?></span>
             <span class="menu__item-text">2026年度<br>入試情報</span>
         </a>
-        <a class="menu__item" href="<?php echo get_home_url(); ?>/digital-pamphlet/">
+        <a class="menu__item" href="<?php echo get_home_url(); ?>/pamphlet/admission_information_2026/" target="_blank">
             <span class="menu__item-icon menu__item-icon--1"><?php svg('menu3'); ?></span>
             <span class="menu__item-text">デジタル<br>パンフレット</span>
         </a>

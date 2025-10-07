@@ -37,6 +37,7 @@ class HomeController extends PlainPhpController
                 'inview',
                 'slick/slick',
                 'slick_home',
+                'global',
             ],
             'banner' => $this->getBannerData(),
             'topics' => $this->getTopicsData(),

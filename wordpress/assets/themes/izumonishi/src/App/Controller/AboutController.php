@@ -5,7 +5,7 @@ use Mvc4Wp\Core\Controller\PlainPhpController;
 use Mvc4Wp\Core\Library\Castable;
 use Mvc4Wp\Core\Model\UserEntity;
 
-class SingularController extends PlainPhpController
+class AboutController extends PlainPhpController
 {
     use Castable;
 
@@ -64,7 +64,12 @@ class SingularController extends PlainPhpController
 
         $data = [
             'title' => get_the_title() . '',
-            'styles' => ['components/global', 'components/block_editor_content', 'singular'],
+            'styles' => [
+                'components/global',
+                'components/block_editor_content',
+                'singular',
+                'about',
+            ],
             'scripts' => [
                 'typekit',
                 'noie',
@@ -72,8 +77,8 @@ class SingularController extends PlainPhpController
                 'check_analytics',
                 'lazysizes',
                 'smooth-scroll.polyfills',
-                'inview',
                 'global',
+                'inview',
             ],
         ];
 
@@ -91,7 +96,12 @@ class SingularController extends PlainPhpController
         $data = [
             'title' => wp_strip_all_tags(html_entity_decode(get_the_title())) . '｜' . get_bloginfo('name'),
             'content' => get_the_content(),
-            'styles' => ['components/global', 'components/block_editor_content', 'singular'],
+            'styles' => [
+                'components/global',
+                'components/block_editor_content',
+                'singular',
+                'about',
+            ],
             'scripts' => [
                 'typekit',
                 'noie',
