@@ -94,7 +94,7 @@
             font-size: 23rem;
         }
 
-        &.has-xlarge-font-size {
+        &.has-x-large-font-size {
             font-size: 30rem;
             line-height: 183%;
         }
@@ -413,7 +413,8 @@
      * iframe
      */
     iframe {
-        &[src*='https://www.google.com/maps/embed'] {
+        &[src*='https://www.google.com/maps/embed']
+        {
             width: 100%;
 
             @include var.md {
