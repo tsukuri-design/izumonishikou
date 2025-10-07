@@ -186,16 +186,31 @@
      */
     .block-buttons {
         display: flex;
-
-        // margin-bottom: $p * 2.5;
         flex-wrap: wrap;
-        gap: $p;
+        gap: 27rem;
         justify-content: center;
         margin-top: $p * 2.5;
 
         @include var.md {
             gap: $p_mobile;
             margin-top: $p_mobile * 1.8;
+        }
+
+        &.big-buttons {
+            .block-button {
+                a {
+                    justify-content: center;
+                    padding: 42rem 20rem;
+                    font-size: 20rem;
+                    color: #fff;
+                    background: #16569c;
+                    border-radius: 8rem;
+
+                    &::after {
+                        display: none;
+                    }
+                }
+            }
         }
     }
 
@@ -207,22 +222,30 @@
         }
 
         a {
-            display: inline-block;
-            width: 100%;
-            min-width: 15em;
-            padding: 0.75em 2em;
-            font-size: $p * 1.125;
-
-            // font-weight: bold;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20rem;
+            font-size: 16rem;
             line-height: 142%;
-            color: #fff;
-            text-align: center;
-            background: #000;
-            border-radius: 100rem;
+            color: #11151a;
+            text-align: left;
+            border: 0.75px solid #16569c;
 
             @include var.md {
                 font-size: $p_mobile * 1.066;
                 border-radius: 30rem;
+            }
+
+            &::after {
+                width: 18rem;
+                height: 18rem;
+                content: '';
+                background-image: url("data:image/svg+xml;utf8,<svg%20xmlns='http://www.w3.org/2000/svg'%20width='18'%20height='18'%20viewBox='0%200%2018%2018'%20fill='none'><path%20d='M16.707%209.0332L0.584961%209.0332'%20stroke='%2316569C'%20stroke-miterlimit='10'/><path%20d='M9.68164%2017.0645L17.0099%209.03241L9.68164%201.00037'%20stroke='%2316569C'%20stroke-miterlimit='10'/></svg>");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
             }
         }
     }
@@ -460,7 +483,8 @@
      * iframe
      */
     iframe {
-        &[src*='https://www.google.com/maps/embed'] {
+        &[src*='https://www.google.com/maps/embed']
+        {
             width: 100%;
 
             @include var.md {
@@ -575,6 +599,7 @@
     }
 
     .related-posts {
+        margin-top: 60rem;
         margin-bottom: 52rem;
     }
 

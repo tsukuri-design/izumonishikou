@@ -6,7 +6,7 @@
         </a>
         <a class="menu__item" href="<?php echo get_home_url(); ?>/admission/">
             <span class="menu__item-icon menu__item-icon--1"><?php svg('menu2'); ?></span>
-            <span class="menu__item-text">2026年度<br>入試情報</span>
+            <span class="menu__item-text"><span class="en">2026</span>年度<br>入試情報</span>
         </a>
         <a class="menu__item" href="<?php echo get_home_url(); ?>/pamphlet/admission_information_2026/" target="_blank">
             <span class="menu__item-icon menu__item-icon--1"><?php svg('menu3'); ?></span>

@@ -1,12 +1,12 @@
 <?php declare(strict_types=1); ?>
 <?php if (!is_front_page()): ?>
-    <?php echo get_custom_breadcrumbs('興南中学校・興南高等学校', home_url('/')); ?>
+    <?php echo get_custom_breadcrumbs('出雲西高等学校', home_url('/')); ?>
 <?php endif; ?>
 
 
 <footer class="site-footer">
     <a class="site-footer__logo" href="<?php echo get_home_url(); ?>"><?php svg('logo_white'); ?></a>
-    <span class="site-footer__address">〒693-0032 島根県出雲市下古志町1163<br>TEL: 0853-21-1183　FAX: 0853-21-1397</span>
+    <span class="site-footer__address">〒<span class="en">693-0032</span> 島根県出雲市下古志町<span class="en">1163</span><br><span class="en">TEL: 0853-21-1183</span>　<span class="en">FAX: 0853-21-1397</span></span>
 
     <div class="site-footer__sns">
         <a href="" target="_blank" class="site-footer__sns-link"><?php svg('youtube_white'); ?></a>
@@ -32,7 +32,7 @@
         <a href="<?php echo get_home_url(); ?>/recruit/" class="site-footer__link">教員採用</a>
     </div>
 
-    <span class="site-footer__copy">&copy;<?php echo wp_date('Y'); ?> IZUMO NISHI</span>
+    <span class="site-footer__copy en">&copy;<?php echo wp_date('Y'); ?> IZUMO NISHI</span>
 </footer>
 </div>
 

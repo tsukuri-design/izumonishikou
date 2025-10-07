@@ -13,7 +13,7 @@ if (!function_exists('_bc_trunc20')) {
     }
 }
 
-function get_custom_breadcrumbs(string $top_label = '興南中学校・興南高等学校', string $top_url = '/'): string
+function get_custom_breadcrumbs(string $top_label = '出雲西高等学校', string $top_url = '/'): string
 {
     global $post;
 

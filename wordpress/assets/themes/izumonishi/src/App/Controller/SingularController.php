@@ -62,8 +62,12 @@ class SingularController extends PlainPhpController
         $query->the_post();
         // error_log("CONTROLLER DEBUG: Successfully loaded post: " . get_the_title());
 
+        // 親ページ情報を取得
+        $parent_info = $this->getParentPageInfo();
+
         $data = [
             'title' => get_the_title() . '',
+            'parent_info' => $parent_info,
             'styles' => ['components/global', 'components/block_editor_content', 'singular'],
             'scripts' => [
                 'typekit',
@@ -87,10 +91,13 @@ class SingularController extends PlainPhpController
 
     public function other(array $args): void
     {
+        // 親ページ情報を取得
+        $parent_info = $this->getParentPageInfo();
 
         $data = [
             'title' => wp_strip_all_tags(html_entity_decode(get_the_title())) . '｜' . get_bloginfo('name'),
             'content' => get_the_content(),
+            'parent_info' => $parent_info,
             'styles' => ['components/global', 'components/block_editor_content', 'singular'],
             'scripts' => [
                 'typekit',
@@ -107,6 +114,41 @@ class SingularController extends PlainPhpController
             ->ok()
             ->page('singular/other', $data)
             ->done();
+    }
+
+    private function getParentPageInfo(): ?array
+    {
+        $current_id = get_the_ID();
+
+        // URLからページIDを直接取得を試行
+        $url_parts = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
+        $potential_page_id = null;
+        foreach ($url_parts as $part) {
+            if (is_numeric($part)) {
+                $potential_page_id = (int) $part;
+                break;
+            }
+        }
+
+        // 実際のページIDを使用（URLから取得したIDまたは現在のID）
+        $actual_page_id = $potential_page_id ?: $current_id;
+        $ancestors = get_post_ancestors($actual_page_id);
+
+        if (!empty($ancestors)) {
+            $top_parent_id = end($ancestors);
+            $parent_en = function_exists('get_field') ? get_field('en', $top_parent_id) : '';
+            $parent_url = get_permalink($top_parent_id);
+            $parent_text = $parent_en ? $parent_en : get_the_title($top_parent_id);
+
+            return [
+                'id' => $top_parent_id,
+                'url' => $parent_url,
+                'text' => $parent_text,
+                'en' => $parent_en
+            ];
+        }
+
+        return null;
     }
 
     public function redirect(array $args = []): void

@@ -36,12 +36,24 @@
         }
     }
 
+    .singular__parent-link {
+        padding-bottom: 9rem;
+        margin-top: -50rem;
+        margin-bottom: 56rem;
+        font-family: var.$en;
+        font-size: 15rem;
+        color: #11151a;
+        letter-spacing: 0.04em;
+        border-bottom: 0.75px solid #16569c;
+    }
+
     .heading1 {
         display: flex;
         flex-basis: 330rem;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
+        padding-left: 70rem;
         text-align: left;
 
         @include var.md {
@@ -524,6 +536,7 @@
         -webkit-text-stroke: 0.1px #16569c;
     }
 }
+
 .heading3 + .related-posts-wrap {
     margin-top: 40rem;
 }
