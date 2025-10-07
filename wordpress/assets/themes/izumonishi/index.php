@@ -12,6 +12,7 @@ use App\Controller\FaqController;
 use App\Controller\TopicsController;
 use App\Controller\SchoolLifeController;
 use App\Controller\ClubActivitiesController;
+use App\Controller\AboutController;
 use Mvc4Wp\Core\Service\App;
 
 /*
@@ -36,6 +37,9 @@ App::get()->router()->GET('/home/redirect', [HomeController::class, 'redirect'])
 // Contact routes（/contact/ 固定ページでRecaptcha設定が必要です）
 // App::get()->router()->GET('/contact|/contact/', [ContactController::class, 'index']);
 // App::get()->router()->POST('/contact|/contact/', [ContactController::class, 'post']);
+
+// About
+App::get()->router()->GET('/about/', [AboutController::class, 'other']);
 
 // //Information session
 App::get()->router()->GET('/admission/events/', [InformationSessionController::class, 'index']);
