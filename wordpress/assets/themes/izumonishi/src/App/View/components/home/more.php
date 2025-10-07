@@ -15,7 +15,7 @@
                 <div class="button">詳しくはこちら<span class="arrow"><?php svg('more_arrow'); ?></span></div>
             </div>
         </a>
-        <a class="item" href="<?php echo get_home_url(); ?>/voice/">
+        <a class="item" href="<?php echo get_home_url(); ?>/lp/learning/" target="_blank">
             <span class="title"><?php svg('more2'); ?></span>
             <div class="image_wrap">
                 <figure class="image"><?php echo picture('', 'more2', 'jpg', '', 'webp', '', '', '', ''); ?></figure>
@@ -26,7 +26,7 @@
                 <div class="button">詳しくはこちら<span class="arrow"><?php svg('more_arrow'); ?></span></div>
             </div>
         </a>
-        <a class="item <?php echo $this_page_item === 'school_life' ? ' hide' : ''; ?>" href="<?php echo get_home_url(); ?>/school-life/">
+        <a class="item" href="<?php echo get_home_url(); ?>/school-life/">
             <span class="title"><?php svg('more3'); ?></span>
             <div class="image_wrap">
                 <figure class="image"><?php echo picture('', 'more3', 'jpg', '', 'webp', '', '', '', ''); ?></figure>
@@ -36,7 +36,7 @@
                 <div class="button">詳しくはこちら<span class="arrow"><?php svg('more_arrow'); ?></span></div>
             </div>
         </a>
-        <a class="item" href="<?php echo get_home_url(); ?>/course/">
+        <a class="item" href="<?php echo get_home_url(); ?>/lp/course/" target="_blank">
             <span class="title"><?php svg('more4'); ?></span>
             <div class="image_wrap">
                 <figure class="image"><?php echo picture('', 'more4', 'jpg', '', 'webp', '', '', '', ''); ?></figure>

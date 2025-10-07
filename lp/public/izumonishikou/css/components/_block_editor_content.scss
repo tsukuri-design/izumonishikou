@@ -10,7 +10,7 @@
     text-align: justify;
     font-family: 游ゴシック体;
     width: 750rem;
-    letter-spacing: .04em;
+    letter-spacing: 0.04em;
     margin: 0 auto;
 
     @include var.md() {
@@ -18,10 +18,9 @@
     }
 
     /** 最後の要素 */
-    &>*:last-child {
+    & > *:last-child {
         margin-bottom: $p * 2;
     }
-
 
     /** 
      * Text
@@ -82,13 +81,13 @@
             font-size: $p_mobile;
         }
 
-        &+p {
+        & + p {
             margin-top: 1em;
         }
     }
 
     :not(p):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
-        &+p {
+        & + p {
             margin-top: $p * 2.5;
 
             @include var.md() {
@@ -111,7 +110,7 @@
         }
 
         li {
-            margin-top: .73em;
+            margin-top: 0.73em;
         }
     }
 
@@ -171,7 +170,7 @@
             background: #000;
             color: #fff;
             width: 100%;
-            padding: .75em 2em;
+            padding: 0.75em 2em;
             min-width: 15em;
             text-align: center;
             line-height: 142%;
@@ -206,24 +205,24 @@
 
     figcaption {
         width: 80%;
-        margin: $p * .75 auto 0;
-        font-size: $p * .8125;
+        margin: $p * 0.75 auto 0;
+        font-size: $p * 0.8125;
         text-align: center;
 
         @include var.md() {
-            margin: $p_mobile * .75 auto 0;
-            font-size: $p_mobile * .85;
+            margin: $p_mobile * 0.75 auto 0;
+            font-size: $p_mobile * 0.85;
         }
     }
 
-   /** Gallery */
+    /** Gallery */
     .block-gallery {
         display: flex;
         flex-wrap: wrap;
         margin-top: $p * 2.5;
 
         $crop: 66.66666667%; // square=50%, 16:9=56.25%, 3:2=66.66666667%
-        @include var.md(){
+        @include var.md() {
             margin-top: 13.5rem * 1.8;
         }
 
@@ -231,15 +230,15 @@
             $gap: $p * 1.5;
             $gap_mobile: 13rem;
             gap: $gap;
-            @include var.md(){
+            @include var.md() {
                 gap: $gap_mobile;
             }
             .block-image {
                 width: calc(100% / 3 - $gap);
-                // padding-top: calc($crop / $i); 
+                // padding-top: calc($crop / $i);
                 margin: 0 auto;
 
-                @include var.md(){
+                @include var.md() {
                     width: calc(100% / 3 - $gap_mobile);
                 }
             }
@@ -252,35 +251,31 @@
                 @if $i == 1 {
                     $gap: $p * 2;
                     gap: $gap;
-                    @include var.md(){
+                    @include var.md() {
                         $gap_mobile: 17rem;
                         gap: $gap_mobile;
                     }
-                }
-
-                @else if $i > 1 and $i < 5 {
+                } @else if $i > 1 and $i < 5 {
                     $gap: $p * 1.5;
                     $gap_mobile: 13rem;
                     gap: $gap;
-                    @include var.md(){
+                    @include var.md() {
                         gap: $gap_mobile;
                     }
-                }
-
-                @else {
+                } @else {
                     $gap: $p * 1;
                     gap: $gap;
-                    @include var.md(){
+                    @include var.md() {
                         $gap_mobile: 10rem;
                         gap: $gap_mobile;
                     }
                 }
                 .block-image {
                     width: calc(100% / $i - $gap);
-                    // padding-top: calc($crop / $i); 
+                    // padding-top: calc($crop / $i);
                     margin: 0 auto;
 
-                    @include var.md(){
+                    @include var.md() {
                         width: calc(100% / $i - $gap_mobile);
                     }
                 }
@@ -364,7 +359,8 @@
      * iframe
      */
     iframe {
-        &[src*='https://www.google.com/maps/embed'] {
+        &[src*='https://www.google.com/maps/embed']
+        {
             width: 100%;
 
             @include var.md() {
@@ -378,11 +374,11 @@
      */
     .block-table {
         margin-top: $p * 2.5;
-        font-size: $p * .9375;
+        font-size: $p * 0.9375;
 
         @include var.md() {
             margin-top: $p_mobile * 1.8;
-            font-size: $p_mobile * .9375;
+            font-size: $p_mobile * 0.9375;
         }
 
         table {
