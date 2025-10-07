@@ -193,27 +193,124 @@ class ClubActivitiesController extends PlainPhpController
 
         ];
 
-        // 部活動データの配列
+        // 運動部データの配列
         $club_activities_sports = [
             [
-                'badge' => 'かみあり国スポ強化指定校',
                 'bracket' => '目指せ全国大会出場',
                 'club_name' => '女子柔道部',
                 'captain_name' => '主将 國谷 菜々心 さん',
-                'image' => 'school-life/club-activities/pickup1',
+                'image' => 'school-life/club-activities/sports1',
                 'comment' => '３年生４人、２年生２人、１年生７人の計13人で活動しています。みんなで声をかけ、助け合いながら心身ともに成長できるよう日々練習をしています。県大会で優勝する感動など、充実した学校生活を一緒に体験しましょう。',
-                'achievements' => [
-                    '令和４年度 インターハイ57kg級第３位',
-                    '令和５年度 インターハイ48kg,52kg,70kg,78kg,78kg超級出場',
-                    '令和６年度 全国高校選手権個人52kg,57kg,無差別級・団体出場'
-                ],
-                'coach_title' => '指導者の横顔',
-                'coach_name' => '監督　青木 聡美',
-                'coach_description' => '出雲西高校在学中は、インターハイ出場、中国大会団体・個人優勝、金鷲旗（全国大会） ３位などの実績を持つ。あさひ銀行（現・りそな銀行）・日水製薬など実業団でも全国大会で入賞。本校の指導者としても多くの選手をインターハイや国体などに出場させている。',
-                'coach_image' => 'school-life/club-activities/pickup1_add',
-                'reverse' => false
+            ],
+            [
+                'bracket' => '目指せ全国大会出場',
+                'club_name' => '女子柔道部',
+                'captain_name' => '主将 國谷 菜々心 さん',
+                'image' => 'school-life/club-activities/sports2',
+                'comment' => '３年生４人、２年生２人、１年生７人の計13人で活動しています。みんなで声をかけ、助け合いながら心身ともに成長できるよう日々練習をしています。県大会で優勝する感動など、充実した学校生活を一緒に体験しましょう。',
+            ],
+            [
+                'bracket' => '目指せ全国大会出場',
+                'club_name' => '女子柔道部',
+                'captain_name' => '主将 國谷 菜々心 さん',
+                'image' => 'school-life/club-activities/sports3',
+                'comment' => '３年生４人、２年生２人、１年生７人の計13人で活動しています。みんなで声をかけ、助け合いながら心身ともに成長できるよう日々練習をしています。県大会で優勝する感動など、充実した学校生活を一緒に体験しましょう。',
+            ],
+            [
+                'bracket' => '目指せ全国大会出場',
+                'club_name' => '女子柔道部',
+                'captain_name' => '主将 國谷 菜々心 さん',
+                'image' => 'school-life/club-activities/sports4',
+                'comment' => '３年生４人、２年生２人、１年生７人の計13人で活動しています。みんなで声をかけ、助け合いながら心身ともに成長できるよう日々練習をしています。県大会で優勝する感動など、充実した学校生活を一緒に体験しましょう。',
+            ],
+            [
+                'bracket' => '目指せ全国大会出場',
+                'club_name' => '女子柔道部',
+                'captain_name' => '主将 國谷 菜々心 さん',
+                'image' => 'school-life/club-activities/sports5',
+                'comment' => '３年生４人、２年生２人、１年生７人の計13人で活動しています。みんなで声をかけ、助け合いながら心身ともに成長できるよう日々練習をしています。県大会で優勝する感動など、充実した学校生活を一緒に体験しましょう。',
+            ],
+            [
+                'bracket' => '目指せ全国大会出場',
+                'club_name' => '女子柔道部',
+                'captain_name' => '主将 國谷 菜々心 さん',
+                'image' => 'school-life/club-activities/sports6',
+                'comment' => '３年生４人、２年生２人、１年生７人の計13人で活動しています。みんなで声をかけ、助け合いながら心身ともに成長できるよう日々練習をしています。県大会で優勝する感動など、充実した学校生活を一緒に体験しましょう。',
+            ],
+            [
+                'bracket' => '目指せ全国大会出場',
+                'club_name' => '女子柔道部',
+                'captain_name' => '主将 國谷 菜々心 さん',
+                'image' => 'school-life/club-activities/sports7',
+                'comment' => '３年生４人、２年生２人、１年生７人の計13人で活動しています。みんなで声をかけ、助け合いながら心身ともに成長できるよう日々練習をしています。県大会で優勝する感動など、充実した学校生活を一緒に体験しましょう。',
+            ],
+            [
+                'bracket' => '目指せ全国大会出場',
+                'club_name' => '女子柔道部',
+                'captain_name' => '主将 國谷 菜々心 さん',
+                'image' => 'school-life/club-activities/sports8',
+                'comment' => '３年生４人、２年生２人、１年生７人の計13人で活動しています。みんなで声をかけ、助け合いながら心身ともに成長できるよう日々練習をしています。県大会で優勝する感動など、充実した学校生活を一緒に体験しましょう。',
+            ],
+            [
+                'bracket' => '目指せ全国大会出場',
+                'club_name' => '女子柔道部',
+                'captain_name' => '主将 國谷 菜々心 さん',
+                'image' => 'school-life/club-activities/sports9',
+                'comment' => '３年生４人、２年生２人、１年生７人の計13人で活動しています。みんなで声をかけ、助け合いながら心身ともに成長できるよう日々練習をしています。県大会で優勝する感動など、充実した学校生活を一緒に体験しましょう。',
             ]
+        ];
 
+        // 文化部データの配列
+        $club_activities_culture = [
+            [
+                'bracket' => '目指せ全国大会出場',
+                'club_name' => '女子柔道部',
+                'captain_name' => '主将 國谷 菜々心 さん',
+                'image' => 'school-life/club-activities/culture1',
+                'comment' => '３年生４人、２年生２人、１年生７人の計13人で活動しています。みんなで声をかけ、助け合いながら心身ともに成長できるよう日々練習をしています。県大会で優勝する感動など、充実した学校生活を一緒に体験しましょう。',
+            ],
+            [
+                'bracket' => '目指せ全国大会出場',
+                'club_name' => '女子柔道部',
+                'captain_name' => '主将 國谷 菜々心 さん',
+                'image' => 'school-life/club-activities/culture2',
+                'comment' => '３年生４人、２年生２人、１年生７人の計13人で活動しています。みんなで声をかけ、助け合いながら心身ともに成長できるよう日々練習をしています。県大会で優勝する感動など、充実した学校生活を一緒に体験しましょう。',
+            ],
+            [
+                'bracket' => '目指せ全国大会出場',
+                'club_name' => '女子柔道部',
+                'captain_name' => '主将 國谷 菜々心 さん',
+                'image' => 'school-life/club-activities/culture3',
+                'comment' => '３年生４人、２年生２人、１年生７人の計13人で活動しています。みんなで声をかけ、助け合いながら心身ともに成長できるよう日々練習をしています。県大会で優勝する感動など、充実した学校生活を一緒に体験しましょう。',
+            ],
+            [
+                'bracket' => '目指せ全国大会出場',
+                'club_name' => '女子柔道部',
+                'captain_name' => '主将 國谷 菜々心 さん',
+                'image' => 'school-life/club-activities/culture4',
+                'comment' => '３年生４人、２年生２人、１年生７人の計13人で活動しています。みんなで声をかけ、助け合いながら心身ともに成長できるよう日々練習をしています。県大会で優勝する感動など、充実した学校生活を一緒に体験しましょう。',
+            ],
+            [
+                'bracket' => '目指せ全国大会出場',
+                'club_name' => '女子柔道部',
+                'captain_name' => '主将 國谷 菜々心 さん',
+                'image' => 'school-life/club-activities/culture5',
+                'comment' => '３年生４人、２年生２人、１年生７人の計13人で活動しています。みんなで声をかけ、助け合いながら心身ともに成長できるよう日々練習をしています。県大会で優勝する感動など、充実した学校生活を一緒に体験しましょう。',
+            ],
+            [
+                'bracket' => '目指せ全国大会出場',
+                'club_name' => '女子柔道部',
+                'captain_name' => '主将 國谷 菜々心 さん',
+                'image' => 'school-life/club-activities/culture6',
+                'comment' => '３年生４人、２年生２人、１年生７人の計13人で活動しています。みんなで声をかけ、助け合いながら心身ともに成長できるよう日々練習をしています。県大会で優勝する感動など、充実した学校生活を一緒に体験しましょう。',
+            ],
+            [
+                'bracket' => '目指せ全国大会出場',
+                'club_name' => '女子柔道部',
+                'captain_name' => '主将 國谷 菜々心 さん',
+                'image' => 'school-life/club-activities/sports7',
+                'comment' => '３年生４人、２年生２人、１年生７人の計13人で活動しています。みんなで声をかけ、助け合いながら心身ともに成長できるよう日々練習をしています。県大会で優勝する感動など、充実した学校生活を一緒に体験しましょう。',
+            ]
         ];
 
         $data = [
@@ -221,6 +318,7 @@ class ClubActivitiesController extends PlainPhpController
             'content' => get_the_content(),
             'club_activities_pickup' => $club_activities_pickup,
             'club_activities_sports' => $club_activities_sports,
+            'club_activities_culture' => $club_activities_culture,
             'styles' => [
                 'components/global',
                 'components/block_editor_content',

@@ -149,6 +149,80 @@
             </div>
         </section>
 
+        <section class="club-activities-content has_margin-top">
+            <h2 class="club-activities-content-heading2">
+                <span class="ja">運動部</span>
+                <span class="en">SPORTS CLUB</span>
+            </h2>
+
+            <div class="club-activities-content-items club-activities-content-items--sports-cluture">
+
+                <?php if (isset($data['club_activities_sports']) && is_array($data['club_activities_sports'])): ?>
+                    <?php foreach ($data['club_activities_sports'] as $activity): ?>
+
+                        <div class="club-activities-content-item">
+                            <div class="club-activities-content-item_profile">
+                                <div class="club-activities-content-item_profile--text">
+                                    <p class="club-activities-content-item_profile--bracket"><?php echo esc_html($activity['bracket']); ?></p>
+                                    <p class="club-activities-content-item_profile--club-name"><?php echo esc_html($activity['club_name']); ?></p>
+                                    <div class="club-activities-content-item_profile--name"><?php echo esc_html($activity['captain_name']); ?></div>
+                                </div>
+                                <figure class="club-activities-content-item_profile--image">
+                                    <?php echo picture(
+                                        get_theme_file_uri(),
+                                        $activity['image'],
+                                        'jpg',
+                                        '',
+                                        'webp',
+                                    ); ?>
+                                </figure>
+                            </div>
+                            <p class="club-activities-content-item-comment"><?php echo esc_html($activity['comment']); ?></p>
+                        </div>
+
+                    <?php endforeach; ?>
+                <?php endif; ?>
+
+            </div>
+        </section>
+
+        <section class="club-activities-content has_margin-top">
+            <h2 class="club-activities-content-heading2">
+                <span class="ja">文化部・同好会</span>
+                <span class="en">CULTURE CLUB</span>
+            </h2>
+
+            <div class="club-activities-content-items club-activities-content-items--sports-cluture">
+
+                <?php if (isset($data['club_activities_culture']) && is_array($data['club_activities_culture'])): ?>
+                    <?php foreach ($data['club_activities_culture'] as $activity): ?>
+
+                        <div class="club-activities-content-item">
+                            <div class="club-activities-content-item_profile">
+                                <div class="club-activities-content-item_profile--text">
+                                    <p class="club-activities-content-item_profile--bracket"><?php echo esc_html($activity['bracket']); ?></p>
+                                    <p class="club-activities-content-item_profile--club-name"><?php echo esc_html($activity['club_name']); ?></p>
+                                    <div class="club-activities-content-item_profile--name"><?php echo esc_html($activity['captain_name']); ?></div>
+                                </div>
+                                <figure class="club-activities-content-item_profile--image">
+                                    <?php echo picture(
+                                        get_theme_file_uri(),
+                                        $activity['image'],
+                                        'jpg',
+                                        '',
+                                        'webp',
+                                    ); ?>
+                                </figure>
+                            </div>
+                            <p class="club-activities-content-item-comment"><?php echo esc_html($activity['comment']); ?></p>
+                        </div>
+
+                    <?php endforeach; ?>
+                <?php endif; ?>
+
+            </div>
+        </section>
+
 
     </div>
 

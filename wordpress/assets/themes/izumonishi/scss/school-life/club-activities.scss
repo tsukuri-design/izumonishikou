@@ -72,6 +72,10 @@
     max-width: 855rem;
     margin: 0 auto;
 
+    &.has_margin-top {
+        margin-top: 100rem;
+    }
+
     &-heading2 {
         display: flex;
         flex-direction: column;
@@ -101,13 +105,21 @@
         display: flex;
         flex-direction: column;
         gap: 50rem;
+
+        &--sports-cluture {
+            flex-flow: row wrap;
+            gap: 51rem 21rem;
+
+            .club-activities-content-item {
+                flex-basis: calc((100% - 42rem) / 3);
+            }
+        }
     }
 
     &-item_wrap {
         display: flex;
         flex-direction: row;
         gap: 25rem;
-        align-items: flex-start;
 
         &--reverse {
             flex-direction: row-reverse;
@@ -121,13 +133,13 @@
     }
 
     &-item_profile {
-        position: relative;
-        z-index: 1;
         display: flex;
         flex-direction: row;
         align-items: flex-end;
 
         &--text {
+            position: relative;
+            z-index: 1;
             display: flex;
             flex: 1;
             flex-direction: column;
@@ -238,6 +250,7 @@
         flex: 1;
         flex-direction: column;
         gap: 10rem;
+        justify-content: center;
         padding: 23rem 25rem;
         text-align: left;
         background: rgba(#dbe7f3, 0.5);
