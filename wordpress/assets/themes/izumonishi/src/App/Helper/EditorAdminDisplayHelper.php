@@ -6,11 +6,12 @@
 
 if (!current_user_can('administrator')) {
     /** WordPress本体の更新通知を非表示 */
-    function hide_update_nag() {
-        remove_action( 'admin_notices', 'update_nag', 3 );
-        remove_action( 'admin_notices', 'maintenance_nag', 10 );
+    function hide_update_nag()
+    {
+        remove_action('admin_notices', 'update_nag', 3);
+        remove_action('admin_notices', 'maintenance_nag', 10);
     }
-    add_action( 'admin_init', 'hide_update_nag' );
+    add_action('admin_init', 'hide_update_nag');
 
     /** 左メニュー周り */
     function removeMenus()
@@ -59,7 +60,8 @@ if (!current_user_can('administrator')) {
 
         // $wp_admin_bar->remove_menu('menu-toggle'); // メニュー.
     }
-    add_action('admin_bar_menu', 'removeAdminBarMenu', 999);
+    // add_action('admin_bar_menu', 'removeAdminBarMenu', 999);
+    add_filter('show_admin_bar', '__return_true');
 
     /** 右上のヘルプを非表示 */
     function disableHelpLink()

@@ -2,9 +2,9 @@
 
     <h1 class="heading1">
         <?php if (isset($data['parent_info']) && $data['parent_info']): ?>
-                        <a class="singular__parent-link" href="<?php echo esc_url($data['parent_info']['url']); ?>">
-                            <?php echo esc_html($data['parent_info']['text']); ?>
-                        </a>
+            <a class="singular__parent-link" href="<?php echo esc_url($data['parent_info']['url']); ?>">
+                <?php echo esc_html($data['parent_info']['text']); ?>
+            </a>
         <?php endif; ?>
         <div class="heading_inner">
             <?php if (get_field('en')): ?><span class="en"><?php echo get_field('en'); ?></span><?php endif; ?>

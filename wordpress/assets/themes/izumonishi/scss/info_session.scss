@@ -1,23 +1,4 @@
 @use 'components/variables' as var;
-@use 'components/global';
-
-// @use 'components/menu';
-// @use 'components/sub_page';
-// @use 'components/singular_shared';
-// @use 'components/more';
-// @use 'components/footer';
-@use 'components/block_editor_content';
-
-.heading3 {
-    margin: 110rem auto 60rem;
-    font-size: 40rem;
-    font-weight: 700;
-    text-align: left;
-
-    &:first-child {
-        margin-top: 0;
-    }
-}
 
 .session {
     display: flex;
@@ -27,7 +8,9 @@
 
     @include var.md {
         flex-direction: column;
+        width: 84%;
         min-height: unset;
+        margin: 0 auto;
     }
 
     .session__left {
@@ -67,6 +50,10 @@
         font-weight: 400;
         letter-spacing: 0.03em;
         -webkit-text-stroke: 0.2px #fff;
+
+        @include var.md {
+            margin: 12rem auto 5rem;
+        }
     }
 
     .month,
@@ -225,6 +212,10 @@
         justify-content: flex-start;
         width: 100%;
         margin: 25rem auto 20rem;
+
+        @include var.md {
+            flex-direction: column;
+        }
     }
 
     .session__audience {
@@ -241,6 +232,13 @@
             display: flex;
             color: #fff;
             background: var.$key_color;
+            -webkit-text-stroke: 0.2px #fff;
+        }
+
+        &--self-recommendation {
+            display: flex;
+            color: #fff;
+            background: #16569c;
             -webkit-text-stroke: 0.2px #fff;
         }
 

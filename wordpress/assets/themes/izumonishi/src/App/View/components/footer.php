@@ -19,7 +19,7 @@
         <a href="<?php echo get_home_url(); ?>/about/" class="site-footer__link">学校案内</a>
         <a href="<?php echo get_home_url(); ?>/learning/" class="site-footer__link">出雲西の学び</a>
         <a href="<?php echo get_home_url(); ?>/entry/" class="site-footer__link">入試情報</a>
-        <a href="<?php echo get_home_url(); ?>/results/" class="site-footer__link">進学実績</a>
+        <a href="<?php echo get_home_url(); ?>/career/" class="site-footer__link">進学実績</a>
         <a href="<?php echo get_home_url(); ?>/school-life/" class="site-footer__link">学校生活</a>
         <?php /* <a href="<?php echo get_home_url(); ?>/faq/" class="site-footer__link">よくある質問</a> */ ?>
         <a href="<?php echo get_home_url(); ?>/contact/" class="site-footer__link">お問い合わせ</a>
@@ -37,6 +37,9 @@
 </div>
 
 <?php \App\Helper\ScriptsHelper::print($data['scripts'] ?? []); ?>
+<?php if (function_exists('wp_footer')) {
+    wp_footer();
+} ?>
 </body>
 
 </html>

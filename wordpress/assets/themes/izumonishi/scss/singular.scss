@@ -45,9 +45,16 @@
         color: #11151a;
         letter-spacing: 0.04em;
         border-bottom: 0.75px solid #16569c;
+
+        @include var.md {
+            padding-bottom: 6rem;
+            margin: 0 auto 16rem;
+        }
     }
 
     .heading1 {
+        position: relative;
+        z-index: 1;
         display: flex;
         flex-basis: 330rem;
         flex-direction: column;
@@ -58,6 +65,7 @@
 
         @include var.md {
             flex-basis: unset;
+            padding-left: 0;
             margin: 20rem auto 27rem;
             text-align: center;
         }
@@ -75,8 +83,8 @@
             @include var.md {
                 max-width: unset;
                 margin-bottom: 12rem;
-                font-size: 34rem;
-                letter-spacing: 0.03em;
+                font-size: 30rem;
+                letter-spacing: 0;
             }
         }
 

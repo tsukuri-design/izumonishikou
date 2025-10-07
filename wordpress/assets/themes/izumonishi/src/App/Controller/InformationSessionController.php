@@ -30,6 +30,9 @@ class InformationSessionController extends PlainPhpController
         // Fetch all upcoming sessions (no parent slug filtering)
         $info_sessions = $this->getInfo();
 
+        // 親ページ情報を取得
+        $parent_info = $this->getParentPageInfo();
+
         // Normalize for view (flat list)
         $normalized = [];
         foreach ($info_sessions as $session) {
@@ -74,7 +77,13 @@ class InformationSessionController extends PlainPhpController
             'title' => get_the_title(),
             'en_title' => get_field('en'),
             'content' => get_the_content(),
-            'styles' => ['singular', 'info_session'],
+            'parent_info' => $parent_info,
+            'styles' => [
+                'components/global',
+                'components/block_editor_content',
+                'singular',
+                'info_session'
+            ],
             'scripts' => [
                 'typekit',
                 'noie',
@@ -169,6 +178,41 @@ class InformationSessionController extends PlainPhpController
         }
 
         return $info_sessions;
+    }
+
+    private function getParentPageInfo(): ?array
+    {
+        $current_id = get_the_ID();
+
+        // URLからページIDを直接取得を試行
+        $url_parts = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
+        $potential_page_id = null;
+        foreach ($url_parts as $part) {
+            if (is_numeric($part)) {
+                $potential_page_id = (int) $part;
+                break;
+            }
+        }
+
+        // 実際のページIDを使用（URLから取得したIDまたは現在のID）
+        $actual_page_id = $potential_page_id ?: $current_id;
+        $ancestors = get_post_ancestors($actual_page_id);
+
+        if (!empty($ancestors)) {
+            $top_parent_id = end($ancestors);
+            $parent_en = function_exists('get_field') ? get_field('en', $top_parent_id) : '';
+            $parent_url = get_permalink($top_parent_id);
+            $parent_text = $parent_en ? $parent_en : get_the_title($top_parent_id);
+
+            return [
+                'id' => $top_parent_id,
+                'url' => $parent_url,
+                'text' => $parent_text,
+                'en' => $parent_en
+            ];
+        }
+
+        return null;
     }
 
     public function redirect(array $args = []): void

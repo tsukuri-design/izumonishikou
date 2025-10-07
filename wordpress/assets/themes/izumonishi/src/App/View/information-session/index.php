@@ -1,7 +1,22 @@
-<div class="page-header">
-    <figure class="page-header__image">
-        <?php echo get_the_post_thumbnail(); ?>
-    </figure>
+<div class="top_wrap">
+
+    <h1 class="heading1">
+        <?php if (isset($data['parent_info']) && $data['parent_info']): ?>
+                    <a class="singular__parent-link" href="<?php echo esc_url($data['parent_info']['url']); ?>">
+                        <?php echo esc_html($data['parent_info']['text']); ?>
+                    </a>
+        <?php endif; ?>
+        <div class="heading_inner">
+            <?php if (get_field('en')): ?><span class="en"><?php echo get_field('en'); ?></span><?php endif; ?>
+            <span class="ja"><?php echo get_the_title(); ?></span>
+        </div>
+    </h1>
+    <?php if (get_the_post_thumbnail()): ?>
+        <div class="top_image">
+            <?php echo get_the_post_thumbnail(); ?>
+        </div>
+    <?php endif; ?>
+
 </div>
 <div class="singular__main">
     <h1 class="heading1">
@@ -39,8 +54,8 @@
                                     <div class="session__audiences">
                                         <?php foreach ($session['audiences'] as $a): ?>
                                             <span class="session__audience <?php echo !empty($a['slug']) ? 'session__audience--' . esc_attr($a['slug']) : ''; ?>">
-                                                                                                    <?php echo esc_html($a['name']); ?>
-                                                                                                </span>
+                                                                                                                                    <?php echo esc_html($a['name']); ?>
+                                                                                                                                </span>
                                         <?php endforeach; ?>
                                     </div>
                                 <?php endif; ?>
@@ -65,7 +80,9 @@
                 <?php endforeach; ?>
             <?php endif; ?>
 
-            <div class="block-button"><a href="<?php echo get_home_url(); ?>/contact/admissions-contact/">メールでのお申し込みはこちら</a></div>
+            <?php /*
+              * <div class="block-button"><a href="<?php echo get_home_url(); ?>/contact/admissions-contact/">メールでのお申し込みはこちら</a></div>
+              */ ?>
         </div>
     </div>
     <?php echo get_custom_related_posts(); ?>
