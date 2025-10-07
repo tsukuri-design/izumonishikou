@@ -3,9 +3,19 @@
 .club-activities {
     &-first-view {
         display: flex;
+        margin-left: -75rem;
+
+        @include var.md {
+            flex-direction: column;
+            margin-left: 0;
+        }
 
         &-image {
             flex-basis: 736rem;
+
+            @include var.md {
+                flex-basis: unset;
+            }
         }
 
         &-text {
@@ -17,6 +27,12 @@
             margin-left: -70rem;
             text-align: left;
             white-space: nowrap;
+
+            @include var.md {
+                width: 84%;
+                margin: 38rem auto;
+                white-space: normal;
+            }
         }
 
         &-heading2 {
@@ -33,13 +49,21 @@
 
         &-en {
             margin-top: 20rem;
+
+            @include var.md {
+                margin-top: 0;
+            }
         }
     }
 }
 
 .club-activities-image-loop {
-    margin: 85rem auto;
+    margin: 85rem -75rem;
     overflow: hidden;
+
+    @include var.md {
+        margin: 15rem -8% 54rem;
+    }
 
     &__track {
         display: flex;
@@ -51,6 +75,10 @@
     &-image {
         flex: 0 0 auto;
         width: 390rem;
+
+        @include var.md {
+            width: 210rem;
+        }
     }
 }
 
@@ -67,6 +95,10 @@
 .club-activities-content {
     max-width: 855rem;
     margin: 0 auto;
+
+    @include var.md {
+        width: 84%;
+    }
 
     &--sports-culture {
         max-width: 950rem;
@@ -103,9 +135,17 @@
         flex-direction: column;
         gap: 60rem;
 
+        @include var.md {
+            flex-direction: column;
+        }
+
         &--sports-cluture {
             flex-flow: row wrap;
             gap: 51rem 21rem;
+
+            @include var.md {
+                flex-direction: column;
+            }
 
             .club-activities-content-item {
                 flex-basis: calc((100% - 42rem) / 3);
@@ -118,8 +158,16 @@
         flex-direction: row;
         gap: 25rem;
 
+        @include var.md {
+            flex-direction: column;
+        }
+
         &--reverse {
             flex-direction: row-reverse;
+
+            @include var.md {
+                flex-direction: column;
+            }
         }
     }
 
@@ -133,6 +181,11 @@
         &:nth-child(6n + 6) {
             .club-activities-content-item_profile {
                 flex-direction: row-reverse;
+            }
+
+            .club-activities-content-item-comment::before {
+                right: 22%;
+                left: unset;
             }
         }
     }
@@ -319,6 +372,10 @@
             display: flex;
             gap: 20rem;
             align-items: flex-end;
+
+            @include var.md {
+                flex-direction: column;
+            }
         }
 
         &_text {
@@ -327,6 +384,12 @@
 
         &_image {
             flex-basis: 119rem;
+
+            @include var.md {
+                flex-basis: unset;
+                width: 50%;
+                margin: 0 auto;
+            }
         }
     }
 }

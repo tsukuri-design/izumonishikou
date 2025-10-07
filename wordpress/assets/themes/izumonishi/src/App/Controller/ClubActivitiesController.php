@@ -261,7 +261,7 @@ class ClubActivitiesController extends PlainPhpController
             [
                 'bracket' => '目指せ全国上位入賞！',
                 'club_name' => 'ゲートボール部',
-                'captain_name' => '主将 國谷 菜々心 さん',
+                'captain_name' => '部長 山本 悠真 さん',
                 'image' => 'school-life/club-activities/sports10',
                 'comment' => 'ゲートボールは、幅広い年代の方々と交流しながら楽しめるスポーツです。ルールや技術は丁寧に教えていますので、初心者の方も安心して始められます。出雲西高校ゲートボール部で全国大会出場を目指して一緒に頑張りましょう！',
             ]
@@ -272,7 +272,7 @@ class ClubActivitiesController extends PlainPhpController
             [
                 'bracket' => '学校を盛り上げる',
                 'club_name' => '写真部',
-                'captain_name' => '主将 鎌田 一輝 さん',
+                'captain_name' => '部長 鎌田 一輝 さん',
                 'image' => 'school-life/club-activities/culture1',
                 'comment' => '私たち写真部は、限られた時間の中でも一日一日を大切にし、日々活動に励んでいます。撮影日にはさまざまな場所へ出かけ、ミーティング日には撮影した写真の鑑賞会を行なっています。初心者の方も大歓迎です。一緒に頑張りましょう！',
             ],
@@ -315,7 +315,7 @@ class ClubActivitiesController extends PlainPhpController
                 'bracket' => '笑顔で楽しむ！',
                 'club_name' => 'ダンス同好会',
                 'captain_name' => '部長 持田 綺菜 さん',
-                'image' => 'school-life/club-activities/sports7',
+                'image' => 'school-life/club-activities/culture7',
                 'comment' => '私たちダンス部は、「みんなで楽しく笑顔で踊る」をモットーに日々活動しています。ダンス経験の有無に関係なく、初心者の方も大歓迎です。ダンスに興味のある方は、ぜひ一緒に踊ってみませんか？',
             ]
         ];

@@ -37,6 +37,10 @@
             font-size: $p_mobile * 1.333;
             line-height: 150%;
         }
+
+        + .block-columns {
+            margin-top: 30rem;
+        }
     }
 
     h3 {
@@ -201,7 +205,18 @@
         }
 
         &.big-buttons {
+            justify-content: flex-start;
+
             .block-button {
+                &.w-1-3 {
+                    flex: unset;
+                    flex-basis: calc((100% - 52rem) / 3);
+
+                    @include var.md {
+                        flex-basis: 100%;
+                    }
+                }
+
                 a {
                     display: flex;
                     justify-content: center;
@@ -250,7 +265,6 @@
 
             @include var.md {
                 font-size: $p_mobile * 1.066;
-                border-radius: 30rem;
             }
 
             &::after {
@@ -437,6 +451,73 @@
             align-items: center;
         }
 
+        &--download {
+            gap: 27rem;
+            max-width: 700rem;
+            margin-top: 22rem;
+            margin-left: 0;
+
+            @include var.md {
+                gap: 8rem;
+            }
+
+            .block-column {
+                &:first-child {
+                    display: flex;
+                    flex: unset;
+                    align-items: center;
+                    justify-content: center;
+                    width: 152rem;
+                    height: 52rem;
+                    color: #fff;
+                    text-align: center;
+                    background: #16569c;
+
+                    @include var.md {
+                        width: 100%;
+                        height: 38rem;
+                    }
+
+                    p {
+                        line-height: 112.5%;
+                    }
+                }
+
+                &:nth-child(2) {
+                    flex: 1;
+
+                    @include var.md {
+                        width: 100%;
+                    }
+                }
+
+                .block-button__link {
+                    position: relative;
+                    height: 52rem;
+                    padding: 0 17rem 5rem 0;
+                    border-top: unset;
+                    border-right: unset;
+                    border-bottom: 0.75px solid #16569c;
+                    border-left: unset;
+
+                    @include var.md {
+                        width: 100%;
+                        border-radius: unset;
+                    }
+
+                    &::before {
+                        position: absolute;
+                        top: calc(100% - 0.15px);
+                        right: 0;
+                        width: 52rem;
+                        height: 0.75px;
+                        content: '';
+                        background: #16569c;
+                    }
+                }
+            }
+        }
+
         *,
         .block-image {
             margin: 0;
@@ -454,6 +535,10 @@
         .block-media-text__media,
         .block-media-text__content {
             flex: 1;
+
+            @include var.md {
+                width: 100%;
+            }
         }
     }
 
@@ -498,7 +583,8 @@
      * iframe
      */
     iframe {
-        &[src*='https://www.google.com/maps/embed'] {
+        &[src*='https://www.google.com/maps/embed']
+        {
             width: 100%;
 
             @include var.md {
@@ -553,8 +639,22 @@
             width: 50%;
         }
 
+        &.has-header {
+            tr:first-child {
+                td {
+                    background: #dbe7f3;
+                }
+            }
+        }
+
         &.left-row-header {
             td:first-child {
+                background: #dbe7f3;
+            }
+        }
+
+        &.left-second-row-header {
+            td:nth-child(2) {
                 background: #dbe7f3;
             }
         }
@@ -579,7 +679,7 @@
         }
 
         &.no-first-cell {
-            thead tr th:first-child {
+            tr:first-child td:first-child {
                 color: #fff;
                 background: #fff;
             }
@@ -665,6 +765,10 @@
     .related-posts {
         margin-top: 60rem;
         margin-bottom: 52rem;
+
+        @include var.md {
+            width: 100%;
+        }
     }
 
     .block-group {
