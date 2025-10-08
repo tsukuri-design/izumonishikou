@@ -36,6 +36,25 @@
         }
     }
 
+    .image-text {
+        position: absolute;
+        bottom: 30rem;
+        left: 36rem;
+        font-size: 19rem;
+        line-height: 178%;
+        color: #feffff;
+        text-align: left;
+        letter-spacing: 0.07em;
+        -webkit-text-stroke: 0.2px;
+
+        @include var.md {
+            bottom: 10rem;
+            left: 0;
+            padding: 0 3vw;
+            font-size: 15rem;
+        }
+    }
+
     .singular__parent-link {
         padding-bottom: 9rem;
         margin-top: -50rem;

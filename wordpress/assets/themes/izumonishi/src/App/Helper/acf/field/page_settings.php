@@ -9,6 +9,26 @@ add_action('acf/include_fields', function () {
         'title' => 'ページ設定',
         'fields' => array(
             array(
+                'key' => 'field_image_text',
+                'label' => '画像テキスト',
+                'name' => 'image_text',
+                'aria-label' => '',
+                'type' => 'textarea',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'maxlength' => '',
+                'rows' => '',
+                'placeholder' => '',
+                'new_lines' => 'br',
+            ),
+            array(
                 'key' => 'field_68cb615c51855',
                 'label' => '一覧用画像',
                 'name' => 'image',
