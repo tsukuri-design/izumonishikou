@@ -139,6 +139,8 @@
         transform: translate(-50%, 0%);
 
         @include var.md {
+            top: 60rem;
+            left: calc(50% - 40rem);
             width: 88%;
         }
     }
@@ -187,6 +189,10 @@
         // width: 270rem;
         width: var.pixelOnLargeDisplay(318);
         text-emphasis: left;
+
+        @include var.md {
+            width: 250rem;
+        }
 
         .topics__text-wrap {
             padding: 0 10rem;

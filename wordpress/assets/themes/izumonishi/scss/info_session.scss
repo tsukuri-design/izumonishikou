@@ -10,7 +10,7 @@
         flex-direction: column;
         width: 84%;
         min-height: unset;
-        margin: 0 auto;
+        margin: 30rem auto 0;
     }
 
     .session__left {
@@ -135,11 +135,16 @@
         -webkit-text-stroke: 0.2px var.$black;
     }
 
+    .links_wrap {
+        display: flex;
+        gap: 24rem;
+    }
+
     .view_more {
         display: flex;
+        flex: 1;
         align-items: center;
         justify-content: space-between;
-        width: 100%;
         max-width: 332rem;
         margin: 30rem auto 0 0;
         font-size: 14rem;

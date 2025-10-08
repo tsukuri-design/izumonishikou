@@ -16,7 +16,7 @@
         </div>
         <div class="sns__item">
             <h3 class="heading3"><?php svg('sns3'); ?></h3>
-            <a href="#" target="_blank"><?php echo picture('', 'sns3', 'png', '', 'webp', '', '', '', ''); ?></a>
+            <a href="https://lin.ee/adnQk1nk" target="_blank"><?php echo picture('', 'sns3', 'png', '', 'webp', '', '', '', ''); ?></a>
         </div>
     </div>
 </section>

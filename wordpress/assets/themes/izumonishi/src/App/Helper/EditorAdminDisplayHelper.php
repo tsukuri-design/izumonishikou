@@ -61,7 +61,23 @@ if (!current_user_can('administrator')) {
         // $wp_admin_bar->remove_menu('menu-toggle'); // メニュー.
     }
     // add_action('admin_bar_menu', 'removeAdminBarMenu', 999);
-    add_filter('show_admin_bar', '__return_true');
+    // Run late so it wins over any earlier filters.
+    add_action('after_setup_theme', function () {
+        // In case something already set it to true:
+        remove_filter('show_admin_bar', '__return_true');
+
+        // Hide for logged-out users
+        if (!is_user_logged_in()) {
+            add_filter('show_admin_bar', '__return_false', 1000);
+            return;
+        }
+
+        // Optional: only show for users who can edit posts (editors/admins)
+        if (!current_user_can('edit_posts')) {
+            add_filter('show_admin_bar', '__return_false', 1000);
+        }
+    });
+
 
     /** 右上のヘルプを非表示 */
     function disableHelpLink()

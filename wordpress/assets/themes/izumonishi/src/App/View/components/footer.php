@@ -12,7 +12,7 @@
         <a href="https://www.youtube.com/@%E5%87%BA%E9%9B%B2%E8%A5%BF%E9%AB%98%E7%AD%89%E5%AD%A6%E6%A0%A1" target="_blank" class="site-footer__sns-link"><?php svg('youtube_white'); ?></a>
         <a href="https://www.facebook.com/izumonishi.education?ref=embed_page" target="_blank" class="site-footer__sns-link"><?php svg('facebook_white'); ?></a>
         <a href="https://www.instagram.com/izumo_nishi.education/" target="_blank" class="site-footer__sns-link"><?php svg('instagram_white'); ?></a>
-        <a href="" target="_blank" class="site-footer__sns-link"><?php svg('line_white'); ?></a>
+        <a href="https://lin.ee/adnQk1nk" target="_blank" class="site-footer__sns-link"><?php svg('line_white'); ?></a>
     </div>
 
     <div class="site-footer__links">
