@@ -60,4 +60,5 @@
             <figure class="uniform-image14"><?php echo picture('', 'school-life/uniform/uniform14', 'jpg', '', 'webp', '', '', '', ''); ?></figure>
         </div>
     </div>
+    <?php echo get_custom_related_posts(); ?>
 </div>

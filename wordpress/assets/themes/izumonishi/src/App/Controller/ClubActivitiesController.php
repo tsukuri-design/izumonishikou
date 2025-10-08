@@ -73,6 +73,7 @@ class ClubActivitiesController extends PlainPhpController
                 'lazysizes',
                 'smooth-scroll.polyfills',
                 'inview',
+                'global',
             ],
         ];
 
@@ -270,7 +271,7 @@ class ClubActivitiesController extends PlainPhpController
         // 文化部データの配列
         $club_activities_culture = [
             [
-                'bracket' => '学校を盛り上げる',
+                'bracket' => '目指せ全国大会出場！',
                 'club_name' => '写真部',
                 'captain_name' => '部長 鎌田 一輝 さん',
                 'image' => 'school-life/club-activities/culture1',

@@ -16,6 +16,14 @@
         padding: 0;
     }
 
+    &-large {
+        margin-top: 90rem;
+
+        @include var.md {
+            margin-top: 0;
+        }
+    }
+
     &::after,
     &::before {
         position: absolute;
@@ -109,7 +117,6 @@
 
     &-large {
         width: 787rem;
-        margin-top: 90rem;
         margin-bottom: 35rem;
 
         @include var.md {

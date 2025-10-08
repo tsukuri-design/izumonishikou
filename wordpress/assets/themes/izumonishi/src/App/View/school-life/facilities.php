@@ -120,7 +120,7 @@
             <div class="facility-slide facility-slide-13">
                 <?php echo picture('', 'school-life/facility/facility12', 'jpg', '', 'webp', '', '', '', ''); ?>
             </div>
-            <div class="arrow"><?php svg('slider_arrow'); ?></div>
+            <div class="arrow" style="display: none;"><?php svg('slider_arrow'); ?></div>
         </div>
         <div class="facility-slide-wrap facility-slide-wrap-13">
             <div class="slider-title">キャリア形成支援室</div>

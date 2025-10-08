@@ -204,7 +204,7 @@
             <figure class="event2"><?php echo picture('', 'school-life/school-events/event2', 'png', '', 'webp', '', '', '', ''); ?></figure>
             <figure class="event3"><?php echo picture('', 'school-life/school-events/event3', 'png', '', 'webp', '', '', '', ''); ?></figure>
             <figure class="event4"><?php echo picture('', 'school-life/school-events/event4', 'png', '', 'webp', '', '', '', ''); ?></figure>
-            <figure class="event5"><?php echo picture('', 'school-life/school-events/event5', 'png', '', 'webp', '', '', '', ''); ?></figure>
+            <figure class="event5"><?php echo picture('', 'school-life/school-events/event5', 'png', '', 'webp', '', '', '', '2'); ?></figure>
             <figure class="event6"><?php echo picture('', 'school-life/school-events/event6', 'png', '', 'webp', '', '', '', ''); ?></figure>
             <figure class="event7"><?php echo picture('', 'school-life/school-events/event7', 'png', '', 'webp', '', '', '', ''); ?></figure>
             <figure class="event8"><?php echo picture('', 'school-life/school-events/event8', 'png', '', 'webp', '', '', '', ''); ?></figure>

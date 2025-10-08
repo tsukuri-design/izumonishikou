@@ -5,7 +5,7 @@
 
 
 <footer class="site-footer">
-    <a class="site-footer__logo" href="<?php echo get_home_url(); ?>"><?php svg('logo_white'); ?></a>
+    <a class="site-footer__logo" href="<?php echo get_home_url(); ?>"><?php echo picture('', 'logo_white', 'png', '', '', '', '', '', ''); ?></a>
     <span class="site-footer__address">〒<span class="en">693-0032</span> 島根県出雲市下古志町<span class="en">1163</span><br><span class="en">TEL: 0853-21-1183</span>　<span class="en">FAX: 0853-21-1397</span></span>
 
     <div class="site-footer__sns">
@@ -18,7 +18,7 @@
     <div class="site-footer__links">
         <a href="<?php echo get_home_url(); ?>/about/" class="site-footer__link">学校案内</a>
         <a href="<?php echo get_home_url(); ?>/learning/" class="site-footer__link">出雲西の学び</a>
-        <a href="<?php echo get_home_url(); ?>/entry/" class="site-footer__link">入試情報</a>
+        <a href="<?php echo get_home_url(); ?>/admission/" class="site-footer__link">入試情報</a>
         <a href="<?php echo get_home_url(); ?>/career/" class="site-footer__link">進学実績</a>
         <a href="<?php echo get_home_url(); ?>/school-life/" class="site-footer__link">学校生活</a>
         <?php /* <a href="<?php echo get_home_url(); ?>/faq/" class="site-footer__link">よくある質問</a> */ ?>
@@ -28,8 +28,9 @@
     <div class="site-footer__links site-footer__links--small">
         <a href="<?php echo get_home_url(); ?>/access/" class="site-footer__link">アクセス</a>
         <a href="<?php echo get_home_url(); ?>/students-parents/" class="site-footer__link">在校生・保護者</a>
-        <a href="<?php echo get_home_url(); ?>/graduates/" class="site-footer__link">卒業生</a>
-        <a href="<?php echo get_home_url(); ?>/recruit/" class="site-footer__link">教員採用</a>
+        <a href="<?php echo get_home_url(); ?>/graduate/" class="site-footer__link">卒業生</a>
+        <a href="<?php echo get_home_url(); ?>/teacher-recruitment/" class="site-footer__link">教員採用</a>
+        <a href="<?php echo get_home_url(); ?>/privacy-policy/" class="site-footer__link">プライバシーポリシー</a>
     </div>
 
     <span class="site-footer__copy en">&copy;<?php echo wp_date('Y'); ?> IZUMO NISHI</span>
