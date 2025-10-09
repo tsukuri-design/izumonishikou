@@ -447,6 +447,12 @@
             }
         }
 
+        &.md-reverse {
+            @include var.md {
+                flex-direction: column-reverse;
+            }
+        }
+
         &.are-vertically-aligned-center {
             align-items: center;
         }
@@ -583,8 +589,7 @@
      * iframe
      */
     iframe {
-        &[src*='https://www.google.com/maps/embed']
-        {
+        &[src*='https://www.google.com/maps/embed'] {
             width: 100%;
 
             @include var.md {
