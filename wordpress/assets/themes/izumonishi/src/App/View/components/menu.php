@@ -123,7 +123,7 @@
                 </a>
             </li>
             <ul class="link_list">
-                <li class="item"><a href="<?php echo esc_url(get_home_url()); ?>/school-life/club-activities/">部活動・同好会</a></li>
+                <?php /*<li class="item"><a href="<?php echo esc_url(get_home_url()); ?>/school-life/club-activities/">部活動・同好会</a></li> */ ?>
                 <li class="item"><a href="<?php echo esc_url(get_home_url()); ?>/school-life/school-events/">学校行事</a></li>
                 <li class="item"><a href="<?php echo esc_url(get_home_url()); ?>/school-life/school-uniform/">制服</a></li>
                 <li class="item"><a href="<?php echo esc_url(get_home_url()); ?>/school-life/facilities/">施設・設備</a></li>

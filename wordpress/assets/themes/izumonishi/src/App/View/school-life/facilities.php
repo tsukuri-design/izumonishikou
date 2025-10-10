@@ -144,4 +144,5 @@
             <div class="arrow"><?php svg('slider_arrow'); ?></div>
         </div>
     </div>
+    <?php echo get_custom_related_posts(); ?>
 </div>
