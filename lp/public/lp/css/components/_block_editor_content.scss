@@ -1,0 +1,426 @@
+@use '_variables.scss' as var;
+
+/** 
+ * 各CSSの 'wp-' はfunctions.phpで削除しています
+ */
+
+.block_editor_content {
+    $p: 16rem;
+    $p_mobile: 13.5rem;
+
+    width: 750rem;
+    margin: 0 auto;
+    font-family: "游ゴシック体";
+    text-align: justify;
+    letter-spacing: 0.04em;
+
+    @include var.md {
+        width: 84%;
+    }
+
+    /** 最後の要素 */
+    & > *:last-child {
+        margin-bottom: $p * 2;
+    }
+
+    /** 
+     * Text
+     */
+    h1,
+    h2 {
+        font-size: $p * 1.625;
+        line-height: 142%;
+
+        @include var.md {
+            font-size: $p_mobile * 1.333;
+            line-height: 150%;
+        }
+    }
+
+    h3 {
+        font-size: $p * 1.375;
+        line-height: 154%;
+
+        @include var.md {
+            font-size: $p_mobile * 1.125;
+            line-height: 155%;
+        }
+    }
+
+    h4,
+    h5,
+    h6 {
+        font-size: $p * 1.125;
+        line-height: 166%;
+
+        @include var.md {
+            font-size: $p_mobile * 1.066;
+        }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-top: $p * 1.5;
+        font-weight: bold;
+
+        @include var.md {
+            margin-top: $p_mobile * 1.3;
+        }
+    }
+
+    p {
+        min-height: 1em;
+        margin-top: $p * 1.3;
+        font-size: $p;
+        line-height: 200%;
+
+        @include var.md {
+            font-size: $p_mobile;
+        }
+
+        & + p {
+            margin-top: 1em;
+        }
+    }
+
+    :not(p, h1, h2, h3, h4, h5, h6) {
+        & + p {
+            margin-top: $p * 2.5;
+
+            @include var.md {
+                margin-top: $p_mobile * 1.8;
+            }
+        }
+    }
+
+    ul,
+    ol {
+        margin-top: $p * 2.5;
+        margin-left: 2em;
+        font-size: $p;
+        line-height: 1.56em;
+
+        @include var.md {
+            margin-top: $p_mobile * 1.8;
+            margin-left: 1.5em;
+            font-size: $p_mobile;
+        }
+
+        li {
+            margin-top: 0.73em;
+        }
+    }
+
+    ul {
+        list-style: disc;
+    }
+
+    ol {
+        list-style: decimal;
+    }
+
+    strong {
+        font-weight: bold;
+    }
+
+    .has-text-align-left {
+        text-align: left;
+    }
+
+    .has-text-align-center {
+        text-align: center;
+    }
+
+    .has-text-align-right {
+        text-align: right;
+    }
+
+    /** 
+     * Button 
+     */
+    .block-buttons {
+        display: flex;
+
+        // margin-bottom: $p * 2.5;
+        flex-wrap: wrap;
+        gap: $p;
+        justify-content: center;
+        margin-top: $p * 2.5;
+
+        @include var.md {
+            gap: $p_mobile;
+            margin-top: $p_mobile * 1.8;
+        }
+    }
+
+    .block-button {
+        flex-grow: 1;
+
+        @include var.md {
+            flex-basis: 100%;
+        }
+
+        a {
+            display: inline-block;
+            width: 100%;
+            min-width: 15em;
+            padding: 0.75em 2em;
+            font-size: $p * 1.125;
+            font-weight: bold;
+            line-height: 142%;
+            color: #fff;
+            text-align: center;
+            background: #000;
+            border-radius: 100rem;
+
+            @include var.md {
+                font-size: $p_mobile * 1.066;
+                border-radius: 30rem;
+            }
+        }
+    }
+
+    /** 
+     * Image
+     */
+    .block-image {
+        margin-top: $p * 2.5;
+        margin-right: auto;
+        margin-left: auto;
+
+        @include var.md {
+            margin-top: $p_mobile * 1.8;
+        }
+
+        &.size-medium {
+            width: 80%;
+        }
+
+        &.size-thumbnail {
+            width: 64%;
+        }
+    }
+
+    figcaption {
+        width: 80%;
+        margin: $p * 0.75 auto 0;
+        font-size: $p * 0.8125;
+        text-align: center;
+
+        @include var.md {
+            margin: $p_mobile * 0.75 auto 0;
+            font-size: $p_mobile * 0.85;
+        }
+    }
+
+    /** Gallery */
+    .block-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: $p * 2.5;
+
+        $crop: 66.66666667%; // square=50%, 16:9=56.25%, 3:2=66.66666667%
+
+        @include var.md {
+            margin-top: 13.5rem * 1.8;
+        }
+
+        &.columns-default {
+            $gap: $p * 1.5;
+            $gap_mobile: 13rem;
+
+            gap: $gap;
+
+            @include var.md {
+                gap: $gap_mobile;
+            }
+
+            .block-image {
+                width: calc(100% / 3 - $gap);
+
+                // padding-top: calc($crop / $i);
+                margin: 0 auto;
+
+                @include var.md {
+                    width: calc(100% / 3 - $gap_mobile);
+                }
+            }
+        }
+
+        @for $i from 1 through 8 {
+            &.columns-#{$i} {
+                $gap: 32rem;
+                $gap_mobile: 17rem;
+
+                @if $i == 1 {
+                    $gap: $p * 2;
+
+                    gap: $gap;
+
+                    @include var.md {
+                        $gap_mobile: 17rem;
+
+                        gap: $gap_mobile;
+                    }
+                } @else if $i > 1 and $i < 5 {
+                    $gap: $p * 1.5;
+                    $gap_mobile: 13rem;
+
+                    gap: $gap;
+
+                    @include var.md {
+                        gap: $gap_mobile;
+                    }
+                } @else {
+                    $gap: $p * 1;
+
+                    gap: $gap;
+
+                    @include var.md {
+                        $gap_mobile: 10rem;
+
+                        gap: $gap_mobile;
+                    }
+                }
+
+                .block-image {
+                    width: calc(100% / $i - $gap);
+
+                    // padding-top: calc($crop / $i);
+                    margin: 0 auto;
+
+                    @include var.md {
+                        width: calc(100% / $i - $gap_mobile);
+                    }
+                }
+            }
+        }
+
+        &.is-cropped {
+            .block-image {
+                position: relative;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+        .block-image {
+            flex-grow: 1;
+            margin-top: 0;
+        }
+    }
+
+    /** 
+     * quote
+     */
+    .block-quote,
+    .block-pullquote {
+        padding: $p * 2.73 7.5%;
+        margin-top: $p * 2.5;
+        background: #f2f2f2;
+
+        @include var.md {
+            padding: $p_mobile * 2 7.5%;
+            margin-top: $p_mobile * 1.8;
+        }
+
+        * {
+            &:first-child {
+                margin-top: 0;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    /**
+     * embed item
+     */
+    .block-embed {
+        margin-top: $p * 2.5;
+
+        @include var.md {
+            margin-top: $p_mobile * 1.8;
+        }
+
+        &.is-type-video {
+            &.embed-aspect-16-9 {
+                .block-embed__wrapper {
+                    position: relative;
+                    width: 100%;
+                    padding-top: 56.25%;
+
+                    iframe {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100% !important;
+                        height: 100% !important;
+                        border: none;
+                    }
+                }
+            }
+        }
+    }
+
+    /** 
+     * iframe
+     */
+    iframe {
+        &[src*='https://www.google.com/maps/embed'] {
+            width: 100%;
+
+            @include var.md {
+                height: 283rem !important;
+            }
+        }
+    }
+
+    /**
+     * table
+     */
+    .block-table {
+        margin-top: $p * 2.5;
+        font-size: $p * 0.9375;
+
+        @include var.md {
+            margin-top: $p_mobile * 1.8;
+            font-size: $p_mobile * 0.9375;
+        }
+
+        table {
+            width: 100%;
+            word-break: break-all;
+            word-wrap: break-all;
+
+            &.has-fixed-layout {
+                table-layout: fixed;
+            }
+        }
+
+        thead {
+            background: #f2f2f2;
+        }
+
+        th {
+            font-weight: bold;
+        }
+
+        th,
+        td {
+            padding: 1.2em 1.5em;
+            border: 1px solid #000;
+        }
+    }
+}

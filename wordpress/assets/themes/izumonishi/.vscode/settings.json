@@ -1,0 +1,27 @@
+{
+    "editor.defaultFormatter": "DEVSENSE.phptools-vscode",
+    "[xml]": {
+        "editor.defaultFormatter": "redhat.vscode-xml"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "phpstan.memoryLimit": "2G",
+    "php.problems.exclude": {
+        "/": [
+            416
+        ],
+        "vendor/": true,
+    },
+    "phpstan.timeout": 60000,
+    "coverage-gutters.coverageBaseDir": "coverage",
+    "coverage-gutters.showLineCoverage": true,
+    "phpunit.command": "XDEBUG_MODE=coverage,debug \"${php}\" ${phpargs} -d \"memory_limit=512M\" \"${phpunit}\" ${phpunitargs}",
+    "[scss]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
+    },
+    "intelephense.environment.phpVersion": "8.1",
+    "[php]": {
+        "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+    },
+}

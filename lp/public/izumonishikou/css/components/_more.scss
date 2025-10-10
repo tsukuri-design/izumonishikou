@@ -1,0 +1,223 @@
+@use '../components/variables' as var;
+
+.more {
+    position: relative;
+    z-index: 3;
+    max-width: 900rem;
+    margin: 0 auto;
+
+    @include var.md {
+        width: 90%;
+    }
+
+    .heading2 {
+        width: max-content;
+        padding-bottom: 15rem;
+        margin: 0 auto 65rem;
+        font-family: var.$ship;
+        font-size: 31rem;
+        font-weight: 300;
+        letter-spacing: 0.05em;
+        border-bottom: 1px dashed #1d577b;
+
+        @include var.md {
+            margin: 0 auto 50rem;
+            font-size: 25rem;
+        }
+    }
+
+    .more_wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 75rem 85rem;
+        align-items: center;
+        justify-content: center;
+
+        @include var.md {
+            gap: 50rem;
+        }
+    }
+
+    .item {
+        position: relative;
+        width: 365rem;
+
+        &.item_wide {
+            width: 690rem;
+            margin-top: 55rem;
+
+            @include var.md {
+                width: 100%;
+                margin-top: 30rem;
+            }
+
+            .item_text_wrap {
+                position: absolute;
+                top: calc(50% - 5rem);
+                left: 50%;
+                width: 100%;
+                padding-left: 33rem;
+                transform: translate(-50%, -50%);
+
+                @include var.md {
+                    top: calc(50% - 2rem);
+                    padding-left: 10rem;
+                }
+            }
+
+            .school_name {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 138rem;
+                height: 30rem;
+                margin: 0 auto 10rem 0;
+                font-size: 16rem;
+                font-weight: 700;
+                color: #fff;
+                background: #1e2441;
+
+                @include var.md {
+                    width: 90rem;
+                    height: 20rem;
+                    font-size: 10rem;
+                }
+            }
+
+            .large_text {
+                display: block;
+                margin-top: 25rem;
+                font-size: 27rem;
+                font-weight: 700;
+                color: #35373f;
+                text-align: left;
+                letter-spacing: 0.07em;
+
+                @include var.md {
+                    margin-top: 12rem;
+                    font-size: 14rem;
+                }
+            }
+        }
+
+        &.hide {
+            display: none !important;
+        }
+
+        &.coming {
+            pointer-events: none;
+
+            .image_wrap {
+                &::before,
+                &::after {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 3;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    height: 100%;
+                }
+
+                &::before {
+                    content: '';
+                    background: rgba($color: #000, $alpha: 68%);
+                }
+
+                &::after {
+                    font-family: var.$ship;
+                    font-size: 21rem;
+                    font-weight: 600;
+                    color: #fff;
+                    content: 'coming soon...';
+                }
+            }
+        }
+
+        @include var.md {
+            width: 100%;
+            max-width: 350rem;
+        }
+
+        &:hover {
+            img {
+                transform: scale(1.05);
+
+                @include var.md {
+                    transform: scale(1);
+                }
+            }
+        }
+    }
+
+    .text_wrap {
+        position: absolute;
+        top: 25rem;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8rem;
+        align-items: flex-start;
+        justify-content: center;
+        height: 115rem;
+        font-family: var.$ship;
+        font-size: 29rem;
+        font-weight: 500;
+        color: #fff;
+    }
+
+    .title {
+        position: relative;
+        z-index: 2;
+        display: block;
+        margin-bottom: -10rem;
+    }
+
+    .image_wrap {
+        position: relative;
+        overflow: hidden;
+        line-height: 0;
+        border: 1px solid #146293;
+
+        img {
+            transition: 300ms ease;
+        }
+    }
+
+    .text_line {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 53rem;
+        padding: 0 10rem 3rem;
+        background: #146293;
+    }
+
+    .button {
+        position: absolute;
+        bottom: 14rem;
+        left: 50%;
+        display: flex;
+        gap: 15rem;
+        align-items: center;
+        justify-content: center;
+        width: 326rem;
+        height: 50rem;
+        padding-left: 40rem;
+        font-family: var.$ship;
+        font-size: 17rem;
+        font-weight: 600;
+        color: #146293;
+        letter-spacing: 0.1em;
+        background: #fff;
+        border: 1px solid #146293;
+        border-radius: 100px;
+        transform: translateX(-50%);
+
+        .arrow {
+            width: 15rem;
+        }
+    }
+}

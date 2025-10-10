@@ -22,7 +22,8 @@ module.exports = {
         "keyframes-name-pattern": "^[a-z][a-zA-Z0-9]+$",//keyframeはキャメルケース
         "max-nesting-depth": 4, // 改装は4まで
         "media-feature-range-notation": "prefix", // @media を max-width / min-widthを使用
-        "selector-class-pattern": "^([a-z][a-z0-9]*)(_+[a-z0-9]+)*$", // クラス名はスネークケースと_の連続のみ許容する
+        "no-descending-specificity": null, // 順番は
+        "selector-class-pattern": "^([a-z][a-z0-9]*)([_-]+[a-z0-9]+)*$", // クラス名はスネークケースと_の連続のみ許容する
         "selector-max-compound-selectors": 6, // 複合セレクターの数の制限
         "selector-max-id": 1, // IDセレクターの数制限
         "selector-type-case": "lower",

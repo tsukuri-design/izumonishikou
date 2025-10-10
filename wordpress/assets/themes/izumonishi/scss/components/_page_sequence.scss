@@ -1,0 +1,23 @@
+/**
+ * 固定ページ通し番号のスタイル（管理画面のみ）
+ */
+
+// 管理画面での通し番号表示
+.page-sequence-display {
+    display: inline-block;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.2;
+    color: $key_color;
+    text-align: center;
+    background-color: #f0f8ff;
+    border: 1px solid $key_color;
+    border-radius: 3px;
+}
+
+.page-sequence-empty {
+    font-size: 12px;
+    font-style: italic;
+    color: #999;
+}

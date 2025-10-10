@@ -1,0 +1,48 @@
+<?php
+add_action('init', function () {
+    register_post_type('faq', array(
+        'labels' => array(
+            'name' => 'よくあるご質問',
+            'singular_name' => 'よくあるご質問',
+            'menu_name' => 'よくあるご質問',
+            'all_items' => 'よくあるご質問 一覧',
+            'edit_item' => 'よくあるご質問 を編集',
+            'view_item' => 'よくあるご質問 を表示',
+            'view_items' => 'よくあるご質問 を表示',
+            'add_new_item' => '新規よくあるご質問を追加',
+            'add_new' => '新規よくあるご質問を追加',
+            'new_item' => '新規 よくあるご質問',
+            'parent_item_colon' => '親のよくあるご質問:',
+            'search_items' => 'よくあるご質問 を検索',
+            'not_found' => 'よくあるご質問 が見つかりませんでした。',
+            'not_found_in_trash' => 'ゴミ箱によくあるご質問はありません',
+            'archives' => 'よくあるご質問 アーカイブ',
+            'attributes' => 'よくあるご質問 の属性',
+            'insert_into_item' => 'よくあるご質問 に挿入',
+            'uploaded_to_this_item' => 'この よくあるご質問 にアップロードされました',
+            'filter_items_list' => 'よくあるご質問 リストを絞り込み',
+            'filter_by_date' => 'よくあるご質問 日時で絞り込み',
+            'items_list_navigation' => 'よくあるご質問 list navigation',
+            'items_list' => 'よくあるご質問 リスト',
+            'item_published' => 'よくあるご質問 を公開しました。',
+            'item_published_privately' => 'よくあるご質問 を限定公開しました。',
+            'item_reverted_to_draft' => 'よくあるご質問 を下書きに戻しました。',
+            'item_scheduled' => 'よくあるご質問 を予約しました。',
+            'item_updated' => 'よくあるご質問 を更新しました。',
+            'item_link' => 'よくあるご質問 リンク',
+            'item_link_description' => 'よくあるご質問 へのリンク。',
+        ),
+        'public' => true,
+        'show_in_rest' => true,
+        'menu_icon' => 'dashicons-admin-post',
+        'supports' => array(
+            0 => 'title',
+            1 => 'editor',
+            2 => 'revisions',
+            3 => 'custom-fields',
+        ),
+        'delete_with_user' => false,
+        'has_archive' => true,
+    ));
+});
+

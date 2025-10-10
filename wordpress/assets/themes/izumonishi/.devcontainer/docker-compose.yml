@@ -1,0 +1,89 @@
+services:
+  wordpress:
+    env_file:
+      - .env
+    build: ./build
+    ports:
+    - ${WP_PORT:-8080}:80
+    networks:
+    - mvc4wp_internal
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+    - ./utc.ini:/usr/local/etc/php/conf.d/utc.ini
+    - ./xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+    - ./docker-entrypoint.sh:/usr/local/bin/docker-entrypoint.sh
+    - mvc4wp_wordpress:/var/www/html/wordpress
+    - ../:/var/www/html/wordpress/wp-content/themes/mvc4wp
+    depends_on:
+    - mysql
+    environment:
+    - WP_SUBDIR=wordpress
+    - WORDPRESS_DB_HOST=mysql
+    - WORDPRESS_DB_USER=wp
+    - WORDPRESS_DB_PASSWORD=wp
+    - WORDPRESS_DB_NAME=wp
+
+  cli:
+    image: wordpress:cli-php8.1
+    networks:
+    - mvc4wp_internal
+    volumes_from:
+    - wordpress
+    depends_on:
+    - mysql
+    - wordpress
+    environment:
+    - WP_SUBDIR=wordpress
+    - WORDPRESS_DB_HOST=mysql
+    - WORDPRESS_DB_USER=wp
+    - WORDPRESS_DB_PASSWORD=wp
+    - WORDPRESS_DB_NAME=wp
+
+  mysql:
+    image: mysql:5.7
+    networks:
+    - mvc4wp_internal
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+    - mvc4wp_db:/var/lib/mysql
+    environment:
+    - MYSQL_DATABASE=wp
+    - MYSQL_USER=wp
+    - MYSQL_PASSWORD=wp
+    - MYSQL_RANDOM_ROOT_PASSWORD=1
+
+  phpmyadmin:
+    env_file:
+      - .env
+    image: phpmyadmin/phpmyadmin:latest
+    links:
+    - mysql
+    networks:
+    - mvc4wp_internal
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+    environment:
+    - PMA_ARBITARITY=1
+    - PMA_HOST=mysql
+    - PMA_USER=wp
+    - PMA_PASSWORD=wp
+    ports:
+    - ${PHPMYADMIN_PORT:-18080}:80
+
+  mailhog:
+    env_file:
+      - .env
+    image: mailhog/mailhog:latest
+    networks:
+    - mvc4wp_internal
+    ports:
+    - ${MAILHOG_PORT:-28080}:8025
+
+networks:
+  mvc4wp_internal:
+    external: true
+volumes:
+  mvc4wp_wordpress:
+    external: true
+  mvc4wp_db:
+    external: true

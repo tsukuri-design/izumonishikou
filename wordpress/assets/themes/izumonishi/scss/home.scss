@@ -1,0 +1,72 @@
+@use 'components/variables' as var;
+@use 'components/section';
+@use 'components/banner';
+@use 'components/topics';
+@use 'components/more';
+
+.firstview {
+    position: relative;
+    margin-right: 99rem;
+    overflow: hidden;
+
+    @include var.md {
+        height: unset;
+        margin: 0;
+    }
+
+    .slick-track {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        height: 100%;
+    }
+
+    .slick-slide {
+        aspect-ratio: 1185 / 735;
+
+        @include var.md {
+            min-height: 40vh;
+            aspect-ratio: unset;
+        }
+
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            object-fit: cover;
+            min-width: calc(100vw - 99rem);
+            height: 100%;
+            line-height: 0;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
+
+.section__sns {
+    .section__header {
+        width: 88%;
+        margin: 0 auto 25rem;
+    }
+
+    .sns {
+        &__inner {
+            display: flex;
+            gap: 77rem;
+            align-items: flex-end;
+            justify-content: center;
+            padding: 65rem 190rem 85rem 90rem;
+            background: var.$key_color;
+
+            @include var.md {
+                flex-direction: column;
+                gap: 40rem;
+                align-items: center;
+                padding: 50rem 20rem;
+            }
+        }
+
+        &__item {
+            width: 282rem;
+        }
+    }
+}

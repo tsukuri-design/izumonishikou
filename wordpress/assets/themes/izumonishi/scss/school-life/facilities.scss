@@ -1,0 +1,135 @@
+@use '../components/variables' as var;
+
+.facility-gallery {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32rem;
+    width: 952rem;
+    padding-right: 80rem;
+    margin: 0 auto;
+
+    @include var.md {
+        align-items: center;
+        justify-content: center;
+        width: 94%;
+        padding: 0;
+    }
+
+    &-large {
+        margin-top: 90rem;
+
+        @include var.md {
+            margin-top: 0;
+        }
+    }
+
+    &::after,
+    &::before {
+        position: absolute;
+        left: calc(50% - 40rem);
+        z-index: -1;
+        width: 939rem;
+        height: 250rem;
+        content: '';
+        background: #c4d7eb;
+        opacity: 0.6;
+        transform: translateX(-50%);
+    }
+
+    &::before {
+        top: 226rem;
+    }
+
+    &::after {
+        bottom: -133rem;
+    }
+
+    &-large {
+        &::before,
+        &::after {
+            display: none;
+        }
+    }
+}
+
+.facility-slide-wrap {
+    position: relative;
+    width: 420rem;
+
+    &:nth-child(even) {
+        transform: translateY(54rem);
+
+        @include var.md {
+            transform: unset;
+        }
+    }
+
+    .arrow {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+        width: 36rem;
+    }
+
+    .slick-track {
+        display: flex;
+    }
+
+    .slick-track {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        height: 100%;
+    }
+
+    .slider-title {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        padding: 10rem 10rem 6rem;
+        font-size: 17rem;
+        font-weight: 500;
+        color: #16569c;
+        letter-spacing: 0.25em;
+        background: #fff;
+        border-top: 1px solid #16569c;
+        border-left: 1px solid #16569c;
+        writing-mode: vertical-lr;
+    }
+
+    .slick-slide {
+        height: 320rem;
+        line-height: 0;
+
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            object-fit: cover;
+            height: 100%;
+            line-height: 0;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    &-large {
+        width: 787rem;
+        margin-bottom: 35rem;
+
+        @include var.md {
+            width: 100%;
+            margin: 35rem auto;
+        }
+
+        .slick-slide {
+            height: 448rem;
+
+            @include var.md {
+                height: 320rem;
+            }
+        }
+    }
+}

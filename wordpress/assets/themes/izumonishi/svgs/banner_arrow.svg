@@ -1,0 +1,22 @@
+<svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Use absolute coordinates; no transform -->
+    <clipPath id="bgblur_clip" clipPathUnits="userSpaceOnUse">
+      <circle cx="22.5381" cy="23.453" r="22.125"/>
+    </clipPath>
+  </defs>
+
+  <!-- The blurred “glass” layer -->
+  <foreignObject x="0" y="0" width="46" height="46" clip-path="url(#bgblur_clip)">
+    <div xmlns="http://www.w3.org/1999/xhtml"
+         style="-webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); width:100%; height:100%;">
+    </div>
+  </foreignObject>
+
+  <!-- The white, translucent circle with stroke (sits on top) -->
+  <circle cx="22.5381" cy="23.453" r="22.125" fill="white" fill-opacity="0.6" stroke="#07376C" stroke-width="0.75"/>
+
+  <!-- Arrow -->
+  <path d="M31.4886 23.4035H13.4883" stroke="#07376C" stroke-width="0.75" stroke-miterlimit="10"/>
+  <path d="M23.6422 15.2218L31.8242 23.4038L23.6422 31.5857" stroke="#07376C" stroke-width="0.75" stroke-miterlimit="10"/>
+</svg>

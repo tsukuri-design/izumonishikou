@@ -1,0 +1,315 @@
+@use '../components/variables' as var;
+
+.singular__main {
+    z-index: 2;
+
+    // max-width: unset;
+    background: #fff;
+}
+
+.uniform {
+    &-first-view {
+        display: flex;
+
+        @include var.md {
+            flex-direction: column-reverse;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &-image {
+            flex-basis: 736rem;
+
+            @include var.md {
+                flex-basis: 100%;
+            }
+        }
+
+        &-text {
+            display: flex;
+            flex-basis: fill;
+            flex-direction: column;
+            gap: 30rem;
+            justify-content: center;
+            margin-left: -275rem;
+            text-align: left;
+            white-space: nowrap;
+
+            @include var.md {
+                position: relative;
+                z-index: 2;
+                display: block;
+                width: 86%;
+                margin: 0 0 -60rem;
+                white-space: normal;
+            }
+        }
+
+        &-heading2 {
+            font-size: 30rem;
+            line-height: 150%;
+            letter-spacing: 0.01em;
+
+            @include var.md {
+                margin-bottom: 15rem;
+                font-size: 20rem;
+            }
+        }
+
+        &-explain {
+            font-size: 16rem;
+            line-height: 206%;
+            letter-spacing: 0.05em;
+
+            @include var.md {
+                font-size: 14rem;
+            }
+        }
+
+        &-en {
+            margin-top: 50rem;
+        }
+    }
+
+    &-wrap {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    &-wrap1 {
+        gap: 65rem;
+        width: 1084rem;
+        padding-left: 78rem;
+        margin: 75rem auto 0 0;
+
+        @include var.md {
+            flex-direction: column;
+            gap: 20rem;
+            width: 94%;
+            padding: 0;
+            margin: 50rem auto;
+        }
+    }
+
+    &-wrap2 {
+        position: relative;
+        gap: 35rem;
+        width: 972rem;
+        padding-left: 40rem;
+        margin: 135rem auto;
+
+        &::after {
+            position: absolute;
+            bottom: 40rem;
+            left: 50%;
+            z-index: -1;
+            width: 1233rem;
+            height: 180rem;
+            content: '';
+            background: #c4d7eb;
+            transform: translateX(-50%);
+        }
+
+        @include var.md {
+            flex-direction: column;
+            gap: 40rem;
+            width: 85%;
+            padding: 0;
+            margin: 50rem auto;
+        }
+
+        figure {
+            position: relative;
+        }
+
+        .image-title {
+            position: absolute;
+            right: 0;
+
+            @include var.md {
+                position: relative;
+            }
+
+            &-summer {
+                top: -57rem;
+                width: 363rem;
+
+                @include var.md {
+                    top: unset;
+                    right: unset;
+                    width: 100%;
+                }
+            }
+
+            &-spring {
+                bottom: -92rem;
+                width: 367rem;
+
+                @include var.md {
+                    right: unset;
+                    bottom: unset;
+                    width: 100%;
+                }
+            }
+
+            &-winter {
+                top: -54rem;
+                width: 321rem;
+
+                @include var.md {
+                    top: unset;
+                    right: unset;
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    &-wrap3 {
+        flex-wrap: wrap;
+        gap: 5rem;
+        width: 1185rem;
+        margin: 0 auto;
+
+        @include var.md {
+            width: 100%;
+        }
+
+        figure {
+            flex-basis: calc(33.33% - 4rem);
+        }
+
+        .uniform-image6,
+        .uniform-image7 {
+            flex-basis: calc(50% - 4rem);
+
+            @include var.md {
+                flex-basis: 100%;
+            }
+        }
+    }
+
+    &-wrap4 {
+        width: 1050rem;
+        margin: 85rem auto 0;
+
+        @include var.md {
+            flex-direction: column;
+            gap: 50rem;
+            width: 100%;
+            margin: 50rem auto;
+        }
+
+        .uniform-image11 {
+            position: relative;
+            z-index: 2;
+            width: 570rem;
+            margin: 0 -170rem 0 0;
+            transform: translateY(202rem);
+
+            @include var.md {
+                width: 100%;
+                margin: 0;
+                transform: unset;
+            }
+        }
+
+        .uniform-image12 {
+            width: 650rem;
+
+            @include var.md {
+                width: 100%;
+            }
+        }
+    }
+
+    &-wrap5 {
+        align-items: flex-start;
+        margin: 276rem auto 0;
+
+        @include var.md {
+            flex-direction: column;
+            gap: 50rem;
+            margin: 50rem auto;
+        }
+
+        .uniform-image13 {
+            width: 882rem;
+
+            @include var.md {
+                width: 100%;
+            }
+        }
+
+        .uniform-image14 {
+            width: 486rem;
+            margin: 0 0 0 -185rem;
+            transform: translateY(-180rem);
+
+            @include var.md {
+                width: 100%;
+                margin: 0;
+                transform: unset;
+            }
+        }
+    }
+
+    .wrap1-text {
+        position: absolute;
+        width: max-content;
+        font-size: 16rem;
+        line-height: 182%;
+        text-align: left;
+        letter-spacing: 0.05em;
+        -webkit-text-stroke: 0.1px;
+
+        @include var.md {
+            position: relative;
+        }
+
+        &-1 {
+            top: 45rem;
+            left: 112rem;
+
+            @include var.md {
+                top: unset;
+                bottom: unset;
+                left: unset;
+                order: 1;
+            }
+        }
+
+        &-2 {
+            bottom: -20rem;
+            left: 112rem;
+            transform: translateY(100%);
+
+            @include var.md {
+                top: unset;
+                bottom: unset;
+                left: unset;
+                order: 4;
+                transform: unset;
+            }
+        }
+    }
+
+    .uniform-image1 {
+        width: 480rem;
+
+        @include var.md {
+            order: 2;
+            width: 100%;
+        }
+    }
+
+    .uniform-image2 {
+        width: 461rem;
+
+        @include var.md {
+            order: 3;
+            width: 100%;
+        }
+    }
+}
