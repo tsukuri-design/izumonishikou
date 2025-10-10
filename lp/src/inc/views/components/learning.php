@@ -98,6 +98,7 @@
                 </div>
             </div>
         </div>
+        <span class="warning">※順位はフォーサイト導入校1100校中の順位です。</span>
     </div>
 </section>
 <?php $this->view('components/more', false, 'learning'); ?>
