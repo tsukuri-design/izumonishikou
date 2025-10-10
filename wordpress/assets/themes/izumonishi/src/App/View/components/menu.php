@@ -95,8 +95,8 @@
             <ul class="link_list">
                 <li class="item"><a href="<?php echo esc_url(get_home_url()); ?>/admission/exam-guidelines/">令和8年選抜試験実施要項</a></li>
                 <li class="item"><a href="<?php echo esc_url(get_home_url()); ?>/admission/events/">オープンスクール／入試説明会</a></li>
-                <li class="item"><a href="<?php echo esc_url(get_home_url()); ?>/admission/tuition">学費/就学支援金・奨学金制度</a></li>
-                <li class="item"><a href="<?php echo esc_url(get_home_url()); ?>/admission/download-forms/">入試関連書類 ダウンロード</a></li>
+                <li class="item"><a href="<?php echo esc_url(get_home_url()); ?>/admission/tuition">納入金・奨学金制度</a></li>
+                <li class="item"><a href="<?php echo esc_url(get_home_url()); ?>/admission/download-forms/">中学校の先生方用 入試関連資料</a></li>
             </ul>
         </ul>
         <ul class="menu_section">
