@@ -36,7 +36,7 @@
                 <li><a href="<?php echo get_home_url(); ?>/students-parents/">在校生・保護者</a></li>
                 <li><a href="<?php echo get_home_url(); ?>/graduate/">卒業生</a></li>
                 <li><a href="<?php echo get_home_url(); ?>/teacher-recruitment/">教員募集</a></li>
-                <li><a href="<?php echo get_home_url(); ?>/privacy-policy/">プライバシーポリシー</a></li>
+                <?php /*<li><a href="<?php echo get_home_url(); ?>/privacy-policy/">プライバシーポリシー</a></li> */ ?>
             </ul>
         </div>
         <div class="links1">
@@ -134,7 +134,7 @@
             <li class="item"><a href="<?php echo esc_url(get_home_url()); ?>/students-parents/">在校生・保護者</a></li>
             <li class="item"><a href="<?php echo esc_url(get_home_url()); ?>/graduate/">卒業生</a></li>
             <li class="item"><a href="<?php echo esc_url(get_home_url()); ?>/teacher-recruitment/">教員採用</a></li>
-            <li class="item"><a href="<?php echo get_home_url(); ?>/privacy-policy/">プライバシーポリシー</a></li>
+            <?php /* <li class="item"><a href="<?php echo get_home_url(); ?>/privacy-policy/">プライバシーポリシー</a></li>*/ ?>
         </ul>
 
         <div class="sns">

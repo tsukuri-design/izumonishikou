@@ -15,7 +15,7 @@
                 <div class="button">詳しくはこちら<span class="arrow"><?php svg('more_arrow'); ?></span></div>
             </div>
         </a>
-        <a class="item" href="<?php echo get_home_url(); ?>/lp/voice/" target="_blank">
+        <a class="item" href="https://izumonishikou.jp/lp/voice/" target="_blank">
             <span class="title"><?php svg('more2'); ?></span>
             <div class="image_wrap">
                 <figure class="image"><?php echo picture('', 'more2', 'jpg', '', 'webp', '', '', '', ''); ?></figure>
@@ -36,7 +36,7 @@
                 <div class="button">詳しくはこちら<span class="arrow"><?php svg('more_arrow'); ?></span></div>
             </div>
         </a>
-        <a class="item" href="<?php echo get_home_url(); ?>/lp/course/" target="_blank">
+        <a class="item" href="https://izumonishikou.jp/lp/course/" target="_blank">
             <span class="title"><?php svg('more4'); ?></span>
             <div class="image_wrap">
                 <figure class="image"><?php echo picture('', 'more4', 'jpg', '', 'webp', '', '', '', ''); ?></figure>

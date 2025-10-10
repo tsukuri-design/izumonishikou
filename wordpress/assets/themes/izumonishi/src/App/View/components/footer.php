@@ -19,7 +19,7 @@
         <a href="<?php echo get_home_url(); ?>/about/" class="site-footer__link">学校案内</a>
         <a href="<?php echo get_home_url(); ?>/learning/" class="site-footer__link">出雲西の学び</a>
         <a href="<?php echo get_home_url(); ?>/admission/" class="site-footer__link">入試情報</a>
-        <a href="<?php echo get_home_url(); ?>/career/" class="site-footer__link">進学実績</a>
+        <a href="<?php echo get_home_url(); ?>/career/" class="site-footer__link">進学情報</a>
         <a href="<?php echo get_home_url(); ?>/school-life/" class="site-footer__link">学校生活</a>
         <?php /* <a href="<?php echo get_home_url(); ?>/faq/" class="site-footer__link">よくある質問</a> */ ?>
         <a href="<?php echo get_home_url(); ?>/contact/" class="site-footer__link">お問い合わせ</a>
@@ -30,7 +30,7 @@
         <a href="<?php echo get_home_url(); ?>/students-parents/" class="site-footer__link">在校生・保護者</a>
         <a href="<?php echo get_home_url(); ?>/graduate/" class="site-footer__link">卒業生</a>
         <a href="<?php echo get_home_url(); ?>/teacher-recruitment/" class="site-footer__link">教員採用</a>
-        <a href="<?php echo get_home_url(); ?>/privacy-policy/" class="site-footer__link">プライバシーポリシー</a>
+        <?php /* <a href="<?php echo get_home_url(); ?>/privacy-policy/" class="site-footer__link">プライバシーポリシー</a> */ ?>
     </div>
 
     <span class="site-footer__copy en">&copy;<?php echo wp_date('Y'); ?> IZUMO NISHI</span>

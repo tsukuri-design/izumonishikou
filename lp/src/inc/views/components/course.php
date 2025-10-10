@@ -13,19 +13,19 @@
     </h2>
     <h4 class="heading4 inaction shift_down">大学進学から就職まで<br class="md">幅広い進路に対応したコース編成</h4>
     <div class="course_links inaction shift_down">
-        <a href="https://www.izumonishikou.jp/curriculumpage/sp-course" class="link_item" target="_blank">
+        <a href="https://www.izumonishikou.jp/learning/advanced-course/" class="link_item" target="_blank">
             <figure class="image"><?php echo picture($this->directoryLevel(), 'course1', 'jpg', '', 'webp', '', '', '', ''); ?></figure>
             <h3 class="heading3">特別進学コース</h3>
             <p class="text">質の高い授業と補習と個別指導で学力を<Br>伸ばし志望大学への進学をサポート!</p>
             <span class="button">特別進学コースについて詳しく見る <span class="arrow"><?php echo Svg::ARROW2()->get(); ?></span></span>
         </a>
-        <a href="https://www.izumonishikou.jp/curriculumpage/welfare-course" class="link_item" target="_blank">
+        <a href="https://www.izumonishikou.jp/learning/welfare-course" class="link_item" target="_blank">
             <figure class="image"><?php echo picture($this->directoryLevel(), 'course2', 'jpg', '', 'webp', '', '', '', ''); ?></figure>
             <h3 class="heading3">福祉コース</h3>
             <p class="text">介護・保育・環境の３分野で人を支える<br>力を培い、持続可能な社会に貢献する。</p>
             <span class="button">福祉コースについて詳しく見る <span class="arrow"><?php echo Svg::ARROW2()->get(); ?></span></span>
         </a>
-        <a href="https://www.izumonishikou.jp/curriculumpage/business-course" class="link_item" target="_blank">
+        <a href="https://www.izumonishikou.jp/learning/business-course" class="link_item" target="_blank">
             <figure class="image"><?php echo picture($this->directoryLevel(), 'course3', 'jpg', '', 'webp', '', '', '', ''); ?></figure>
             <h3 class="heading3">ビジネスコース</h3>
             <p class="text">実社会で役立つスキルを段階的に習得。<br>資格取得で進学・就職どちらにも強くなる。</p>
@@ -33,11 +33,11 @@
         </a>
     </div>
     <div class="edu_links inaction shift_down">
-        <a href="https://www.izumonishikou.jp/futurepage/destination" class="edu_item" target="_blank">
+        <a href="https://www.izumonishikou.jp/career/admission-results/" class="edu_item" target="_blank">
             <?php echo picture($this->directoryLevel(), 'course4', 'jpg', '', 'webp', '', '', '', ''); ?>
             <div class="button"><span class="hand"><?php echo Svg::HAND()->get(); ?></span><span class="underline">主な進学先はこちら</span></div>
         </a>
-        <a href="https://www.izumonishikou.jp/futurepage/employment" class="edu_item" target="_blank">
+        <a href="https://www.izumonishikou.jp/career/career-outcomes/" class="edu_item" target="_blank">
             <?php echo picture($this->directoryLevel(), 'course5', 'jpg', '', 'webp', '', '', '', ''); ?>
             <div class="button"><span class="hand"><?php echo Svg::HAND()->get(); ?></span><span class="underline">主な就職先はこちら</span></div>
         </a>

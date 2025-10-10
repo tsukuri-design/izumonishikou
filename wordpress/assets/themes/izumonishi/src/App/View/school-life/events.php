@@ -55,10 +55,10 @@
                 <ul class="list-items">
                     <li class="list-item"><span class="list-text">県高校総体（後期）</span></li>
                     <li class="list-item"><span class="list-text">県総体報告会</span></li>
-                    <li class="list-item"><span class="list-text">３年生進路保護者会(進学)</span></li>
+                    <li class="list-item"><span class="list-text">3年生進路保護者会(進学)</span></li>
                     <li class="list-item"><span class="list-text">日商簿記検定</span></li>
-                    <li class="list-item"><span class="list-text">３年生保育実習</span></li>
-                    <li class="list-item"><span class="list-text">３年生環境コース実習</span></li>
+                    <li class="list-item"><span class="list-text">3年生保育実習</span></li>
+                    <li class="list-item"><span class="list-text">3年生環境コース実習</span></li>
                     <li class="list-item"><span class="list-text">全商簿記検定</span></li>
                     <li class="list-item"><span class="list-text">全商ビジネス文書実務検定</span></li>
                     <li class="list-item"><span class="list-text">授業評価アンケート</span></li>
@@ -73,8 +73,8 @@
                 </div>
                 <ul class="list-items">
                     <li class="list-item"><span class="list-text">球技大会</span></li>
-                    <li class="list-item"><span class="list-text">３年生進路保護者会(就職)</span></li>
-                    <li class="list-item"><span class="list-text">保護者面談(３年生は三者面談)</span></li>
+                    <li class="list-item"><span class="list-text">3年生進路保護者会(就職)</span></li>
+                    <li class="list-item"><span class="list-text">保護者面談(3年生は三者面談)</span></li>
                 </ul>
             </div>
 
@@ -87,7 +87,7 @@
                 <ul class="list-items">
                     <li class="list-item"><span class="list-text">特進夏期集中講座</span></li>
                     <li class="list-item"><span class="list-text">全国高校総体</span></li>
-                    <li class="list-item"><span class="list-text">第１回オープンスクール</span></li>
+                    <li class="list-item"><span class="list-text">第1回オープンスクール</span></li>
                     <li class="list-item"><span class="list-text">個人面談</span></li>
                     <li class="list-item"><span class="list-text">就職者のための集中指導</span></li>
                 </ul>
@@ -102,7 +102,7 @@
                 <ul class="list-items">
                     <li class="list-item"><span class="list-text">就職者激励会</span></li>
                     <li class="list-item"><span class="list-text">全商情報処理検定</span></li>
-                    <li class="list-item"><span class="list-text">第２回オープンスクール</span></li>
+                    <li class="list-item"><span class="list-text">第2回オープンスクール</span></li>
                 </ul>
             </div>
 
@@ -114,13 +114,13 @@
                 </div>
                 <ul class="list-items">
                     <li class="list-item"><span class="list-text">文化発表会</span></li>
-                    <li class="list-item"><span class="list-text">１・３年生遠足</span></li>
-                    <li class="list-item"><span class="list-text">２年生進路保護者会</span></li>
-                    <li class="list-item"><span class="list-text">２・３年生介護コース実習</span></li>
-                    <li class="list-item"><span class="list-text">２年生保育コース実習</span></li>
+                    <li class="list-item"><span class="list-text">1・3年生遠足</span></li>
+                    <li class="list-item"><span class="list-text">2年生進路保護者会</span></li>
+                    <li class="list-item"><span class="list-text">2・3年生介護コース実習</span></li>
+                    <li class="list-item"><span class="list-text">2年生保育コース実習</span></li>
                     <li class="list-item"><span class="list-text">ダンス発表会(女子)<br>サッカー大会(男子)</span></li>
-                    <li class="list-item"><span class="list-text">第３回オープンスクール</span></li>
-                    <li class="list-item"><span class="list-text">「５つの力」自己評価</span></li>
+                    <li class="list-item"><span class="list-text">第3回オープンスクール</span></li>
+                    <li class="list-item"><span class="list-text">「5つの力」自己評価</span></li>
                 </ul>
             </div>
 
@@ -131,10 +131,10 @@
                     <span class="number">11</span>
                 </div>
                 <ul class="list-items">
-                    <li class="list-item"><span class="list-text">危険物乙４検定</span></li>
-                    <li class="list-item"><span class="list-text">２・３年生環境コース実習</span></li>
+                    <li class="list-item"><span class="list-text">危険物乙4検定</span></li>
+                    <li class="list-item"><span class="list-text">2・3年生環境コース実習</span></li>
                     <li class="list-item"><span class="list-text">保育園児交流会</span></li>
-                    <li class="list-item"><span class="list-text">２年生キャリア研修旅行</span></li>
+                    <li class="list-item"><span class="list-text">2年生キャリア研修旅行</span></li>
                     <li class="list-item"><span class="list-text">日商簿記検定</span></li>
                     <li class="list-item"><span class="list-text">自己推薦説明会</span></li>
                     <li class="list-item"><span class="list-text">全商ビジネス文書実務検定</span></li>
@@ -165,7 +165,7 @@
                     <li class="list-item"><span class="list-text">大学入学共通テスト</span></li>
                     <li class="list-item"><span class="list-text">全商情報処理検定</span></li>
                     <li class="list-item"><span class="list-text">全商簿記検定</span></li>
-                    <li class="list-item"><span class="list-text">「５つの力」自己評価(３年生)</span></li>
+                    <li class="list-item"><span class="list-text">「5つの力」自己評価(3年生)</span></li>
                 </ul>
             </div>
 
@@ -177,7 +177,7 @@
                 </div>
                 <ul class="list-items">
                     <li class="list-item"><span class="list-text">入学者選抜試験(学校推薦選抜/一般選抜)</span></li>
-                    <li class="list-item"><span class="list-text">危険物乙４検定</span></li>
+                    <li class="list-item"><span class="list-text">危険物乙4検定</span></li>
                     <li class="list-item"><span class="list-text">日商簿記検定</span></li>
                 </ul>
             </div>
@@ -192,8 +192,8 @@
                     <li class="list-item"><span class="list-text">卒業式</span></li>
                     <li class="list-item"><span class="list-text">ロードレース大会</span></li>
                     <li class="list-item"><span class="list-text">企業ガイダンス</span></li>
-                    <li class="list-item"><span class="list-text">新入生１日入校</span></li>
-                    <li class="list-item"><span class="list-text">「５つの力」自己評価<br>(１・２年生)</span></li>
+                    <li class="list-item"><span class="list-text">新入生1日入校</span></li>
+                    <li class="list-item"><span class="list-text">「5つの力」自己評価<br>(1・2年生)</span></li>
                 </ul>
             </div>
         </div>
@@ -212,7 +212,7 @@
         </div>
     </div>
     <div class="block_editor_content">
-        <p class="text">※保育検定は主に２年次随時実施<br>※３年生は１月末から自由登校期間<br>※定期考査は実施せず、都度単元テストを実施</p>
+        <p class="text">※保育検定は主に2年次随時実施<br>※3年生は1月末から自由登校期間<br>※定期考査は実施せず、都度単元テストを実施</p>
     </div>
     <?php echo get_custom_related_posts(); ?>
 </div>

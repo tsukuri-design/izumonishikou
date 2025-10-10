@@ -110,15 +110,15 @@
         <div class="facility-slide-wrap facility-slide-wrap-11">
             <div class="slider-title">第一多目的室</div>
             <div class="facility-slide facility-slide-11">
-                <?php echo picture('', 'school-life/facility/facility11-1', 'jpg', '', 'webp', '', '', '', ''); ?>
-                <?php echo picture('', 'school-life/facility/facility11-2', 'jpg', '', 'webp', '', '', '', ''); ?>
+                <?php echo picture('', 'school-life/facility/facility12', 'jpg', '', 'webp', '', '', '', ''); ?>
             </div>
             <div class="arrow"><?php svg('slider_arrow'); ?></div>
         </div>
         <div class="facility-slide-wrap facility-slide-wrap-13">
             <div class="slider-title">第二多目的室</div>
             <div class="facility-slide facility-slide-13">
-                <?php echo picture('', 'school-life/facility/facility12', 'jpg', '', 'webp', '', '', '', ''); ?>
+                <?php echo picture('', 'school-life/facility/facility11-1', 'jpg', '', 'webp', '', '', '', ''); ?>
+                <?php echo picture('', 'school-life/facility/facility11-2', 'jpg', '', 'webp', '', '', '', ''); ?>
             </div>
             <div class="arrow" style="display: none;"><?php svg('slider_arrow'); ?></div>
         </div>
