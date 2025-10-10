@@ -431,8 +431,24 @@
 
         @include var.md {
             width: 90%;
-            padding: 50rem 25rem 25rem;
+            padding: 50rem 25rem 35rem;
             margin-top: 50rem;
+        }
+
+        .warning {
+            position: absolute;
+            right: 55rem;
+            bottom: 15rem;
+            font-size: 12rem;
+            letter-spacing: 0.03em;
+
+            @include var.md {
+                right: 50%;
+                bottom: 10rem;
+                font-size: 11rem;
+                white-space: nowrap;
+                transform: translateX(50%);
+            }
         }
     }
 
@@ -515,6 +531,7 @@
     }
 
     .results_wrap {
+        position: relative;
         display: flex;
         flex-wrap: wrap;
         gap: 20rem 35rem;
