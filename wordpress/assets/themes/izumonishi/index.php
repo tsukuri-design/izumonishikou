@@ -68,6 +68,16 @@ App::get()->router()->GET('/school-life/facilities/', [SchoolLifeController::cla
 // App::get()->router()->GET('/contact/faq/', [FaqController::class, 'index']);
 // App::get()->router()->GET('/faq/', [FaqController::class, 'index']);
 
+//Topics
+App::get()->router()->GET('/topics/', [TopicsController::class, 'index']);
+App::get()->router()->GET('/topics/page/{page}/', [TopicsController::class, 'index']);
+App::get()->router()->GET('/topics/page/{page}', [TopicsController::class, 'index']);
+App::get()->router()->GET('/topics/page/{page}/', [TopicsController::class, 'index']);
+App::get()->router()->GET('/topics_category/', [TopicsController::class, 'index']);
+App::get()->router()->GET('/topics_category/page/{page:\d+}/', [TopicsController::class, 'index']);
+App::get()->router()->GET('/topics_category/{category}/', [TopicsController::class, 'index']);
+App::get()->router()->GET('/topics_category/{category}/page/{page:\d+}/', [TopicsController::class, 'index']);
+
 // Singular
 // App::get()->router()->GET('/topics/{slug}/', [SingularController::class, 'main']);
 App::get()->router()->GET('/{slug}/', [SingularController::class, 'other']);

@@ -35,6 +35,7 @@ class SchoolLifeController extends PlainPhpController
                 'lazysizes',
                 'smooth-scroll.polyfills',
                 'inview',
+                'global',
             ],
         ];
 
@@ -55,6 +56,7 @@ class SchoolLifeController extends PlainPhpController
                 'lazysizes',
                 'smooth-scroll.polyfills',
                 'inview',
+                'global',
             ],
         ];
 
@@ -76,6 +78,7 @@ class SchoolLifeController extends PlainPhpController
                 'lazysizes',
                 'smooth-scroll.polyfills',
                 'inview',
+                'global',
             ],
         ];
 
@@ -98,6 +101,7 @@ class SchoolLifeController extends PlainPhpController
                 'inview',
                 'slick/slick',
                 'facility',
+                'global',
             ],
         ];
 

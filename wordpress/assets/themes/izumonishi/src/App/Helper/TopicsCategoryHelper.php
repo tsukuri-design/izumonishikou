@@ -13,7 +13,7 @@ function topics_categories($show_active = true)
 
     $home = get_home_url();
     $items = [
-        ['label' => 'ALL', 'url' => $home . '/information/', 'type' => 'all'],
+        ['label' => 'ALL', 'url' => $home . '/topics/', 'type' => 'all'],
         ['label' => '入試情報', 'url' => $home . '/topics_category/entry/', 'slug' => 'entry'],
         ['label' => '学校生活', 'url' => $home . '/topics_category/school-life/', 'slug' => 'school-life'],
         ['label' => '部活動', 'url' => $home . '/topics_category/club/', 'slug' => 'club'],

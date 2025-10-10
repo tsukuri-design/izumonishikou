@@ -69,6 +69,7 @@ class InformationSessionController extends PlainPhpController
                 'location' => $session['location'],
                 'text' => $session['text'],
                 'link' => $session['link'],
+                'link2' => $session['link2'],
                 'audiences' => $session['audiences'] ?? [], // ← categories as badges
             ];
         }
@@ -171,6 +172,7 @@ class InformationSessionController extends PlainPhpController
                     'location' => get_field('location'),
                     'text' => get_field('text'),
                     'link' => get_field('link'),
+                    'link2' => get_field('link2'),
                     'audiences' => $audiences,
                 ];
             }

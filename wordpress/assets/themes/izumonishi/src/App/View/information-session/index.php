@@ -2,9 +2,9 @@
 
     <h1 class="heading1">
         <?php if (isset($data['parent_info']) && $data['parent_info']): ?>
-                    <a class="singular__parent-link" href="<?php echo esc_url($data['parent_info']['url']); ?>">
-                        <?php echo esc_html($data['parent_info']['text']); ?>
-                    </a>
+                                        <a class="singular__parent-link" href="<?php echo esc_url($data['parent_info']['url']); ?>">
+                                            <?php echo esc_html($data['parent_info']['text']); ?>
+                                        </a>
         <?php endif; ?>
         <div class="heading_inner">
             <?php if (get_field('en')): ?><span class="en"><?php echo get_field('en'); ?></span><?php endif; ?>
@@ -19,10 +19,6 @@
 
 </div>
 <div class="singular__main">
-    <h1 class="heading1">
-        <?php if (!empty($data['en_title'])): ?><span class="en"><?php echo esc_html($data['en_title']); ?></span><?php endif; ?>
-        <span class="ja"><?php echo esc_html(get_the_title()); ?></span>
-    </h1>
     <div class="singular <?php echo get_current_page_hierarchy() ? '' : 'wide_layout'; ?>">
         <div class="content_wrap">
             <?php if (!empty($data['content'])): ?>
@@ -54,8 +50,8 @@
                                     <div class="session__audiences">
                                         <?php foreach ($session['audiences'] as $a): ?>
                                             <span class="session__audience <?php echo !empty($a['slug']) ? 'session__audience--' . esc_attr($a['slug']) : ''; ?>">
-                                                                                                                                    <?php echo esc_html($a['name']); ?>
-                                                                                                                                </span>
+                                                                                                                                                                                                                    <?php echo esc_html($a['name']); ?>
+                                                                                                                                                                                                                </span>
                                         <?php endforeach; ?>
                                     </div>
                                 <?php endif; ?>
@@ -68,13 +64,20 @@
                             <?php if (!empty($session['text'])): ?>
                                 <div class="text"><?php echo $session['text']; ?></div>
                             <?php endif; ?>
-
-                            <?php if (!empty($session['link'])): ?>
-                                <a href="<?php echo esc_url($session['link']); ?>" class="view_more <?php echo 'cv_hp_' . esc_attr($cta_cat_slug); ?>" target="_blank">
-                                    <span class="link_text">予約はこちら</span>
-                                    <span class="arrow"><?php svg('arrow_circle'); ?></span>
-                                </a>
-                            <?php endif; ?>
+                            <div class="links_wrap">
+                                <?php if (!empty($session['link2'])): ?>
+                                    <a href="<?php echo esc_url($session['link2']); ?>" class="view_more <?php echo 'cv_hp_' . esc_attr($cta_cat_slug); ?>" target="_blank">
+                                        <span class="link_text">詳細はこちら</span>
+                                        <span class="arrow"><?php svg('arrow_circle'); ?></span>
+                                    </a>
+                                <?php endif; ?>
+                                <?php if (!empty($session['link'])): ?>
+                                    <a href="<?php echo esc_url($session['link']); ?>" class="view_more <?php echo 'cv_hp_' . esc_attr($cta_cat_slug); ?>" target="_blank">
+                                        <span class="link_text">予約はこちら</span>
+                                        <span class="arrow"><?php svg('arrow_circle'); ?></span>
+                                    </a>
+                                <?php endif; ?>
+                            </div>
                         </div>
                     </div>
                 <?php endforeach; ?>

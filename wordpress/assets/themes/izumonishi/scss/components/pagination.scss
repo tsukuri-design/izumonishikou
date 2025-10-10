@@ -1,0 +1,129 @@
+@use 'variables' as var;
+
+.page-numbers {
+    display: flex;
+    gap: 16rem;
+    align-items: center;
+    justify-content: center;
+    margin: 48rem 0 0;
+
+    li {
+        list-style: none;
+    }
+
+    a.page-numbers,
+    span.page-numbers {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 50rem;
+        height: 50rem;
+        margin-top: 0;
+        font-size: 20rem;
+        font-weight: 600;
+        color: var.$key_color;
+        text-decoration: none;
+        border: 2rem solid rgba($color: var.$key_color, $alpha: 0%);
+        transition: 300ms ease;
+
+        // Remove highlight on tap in iOS
+        -webkit-tap-highlight-color: transparent;
+
+        &:hover,
+        &:focus {
+            border: 2rem solid var.$key_color;
+            outline: none;
+        }
+    }
+
+    .current,
+    span.page-numbers.current {
+        color: #fff;
+        pointer-events: none;
+        background: var.$key_color;
+        border: 2rem solid var.$key_color;
+        border-color: var.$key_color;
+    }
+
+    a.prev,
+    a.next {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 50rem;
+        height: 50rem;
+        font-size: 26rem;
+        font-size: 0;
+        color: var.$key_color;
+        background: none !important;
+        border: unset !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+
+        &::before {
+            display: block;
+            width: 24rem;
+            height: 24rem;
+            margin: 0 auto;
+            content: '';
+            background-repeat: no-repeat;
+            background-size: contain;
+            transition: 300ms ease;
+        }
+
+        svg {
+            display: block;
+            width: 24rem;
+            height: 24rem;
+            margin: 0 auto;
+            fill: var.$key_color;
+        }
+
+        &:hover,
+        &:focus {
+            color: #fff;
+            background: var.$key_color;
+
+            svg {
+                fill: #fff;
+            }
+        }
+    }
+
+    .next {
+        transform: translateX(-10rem);
+
+        &:hover {
+            &::before {
+                transform: translateX(10rem);
+
+                @include var.md {
+                    transform: translateX(0);
+                }
+            }
+        }
+    }
+
+    .prev {
+        transform: translateX(10rem);
+
+        &:hover {
+            &::before {
+                transform: translateX(-10rem);
+
+                @include var.md {
+                    transform: translateX(0);
+                }
+            }
+        }
+    }
+
+    .prev::before {
+        background-image: url('data:image/svg+xml;utf8,<svg fill="none" stroke="%233F7BBD" stroke-width="3" stroke-linecap="square" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 20L8 12L16 4"/></svg>');
+    }
+
+    .next::before {
+        background-image: url('data:image/svg+xml;utf8,<svg fill="none" stroke="%233F7BBD" stroke-width="3" stroke-linecap="square" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 4L16 12L8 20"/></svg>');
+    }
+}

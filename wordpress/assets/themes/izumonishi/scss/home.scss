@@ -6,11 +6,11 @@
 
 .firstview {
     position: relative;
-    height: calc(100vh - 102rem);
     margin-right: 99rem;
     overflow: hidden;
 
     @include var.md {
+        height: unset;
         margin: 0;
     }
 
@@ -21,19 +21,12 @@
         height: 100%;
     }
 
-    .slick-list {
-        min-height: 100vh;
-
-        @include var.md {
-            min-height: 40vh;
-        }
-    }
-
     .slick-slide {
-        min-height: 100vh;
+        aspect-ratio: 1185 / 735;
 
         @include var.md {
             min-height: 40vh;
+            aspect-ratio: unset;
         }
 
         img {

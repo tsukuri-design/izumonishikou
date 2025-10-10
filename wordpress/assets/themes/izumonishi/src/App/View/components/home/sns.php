@@ -8,15 +8,15 @@
     <div class="sns__inner">
         <div class="sns__item">
             <h3 class="heading3"><?php svg('sns1'); ?></h3>
-            <a href="#" target="_blank"><?php echo picture('', 'sns1', 'png', '', 'webp', '', '', '', ''); ?></a>
+            <a href="https://www.facebook.com/izumonishi.education?ref=embed_page" target="_blank"><?php echo picture('', 'sns1', 'png', '', 'webp', '', '', '', ''); ?></a>
         </div>
         <div class="sns__item">
             <h3 class="heading3"><?php svg('sns2'); ?></h3>
-            <a href="#" target="_blank"><?php echo picture('', 'sns2', 'png', '', 'webp', '', '', '', ''); ?></a>
+            <a href="https://www.instagram.com/izumo_nishi.education/#30_山形学院高等学校" target="_blank"><?php echo picture('', 'sns2', 'png', '', 'webp', '', '', '', ''); ?></a>
         </div>
         <div class="sns__item">
             <h3 class="heading3"><?php svg('sns3'); ?></h3>
-            <a href="#" target="_blank"><?php echo picture('', 'sns3', 'png', '', 'webp', '', '', '', ''); ?></a>
+            <a href="https://lin.ee/adnQk1nk" target="_blank"><?php echo picture('', 'sns3', 'png', '', 'webp', '', '', '', ''); ?></a>
         </div>
     </div>
 </section>

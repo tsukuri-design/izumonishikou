@@ -16,7 +16,7 @@ function passwordFormResponse()
         '<span class="label password">パスワード：</span>' .
         '<input name="post_password" type="password" size="24"><input type="submit" name="Submit" value="' . esc_attr__('OK') . '">' . '
     </div></form>' .
-        '<p class="has-small-font-size">※中学校関係者様向け案内資料には「ID」「パスワード」の入力と記載しておりますが、<br class="desktop">パスワードのみの入力で入試関連書類ダウンロードページにアクセス可能です</p>'
+        '<p class="has-small-font-size">※中学校関係者様向け案内資料では「ID」と「パスワード」の入力をお願いしていましたが、パスワードのみ入力してください。</p>'
     ;
 }
 add_filter('the_password_form', 'passwordFormResponse');

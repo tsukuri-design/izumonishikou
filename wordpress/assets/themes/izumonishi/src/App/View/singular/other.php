@@ -1,23 +1,26 @@
 <div class="top_wrap">
     <h1 class="heading1">
         <?php if (isset($data['parent_info']) && $data['parent_info']): ?>
-                    <a class="singular__parent-link" href="<?php echo esc_url($data['parent_info']['url']); ?>">
-                        <?php echo esc_html($data['parent_info']['text']); ?>
-                    </a>
+                        <a class="singular__parent-link" href="<?php echo esc_url($data['parent_info']['url']); ?>">
+                            <?php echo esc_html($data['parent_info']['text']); ?>
+                        </a>
         <?php endif; ?>
         <div class="heading_inner">
             <?php if (is_singular('topics')): ?>
-                    <span class="en">NEWS</span>
-                    <span class="ja">お知らせ</span>
+                        <span class="en">NEWS</span>
+                        <span class="ja">お知らせ</span>
                 <?php else: ?>
-                    <?php if (get_field('en')): ?><span class="en"><?php echo get_field('en'); ?></span><?php endif; ?>
-                    <span class="ja"><?php echo get_the_title(); ?></span>
+                        <?php if (get_field('en')): ?><span class="en"><?php echo get_field('en'); ?></span><?php endif; ?>
+                        <span class="ja"><?php echo get_the_title(); ?></span>
         <?php endif; ?>
         </div>
     </h1>
     <?php if (get_the_post_thumbnail()): ?>
         <div class="top_image">
             <?php echo get_the_post_thumbnail(); ?>
+            <?php if (get_field('image_text')): ?>
+                <span class="image-text"><?php echo get_field('image_text'); ?></span>
+            <?php endif; ?>
         </div>
     <?php endif; ?>
 </div>

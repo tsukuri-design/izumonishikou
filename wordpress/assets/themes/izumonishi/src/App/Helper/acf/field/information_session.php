@@ -165,6 +165,24 @@ add_action('acf/include_fields', function () {
                 'allow_in_bindings' => 0,
                 'placeholder' => '',
             ),
+            array(
+                'key' => 'field_68675b4fe0984', // new unique key
+                'label' => '詳細リンク',
+                'name' => 'link2',
+                'aria-label' => '',
+                'type' => 'url',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'allow_in_bindings' => 0,
+                'placeholder' => '',
+            ),
         ),
         'location' => array(
             array(
