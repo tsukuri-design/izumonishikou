@@ -118,6 +118,7 @@
                     <li class="list-item"><span class="list-text">2年生進路保護者会</span></li>
                     <li class="list-item"><span class="list-text">2・3年生介護コース実習</span></li>
                     <li class="list-item"><span class="list-text">2年生保育コース実習</span></li>
+                    <li class="list-item"><span class="list-text">2年生環境コース実習</span></li>
                     <li class="list-item"><span class="list-text">ダンス発表会(女子)<br>サッカー大会(男子)</span></li>
                     <li class="list-item"><span class="list-text">第3回オープンスクール</span></li>
                     <li class="list-item"><span class="list-text">「5つの力」自己評価</span></li>
