@@ -452,6 +452,11 @@
                 flex-direction: column-reverse;
             }
         }
+        &.md-no-gap {
+            @include var.md() {
+                gap: 0;
+            }
+        }
 
         &.are-vertically-aligned-center {
             align-items: center;
@@ -589,7 +594,8 @@
      * iframe
      */
     iframe {
-        &[src*='https://www.google.com/maps/embed'] {
+        &[src*='https://www.google.com/maps/embed']
+        {
             width: 100%;
 
             @include var.md {
