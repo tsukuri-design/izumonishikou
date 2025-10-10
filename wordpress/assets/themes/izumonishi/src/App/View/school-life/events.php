@@ -57,7 +57,7 @@
                     <li class="list-item"><span class="list-text">県総体報告会</span></li>
                     <li class="list-item"><span class="list-text">3年生進路保護者会(進学)</span></li>
                     <li class="list-item"><span class="list-text">日商簿記検定</span></li>
-                    <li class="list-item"><span class="list-text">3年生保育実習</span></li>
+                    <li class="list-item"><span class="list-text">3年生保育コース実習</span></li>
                     <li class="list-item"><span class="list-text">3年生環境コース実習</span></li>
                     <li class="list-item"><span class="list-text">全商簿記検定</span></li>
                     <li class="list-item"><span class="list-text">全商ビジネス文書実務検定</span></li>
