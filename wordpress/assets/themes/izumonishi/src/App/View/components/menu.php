@@ -43,7 +43,7 @@
             <a class="link" href="<?php echo get_home_url(); ?>/about/"><span class="label">学校案内</span></a>
             <a class="link" href="<?php echo get_home_url(); ?>/learning/"><span class="label">出雲西の学び</span></a>
             <a class="link" href="<?php echo get_home_url(); ?>/admission/"><span class="label">入試情報</span></a>
-            <a class="link" href="<?php echo get_home_url(); ?>/career/"><span class="label">進学情報</span></a>
+            <a class="link" href="<?php echo get_home_url(); ?>/career/"><span class="label">進路情報</span></a>
             <a class="link" href="<?php echo get_home_url(); ?>/school-life/"><span class="label">学校生活</span></a>
             <?php /* <a class="link" href="<?php echo get_home_url(); ?>/faq"><span class="label">よくある質問</span></a> */ ?>
             <a class="link" href="<?php echo get_home_url(); ?>/contact"><span class="label">お問い合わせ</span></a>
@@ -104,7 +104,7 @@
                 <span class="title_button md"><span class="plus"><?php svg('plus'); ?></span></span>
                 <a href="<?php echo esc_url(get_home_url()); ?>/career/">
                     <span class="english">CAREER</span>
-                    <span class="japanese">進学情報</span>
+                    <span class="japanese">進路情報</span>
                 </a>
             </li>
             <ul class="link_list">
