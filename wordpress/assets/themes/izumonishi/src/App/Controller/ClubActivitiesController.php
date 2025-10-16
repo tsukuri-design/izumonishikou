@@ -265,6 +265,13 @@ class ClubActivitiesController extends PlainPhpController
                 'captain_name' => '部長 山本 悠真 さん',
                 'image' => 'school-life/club-activities/sports10',
                 'comment' => 'ゲートボールは、幅広い年代の方々と交流しながら楽しめるスポーツです。ルールや技術は丁寧に教えていますので、初心者の方も安心して始められます。出雲西高校ゲートボール部で全国大会出場を目指して一緒に頑張りましょう！',
+            ],
+            [
+                'bracket' => '目指せ中国大会出場！',
+                'club_name' => '卓球部',
+                'captain_name' => '部長 土江 侑 さん',
+                'image' => 'school-life/club-activities/sports11',
+                'comment' => '私たち卓球部は、県大会シングルス ベスト16、団体戦 ベスト8、中国大会出場を目標に日々練習に励んでいます。また、卓球の技術だけでなく礼儀やあいさつも身に付けることのできる部活動です。',
             ]
         ];
 
@@ -318,6 +325,13 @@ class ClubActivitiesController extends PlainPhpController
                 'captain_name' => '部長 持田 綺菜 さん',
                 'image' => 'school-life/club-activities/culture7',
                 'comment' => '私たちダンス部は、「みんなで楽しく笑顔で踊る」をモットーに日々活動しています。ダンス経験の有無に関係なく、初心者の方も大歓迎です。ダンスに興味のある方は、ぜひ一緒に踊ってみませんか？',
+            ],
+            [
+                'bracket' => '初心者でも大歓迎！',
+                'club_name' => '合唱部',
+                'captain_name' => '部長 石橋 巴 さん',
+                'image' => 'school-life/club-activities/culture8',
+                'comment' => '私たち合唱部は、現在１年生２名で活動しています。少ない人数ですが、顧問の先生や仲間と楽しく活動しています。初心者でも大歓迎です。少しでも歌や合唱に興味がある方、ぜひ私たちと一緒に歌いましょう！',
             ]
         ];
 
