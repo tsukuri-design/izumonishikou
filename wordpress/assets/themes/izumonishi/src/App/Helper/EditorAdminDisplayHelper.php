@@ -28,40 +28,42 @@ if (!current_user_can('administrator')) {
     add_action('admin_menu', 'removeMenus', 999);
 
     add_action('admin_menu', function () {
-        // Only for non-admins (editors etc.). Remove this if you want it for admins too.
+        // Only for non-admins (editors etc.). Remove this line if you want it for admins too.
         if (current_user_can('administrator'))
             return;
 
         global $menu;
 
-        $pages_key = null;
-        $media_key = null;
+        $pages_key = null; // 固定ページ
+        $banner_key = null; // バナー (CPT)
 
         foreach ($menu as $key => $item) {
             if (!isset($item[2]))
                 continue;
+
             if ($item[2] === 'edit.php?post_type=page') {
                 $pages_key = $key;
-            } elseif ($item[2] === 'upload.php') {
-                $media_key = $key;
+            } elseif ($item[2] === 'edit.php?post_type=banner') {
+                $banner_key = $key;
             }
         }
 
-        if ($pages_key !== null && $media_key !== null && $pages_key > $media_key) {
+        // Move Pages to just after Banner (banner_key + 1)
+        if ($pages_key !== null && $banner_key !== null) {
             $pages_menu = $menu[$pages_key];
             unset($menu[$pages_key]);
 
-            // Pick a new numeric index just before Media's index.
-            $new_key = $media_key - 1;
+            $new_key = $banner_key + 1;
             while (isset($menu[$new_key])) {
-                $new_key--;
+                $new_key++;
             }
             $menu[$new_key] = $pages_menu;
 
-            // Re-sort by numeric keys so order sticks.
+            // Ensure the order persists
             ksort($menu);
         }
     }, 9999);
+
 
 
     /** ダッシュボードの不要な項目を非表示 */
