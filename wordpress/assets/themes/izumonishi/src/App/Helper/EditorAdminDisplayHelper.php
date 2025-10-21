@@ -17,7 +17,8 @@ if (!current_user_can('administrator')) {
     function removeMenus()
     {
         remove_menu_page('index.php'); // ダッシュボード
-        remove_menu_page('edit.php'); //　投稿
+        remove_menu_page('edit.php'); //固定ページ
+        remove_menu_page('edit.php?post_type=page'); //　投稿
         remove_menu_page('edit.php?post_type=log'); // Hide "log" post type menu for non-admins
         remove_menu_page('edit-comments.php'); // コメント
         remove_menu_page('tools.php'); // ツール
@@ -101,23 +102,33 @@ if (!current_user_can('administrator')) {
 
         // $wp_admin_bar->remove_menu('menu-toggle'); // メニュー.
     }
-    // add_action('admin_bar_menu', 'removeAdminBarMenu', 999);
+    add_action('admin_bar_menu', 'removeAdminBarMenu', 999);
     // Run late so it wins over any earlier filters.
+    // add_action('after_setup_theme', function () {
+    //     // In case something already set it to true:
+    //     remove_filter('show_admin_bar', '__return_true');
+
+    //     // Hide for logged-out users
+    //     if (!is_user_logged_in()) {
+    //         add_filter('show_admin_bar', '__return_false', 1000);
+    //         return;
+    //     }
+
+    //     // Optional: only show for users who can edit posts (editors/admins)
+    //     if (!current_user_can('edit_posts')) {
+    //         add_filter('show_admin_bar', '__return_false', 1000);
+    //     }
+    // });
     add_action('after_setup_theme', function () {
-        // In case something already set it to true:
         remove_filter('show_admin_bar', '__return_true');
 
-        // Hide for logged-out users
-        if (!is_user_logged_in()) {
-            add_filter('show_admin_bar', '__return_false', 1000);
-            return;
-        }
-
-        // Optional: only show for users who can edit posts (editors/admins)
-        if (!current_user_can('edit_posts')) {
+        // Hide for all users except administrators
+        if (!current_user_can('administrator')) {
             add_filter('show_admin_bar', '__return_false', 1000);
         }
     });
+
+
 
 
     /** 右上のヘルプを非表示 */
