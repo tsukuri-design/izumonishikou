@@ -38,6 +38,7 @@ add_action('init', function () {
             0 => 'title',
         ),
         'delete_with_user' => false,
+        'menu_position' => 30,
     ));
 });
 

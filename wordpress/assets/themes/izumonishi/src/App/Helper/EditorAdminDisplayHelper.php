@@ -17,13 +17,52 @@ if (!current_user_can('administrator')) {
     function removeMenus()
     {
         remove_menu_page('index.php'); // ダッシュボード
-        // remove_menu_page('edit.php'); //　投稿
+        remove_menu_page('edit.php'); //　投稿
         remove_menu_page('edit.php?post_type=log'); // Hide "log" post type menu for non-admins
         remove_menu_page('edit-comments.php'); // コメント
         remove_menu_page('tools.php'); // ツール
         remove_menu_page('themes.php'); // 外観
+        remove_menu_page('profile.php'); // プロフィール
+
     }
     add_action('admin_menu', 'removeMenus', 999);
+
+    add_action('admin_menu', function () {
+        // Only for non-admins (editors etc.). Remove this if you want it for admins too.
+        if (current_user_can('administrator'))
+            return;
+
+        global $menu;
+
+        $pages_key = null;
+        $media_key = null;
+
+        foreach ($menu as $key => $item) {
+            if (!isset($item[2]))
+                continue;
+            if ($item[2] === 'edit.php?post_type=page') {
+                $pages_key = $key;
+            } elseif ($item[2] === 'upload.php') {
+                $media_key = $key;
+            }
+        }
+
+        if ($pages_key !== null && $media_key !== null && $pages_key > $media_key) {
+            $pages_menu = $menu[$pages_key];
+            unset($menu[$pages_key]);
+
+            // Pick a new numeric index just before Media's index.
+            $new_key = $media_key - 1;
+            while (isset($menu[$new_key])) {
+                $new_key--;
+            }
+            $menu[$new_key] = $pages_menu;
+
+            // Re-sort by numeric keys so order sticks.
+            ksort($menu);
+        }
+    }, 9999);
+
 
     /** ダッシュボードの不要な項目を非表示 */
     function remove_dashboard_widgets()
