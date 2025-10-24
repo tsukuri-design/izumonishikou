@@ -51,7 +51,7 @@
             <div class="link open_menu_modal" data-target="modal_menu_about"><span class="label">学校案内</span></div>
             <div class="link open_menu_modal" data-target="modal_menu_learning"><span class="label">出雲西の学び</span></div>
             <div class="link open_menu_modal" data-target="modal_menu_admission"><span class="label">入試情報</span></div>
-            <div class="link open_menu_modal" data-target="modal_menu_career"><span class="label">進学情報</span></div>
+            <div class="link open_menu_modal" data-target="modal_menu_career"><span class="label">進路情報</span></div>
             <div class="link open_menu_modal" data-target="modal_menu_school_life"><span class="label">学校生活</span></div>
             <div class="link open_menu_modal" data-target="modal_menu_contact"><span class="label">お問い合わせ</span></div>
         </div>
@@ -138,7 +138,7 @@
         </div>
     </div>
 
-    <!-- ===== CAREER (進学情報) ===== -->
+    <!-- ===== CAREER (進路情報) ===== -->
     <div class="modal_menu_links" id="modal_menu_career" aria-hidden="true">
         <a class="link_parent" href="<?php echo esc_url(get_home_url()); ?>/career/">
             <div class="image_wrap">
@@ -146,7 +146,7 @@
             </div>
             <div class="label">
                 <span class="en">CAREER</span>
-                <span class="ja">進学情報</span>
+                <span class="ja">進路情報</span>
             </div>
             <div class="arrow_wrap"><span class="arrow"><?php svg('arrow_circle2'); ?></span></div>
         </a>
@@ -210,9 +210,11 @@
             <a class="link_child" href="<?php echo esc_url(get_home_url()); ?>/contact/">
                 <span class="label">お問い合わせ</span><span class="arrow"><?php svg('dropdown_arrow'); ?></span>
             </a>
-            <a class="link_child" href="<?php echo esc_url(get_home_url()); ?>/contact/#header-2">
-                <span class="label">お問い合わせフォーム</span><span class="arrow"><?php svg('dropdown_arrow'); ?></span>
-            </a>
+            <?php /*
+              *<a class="link_child" href="<?php echo esc_url(get_home_url()); ?>/contact/#header-2">
+              *    <span class="label">お問い合わせフォーム</span><span class="arrow"><?php svg('dropdown_arrow'); ?></span>
+              *</a>
+              */ ?>
         </div>
     </div>
 </nav>
@@ -279,13 +281,13 @@
                     </ul>
                 </ul>
 
-                <!-- 進学情報 -->
+                <!-- 進路情報 -->
                 <ul class="menu_section">
                     <li class="title">
 
                         <a href="<?php echo esc_url(get_home_url()); ?>/career/">
                             <span class="english">CAREER</span>
-                            <span class="japanese">進学情報</span>
+                            <span class="japanese">進路情報</span>
                         </a>
                     </li>
                     <ul class="link_list">
@@ -323,7 +325,9 @@
                     </li>
                     <ul class="link_list">
                         <li class="item"><a href="<?php echo esc_url(get_home_url()); ?>/contact/">お問い合わせ</a></li>
-                        <li class="item"><a href="<?php echo esc_url(get_home_url()); ?>/contact/#header-2">お問い合わせフォーム</a></li>
+                        <?php /*
+                          *<li class="item"><a href="<?php echo esc_url(get_home_url()); ?>/contact/#header-2">お問い合わせフォーム</a></li>
+                          */ ?>
                     </ul>
                 </ul>
 
