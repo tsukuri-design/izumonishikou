@@ -67,7 +67,7 @@
                 <span class="en">ABOUT</span>
                 <span class="ja">学校案内</span>
             </div>
-            <div class="arrow_wrap"><span class="arrow"><?php svg('arrow_circle'); ?></span></div>
+            <div class="arrow_wrap"><span class="arrow"><?php svg('arrow_circle2'); ?></span></div>
         </a>
         <div class="links">
             <a class="link_child" href="<?php echo esc_url(get_home_url()); ?>/about/#header-1">
@@ -92,7 +92,7 @@
                 <span class="en">LEARNING</span>
                 <span class="ja">出雲西の学び</span>
             </div>
-            <div class="arrow_wrap"><span class="arrow"><?php svg('arrow_circle'); ?></span></div>
+            <div class="arrow_wrap"><span class="arrow"><?php svg('arrow_circle2'); ?></span></div>
         </a>
         <div class="links">
             <a class="link_child" href="<?php echo esc_url(get_home_url()); ?>/learning/educational-program/">
@@ -120,7 +120,7 @@
                 <span class="en">ADMISSION</span>
                 <span class="ja">入試情報</span>
             </div>
-            <div class="arrow_wrap"><span class="arrow"><?php svg('arrow_circle'); ?></span></div>
+            <div class="arrow_wrap"><span class="arrow"><?php svg('arrow_circle2'); ?></span></div>
         </a>
         <div class="links">
             <a class="link_child" href="<?php echo esc_url(get_home_url()); ?>/admission/exam-guidelines/">
@@ -148,7 +148,7 @@
                 <span class="en">CAREER</span>
                 <span class="ja">進学情報</span>
             </div>
-            <div class="arrow_wrap"><span class="arrow"><?php svg('arrow_circle'); ?></span></div>
+            <div class="arrow_wrap"><span class="arrow"><?php svg('arrow_circle2'); ?></span></div>
         </a>
         <div class="links">
             <a class="link_child" href="<?php echo esc_url(get_home_url()); ?>/career/career-support/">
@@ -176,7 +176,7 @@
                 <span class="en">SCHOOL LIFE</span>
                 <span class="ja">学校生活</span>
             </div>
-            <div class="arrow_wrap"><span class="arrow"><?php svg('arrow_circle'); ?></span></div>
+            <div class="arrow_wrap"><span class="arrow"><?php svg('arrow_circle2'); ?></span></div>
         </a>
         <div class="links">
             <a class="link_child" href="<?php echo esc_url(get_home_url()); ?>/school-life/club-activities/">
@@ -204,7 +204,7 @@
                 <span class="en">CONTACT</span>
                 <span class="ja">お問い合わせ</span>
             </div>
-            <div class="arrow_wrap"><span class="arrow"><?php svg('arrow_circle'); ?></span></div>
+            <div class="arrow_wrap"><span class="arrow"><?php svg('arrow_circle2'); ?></span></div>
         </a>
         <div class="links">
             <a class="link_child" href="<?php echo esc_url(get_home_url()); ?>/contact/">
@@ -222,7 +222,7 @@
 
         <div class="top_wrap">
             <div class="logo">
-                <a href="<?php echo esc_html(home_url()); ?>"><?php echo picture('', 'logo_white', 'png', '', '', '', '', '', ''); ?></a>
+                <a href="<?php echo esc_html(home_url()); ?>"><?php echo picture('', 'logo_white2', 'png', '', '', '', '', '', ''); ?></a>
             </div>
         </div>
 
@@ -339,7 +339,7 @@
                 </ul>
                 <ul class="menu_section">
                     <li class="title">
-                        <a href="<?php echo esc_url(get_home_url()); ?>/access/">
+                        <a href="<?php echo esc_url(get_home_url()); ?>/students-parents/">
                             <span class="english">STUDENTS PARENTS</span>
                             <span class="japanese">在校生・保護者</span>
                         </a>
@@ -347,7 +347,7 @@
                 </ul>
                 <ul class="menu_section">
                     <li class="title">
-                        <a href="<?php echo esc_url(get_home_url()); ?>/access/">
+                        <a href="<?php echo esc_url(get_home_url()); ?>/graduate/">
                             <span class="english">GRADUATES</span>
                             <span class="japanese">卒業生</span>
                         </a>
@@ -355,7 +355,7 @@
                 </ul>
                 <ul class="menu_section">
                     <li class="title">
-                        <a href="<?php echo esc_url(get_home_url()); ?>/access/">
+                        <a href="<?php echo esc_url(get_home_url()); ?>/teacher-recruitment/">
                             <span class="english">TEACHER RECRUITMENT</span>
                             <span class="japanese">教員募集</span>
                         </a>

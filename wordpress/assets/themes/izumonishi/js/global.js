@@ -186,7 +186,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-
 document.addEventListener('DOMContentLoaded', () => {
     const menuBtn = document.querySelector('.menu__button');
     const menuDesktop = document.querySelector('.opened_menu_desktop');
@@ -220,6 +219,17 @@ document.addEventListener('DOMContentLoaded', () => {
         ) {
             toggleMenu(false);
         }
+    });
+
+    // Close when clicking any menu link (anchors or normal links)
+    menuDesktop.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', (e) => {
+            // Only close for same-page links or regular navigations
+            const href = link.getAttribute('href');
+            if (!href || href.startsWith('#') || href.startsWith(window.location.origin) || href.startsWith('/')) {
+                toggleMenu(false);
+            }
+        });
     });
 
     // ESC key closes

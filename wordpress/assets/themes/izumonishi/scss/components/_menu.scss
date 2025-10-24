@@ -568,14 +568,6 @@
 
             svg {
                 transition: transform 0.3s ease;
-
-                path {
-                    fill: #fff;
-                }
-            }
-
-            path {
-                fill: var.$key_color;
             }
         }
     }
