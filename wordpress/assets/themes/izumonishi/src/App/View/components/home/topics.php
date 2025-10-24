@@ -34,8 +34,8 @@
             <?php endif; ?>
         </div>
         <div class="topics__arrows">
-            <button class="topics__arrow topics__arrow--left"><?php echo picture('', 'banner_arrow', 'png', '', '', '', '', '', ''); ?></button>
-            <button class="topics__arrow topics__arrow--right"><?php echo picture('', 'banner_arrow', 'png', '', '', '', '', '', ''); ?></button>
+            <button class="topics__arrow topics__arrow--left"><?php svg('banner_arrow2'); ?></button>
+            <button class="topics__arrow topics__arrow--right"><?php svg('banner_arrow2'); ?></button>
         </div>
     </div>
 </section>

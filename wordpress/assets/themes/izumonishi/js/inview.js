@@ -47,6 +47,6 @@ var scroll = new SmoothScroll('a[href*="#"]', {
     speed: 1200,
     speedAsDuration: true,
     easing: 'easeInOutQuint',
-    offset: 100,
+    offset: 150,
 });
 
