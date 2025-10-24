@@ -1,55 +1,4 @@
-<div class="menu">
-    <div class="menu__inner desktop">
-        <a class="menu__item" href="<?php echo get_home_url(); ?>/admission/events/">
-            <span class="menu__item-icon menu__item-icon--1"><?php svg('menu1'); ?></span>
-            <span class="menu__item-text">イベント・<br>学校説明会</span>
-        </a>
-        <a class="menu__item" href="<?php echo get_home_url(); ?>/admission/">
-            <span class="menu__item-icon menu__item-icon--1"><?php svg('menu2'); ?></span>
-            <span class="menu__item-text"><span class="en">2026</span>年度<br>入試情報</span>
-        </a>
-        <a class="menu__item" href="<?php echo get_home_url(); ?>/pamphlet/admission_information_2026/" target="_blank">
-            <span class="menu__item-icon menu__item-icon--1"><?php svg('menu3'); ?></span>
-            <span class="menu__item-text">デジタル<br>パンフレット</span>
-        </a>
-        <a class="menu__item" href="<?php echo get_home_url(); ?>/contact/">
-            <span class="menu__item-icon menu__item-icon--1"><?php svg('menu4'); ?></span>
-            <span class="menu__item-text">お問い合わせ</span>
-        </a>
-        <div class="menu__sns">
-            <a href="https://www.instagram.com/izumo_nishi.education/#" target="_blank"><?php svg('instagram'); ?></a>
-            <a href="https://www.facebook.com/izumonishi.education?ref=embed_page" target="_blank"><?php svg('facebook'); ?></a>
-            <a href="https://lin.ee/adnQk1nk" target="_blank"><?php svg('line'); ?></a>
-        </div>
-    </div>
-</div>
-
-<nav class="menu_top">
-    <div class="logo">
-        <a href="<?php echo esc_html(home_url()); ?>"><?php svg('logo'); ?></a>
-    </div>
-    <div class="md menu_button"><?php svg('menu_button'); ?></div>
-    <div class="links_wrap">
-        <div class="links2">
-            <ul class="links_small">
-                <li><a href="<?php echo get_home_url(); ?>/access/">アクセス</a></li>
-                <li><a href="<?php echo get_home_url(); ?>/students-parents/">在校生・保護者</a></li>
-                <li><a href="<?php echo get_home_url(); ?>/graduate/">卒業生</a></li>
-                <li><a href="<?php echo get_home_url(); ?>/teacher-recruitment/">教員募集</a></li>
-                <?php /*<li><a href="<?php echo get_home_url(); ?>/privacy-policy/">プライバシーポリシー</a></li> */ ?>
-            </ul>
-        </div>
-        <div class="links1">
-            <a class="link" href="<?php echo get_home_url(); ?>/about/"><span class="label">学校案内</span></a>
-            <a class="link" href="<?php echo get_home_url(); ?>/learning/"><span class="label">出雲西の学び</span></a>
-            <a class="link" href="<?php echo get_home_url(); ?>/admission/"><span class="label">入試情報</span></a>
-            <a class="link" href="<?php echo get_home_url(); ?>/career/"><span class="label">進路情報</span></a>
-            <a class="link" href="<?php echo get_home_url(); ?>/school-life/"><span class="label">学校生活</span></a>
-            <?php /* <a class="link" href="<?php echo get_home_url(); ?>/faq"><span class="label">よくある質問</span></a> */ ?>
-            <a class="link" href="<?php echo get_home_url(); ?>/contact"><span class="label">お問い合わせ</span></a>
-        </div>
-    </div>
-</nav>
+<!-- ===== スマホ (Mobile) ===== -->
 <div class="opened_menu">
     <a href="<?php echo get_home_url(); ?>" class="logo"><?php svg('logo_white'); ?></a>
     <div class="close"><?php svg('close'); ?></div>
@@ -71,7 +20,7 @@
         </ul>
         <ul class="menu_section">
             <li class="title">
-                <span class="title_button md"><span class="plus"><?php svg('plus'); ?></span></span>
+
                 <a href="<?php echo esc_url(get_home_url()); ?>/learning/">
                     <span class="english">LEARNING</span>
                     <span class="japanese">出雲西の学び</span>
@@ -86,7 +35,7 @@
         </ul>
         <ul class="menu_section">
             <li class="title">
-                <span class="title_button md"><span class="plus"><?php svg('plus'); ?></span></span>
+
                 <a href="<?php echo esc_url(get_home_url()); ?>/admission/">
                     <span class="english">ADMISSION</span>
                     <span class="japanese">入試情報</span>
@@ -101,7 +50,7 @@
         </ul>
         <ul class="menu_section">
             <li class="title">
-                <span class="title_button md"><span class="plus"><?php svg('plus'); ?></span></span>
+
                 <a href="<?php echo esc_url(get_home_url()); ?>/career/">
                     <span class="english">CAREER</span>
                     <span class="japanese">進路情報</span>
@@ -116,7 +65,7 @@
         </ul>
         <ul class="menu_section">
             <li class="title">
-                <span class="title_button md"><span class="plus"><?php svg('plus'); ?></span></span>
+
                 <a href="<?php echo esc_url(get_home_url()); ?>/school-life/">
                     <span class="english">SCHOOL LIFE</span>
                     <span class="japanese">学校生活</span>
