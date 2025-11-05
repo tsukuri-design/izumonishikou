@@ -3,9 +3,11 @@
 .banners {
     position: relative;
     display: flex;
-    gap: 45rem;
+    gap: 25rem;
     justify-content: center;
-    padding-right: 95rem;
+    padding: 0 185rem 0 80rem;
+
+    // padding-right: 95rem;
     margin: 60rem auto;
 
     @include var.md {
@@ -13,7 +15,7 @@
         gap: 20rem;
         align-items: center;
         padding: 0;
-        margin: 40rem auto;
+        margin: 36rem 6%;
     }
 
     .arrows {
@@ -61,7 +63,8 @@
 
     .slick-slide,
     .banner_slide {
-        width: 504rem;
+        // width: 504rem;
+        flex: 1;
         overflow: hidden;
         line-height: 0;
         border-radius: 9rem;
@@ -69,7 +72,9 @@
         // box-shadow: 0 0 12px 0 rgb(0 0 0 / 11%);
 
         @include var.md {
-            width: 300rem;
+            flex: unset;
+            max-width: 340rem;
+            margin: 0 auto;
         }
 
         img {

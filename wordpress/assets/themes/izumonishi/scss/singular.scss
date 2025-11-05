@@ -11,6 +11,15 @@
         padding: 0;
     }
 
+    &.no_top_image {
+        padding-top: 91rem;
+        margin-bottom: -28rem;
+
+        @include var.md {
+            padding-top: 30rem;
+        }
+    }
+
     .top_image {
         position: relative;
         flex: 1;
