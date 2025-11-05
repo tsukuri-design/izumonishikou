@@ -50,7 +50,7 @@ add_action('acf/include_fields', function () {
             ),
             array(
                 'key' => 'field_686759ea57936',
-                'label' => '始まる時間',
+                'label' => '開始時間',
                 'name' => 'start_time',
                 'aria-label' => '',
                 'type' => 'time_picker',
@@ -149,11 +149,11 @@ add_action('acf/include_fields', function () {
             ),
             array(
                 'key' => 'field_68675b4fe0983',
-                'label' => 'リンク',
+                'label' => '「予約はこちら」のリンク設定',
                 'name' => 'link',
                 'aria-label' => '',
-                'type' => 'url',
-                'instructions' => '',
+                'type' => 'link',
+                'instructions' => '予約ページがある場合はこちらにリンクを設定してください。空欄の場合はリンクが表示されません',
                 'required' => 0,
                 'conditional_logic' => 0,
                 'wrapper' => array(
@@ -161,17 +161,16 @@ add_action('acf/include_fields', function () {
                     'class' => '',
                     'id' => '',
                 ),
-                'default_value' => '',
+                'return_format' => 'array',
                 'allow_in_bindings' => 0,
-                'placeholder' => '',
             ),
             array(
                 'key' => 'field_68675b4fe0984', // new unique key
-                'label' => '詳細リンク',
+                'label' => '「詳細はこちら」のリンク設定',
                 'name' => 'link2',
                 'aria-label' => '',
-                'type' => 'url',
-                'instructions' => '',
+                'type' => 'link',
+                'instructions' => '詳細ページがある場合はこちらにリンクを設定してください。空欄の場合はリンクが表示されません',
                 'required' => 0,
                 'conditional_logic' => 0,
                 'wrapper' => array(
@@ -179,9 +178,8 @@ add_action('acf/include_fields', function () {
                     'class' => '',
                     'id' => '',
                 ),
-                'default_value' => '',
+                'return_format' => 'array',
                 'allow_in_bindings' => 0,
-                'placeholder' => '',
             ),
         ),
         'location' => array(

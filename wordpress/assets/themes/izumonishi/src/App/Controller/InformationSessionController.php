@@ -162,6 +162,22 @@ class InformationSessionController extends PlainPhpController
                     ];
                 }
 
+                // Get link fields (ACF link type returns array)
+                $link_field = get_field('link');
+                $link2_field = get_field('link2');
+
+                $link = [
+                    'url' => is_array($link_field) && !empty($link_field['url']) ? $link_field['url'] : '',
+                    'title' => is_array($link_field) && !empty($link_field['title']) ? $link_field['title'] : '',
+                    'target' => is_array($link_field) && !empty($link_field['target']) ? $link_field['target'] : '_self',
+                ];
+
+                $link2 = [
+                    'url' => is_array($link2_field) && !empty($link2_field['url']) ? $link2_field['url'] : '',
+                    'title' => is_array($link2_field) && !empty($link2_field['title']) ? $link2_field['title'] : '',
+                    'target' => is_array($link2_field) && !empty($link2_field['target']) ? $link2_field['target'] : '_self',
+                ];
+
                 $info_sessions[] = [
                     'ID' => get_the_ID(),
                     'event_number' => get_field('event_number'),
@@ -171,8 +187,8 @@ class InformationSessionController extends PlainPhpController
                     'title' => get_field('title'),
                     'location' => get_field('location'),
                     'text' => get_field('text'),
-                    'link' => get_field('link'),
-                    'link2' => get_field('link2'),
+                    'link' => $link,
+                    'link2' => $link2,
                     'audiences' => $audiences,
                 ];
             }

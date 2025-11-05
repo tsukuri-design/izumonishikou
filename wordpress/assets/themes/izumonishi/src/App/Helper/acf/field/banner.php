@@ -14,7 +14,7 @@ add_action('acf/include_fields', function () {
                 'name' => 'img',
                 'aria-label' => '',
                 'type' => 'image',
-                'instructions' => '',
+                'instructions' => '横幅1000px × 縦幅300pxの画像をアップロードしてください',
                 'required' => 0,
                 'conditional_logic' => 0,
                 'wrapper' => array(
@@ -35,7 +35,7 @@ add_action('acf/include_fields', function () {
             ),
             array(
                 'key' => 'field_6863666ced69e',
-                'label' => 'リンク',
+                'label' => 'リンクの設定',
                 'name' => 'link',
                 'aria-label' => '',
                 'type' => 'link',
