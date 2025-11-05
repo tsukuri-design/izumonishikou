@@ -1,0 +1,80 @@
+##############################################
+# WordPress wp-admin + ACF : NAXSI whitelist
+# scope: POST中心（GETで必要なものは限定）
+##############################################
+
+# === 共通: /wp-admin/*.php の BODY 名検査の緩和（最小限） ===
+# ※広すぎると防御が弱まるので 1310,1311 のみ・拡張子 .php に限定
+BasicRule wl:1310,1311 "mz:$URL_X:/wp-admin\/[-_/a-z0-9]+\.php$|BODY|NAME";
+BasicRule wl:1310,1311 "mz:$URL_X:/wp-admin\/[/a-z0-9]+\.php$|BODY";
+
+# === ACF 基本: /wp-admin/*.php の ACFフィールド ===
+BasicRule wl:1009 "mz:$URL_X:/wp-admin\/[/a-z0-9]+\.php$|BODY";
+BasicRule wl:1310,1311 "mz:$URL_X:/wp-admin\/[-_/a-z0-9]+\.php$|$BODY_VAR:field_key";
+BasicRule wl:1310,1311 "mz:$URL_X:/wp-admin\/[/a-z0-9]+\.php$|$BODY_VAR_X:fields\[[-_a-zA-Z0-9]+\]|NAME";
+BasicRule wl:1001,1009,1100,1101,1302,1303,1310,1311 "mz:$URL_X:/wp-admin\/[/a-z0-9]+\.php$|$BODY_VAR_X:fields\[[-_a-zA-Z0-9]+\]";
+
+# === /wp-admin/admin.php（ACF画面等で使われる） ===
+BasicRule wl:1008,1010,1011,1302,1303 "mz:$URL:/wp-admin/admin.php|$BODY_VAR_X:acf\[[-_/a-z0-9]+\](\[%5B[-_/a-z0-9]+\%5D\])*";
+BasicRule wl:1001,1005,1007,1008,1016,1101 "mz:$URL:/wp-admin/admin.php|$BODY_VAR_X:acf\[[-_/a-z0-9]+\]";
+BasicRule wl:1000 "mz:$URL:/wp-admin/admin.php|$BODY_VAR:publish";
+
+# === /wp-admin/admin-ajax.php（ACF・メディア他で頻出） ===
+BasicRule wl:1001,1005,1007,1008,1009,1010,1011,1015,1016,1100,1101,1302,1303,1310,1311,1312 "mz:$URL:/wp-admin/admin-ajax.php|$BODY_VAR_X:acf\[[-_/a-z0-9]+\]";
+BasicRule wl:1310,1311 "mz:$URL:/wp-admin/admin-ajax.php|$BODY_VAR_X:acf\[[-_/a-z0-9]+\]|NAME";
+BasicRule wl:1000,1002,1013 "mz:$URL:/wp-admin/admin-ajax.php|$BODY_VAR_X:acf\[field_[a-zA-Z0-9]+\]";
+BasicRule wl:1101 "mz:$URL:/wp-admin/admin-ajax.php|$BODY_VAR_X:attachment\[[-_/a-z0-9]+\]";
+BasicRule wl:1310 "mz:$URL:/wp-admin/admin-ajax.php|$BODY_VAR_X:data\[[-_/a-z0-9]+\]|NAME";
+BasicRule wl:1000 "mz:$URL:/wp-admin/admin-ajax.php|$BODY_VAR:excluded_db_tables|NAME";
+BasicRule wl:1310,1311 "mz:$URL:/wp-admin/admin-ajax.php|$BODY_VAR_X:field\[[-_/a-z0-9]+\]|NAME";
+BasicRule wl:1001,1009,1015,1310,1311 "mz:$URL:/wp-admin/admin-ajax.php|$BODY_VAR_X:order";
+BasicRule wl:1310,1311 "mz:$URL:/wp-admin/admin-ajax.php|$BODY_VAR_X:prefix\[[-_/a-z0-9]+\]";
+BasicRule wl:1302 "mz:$URL:/wp-admin/admin-ajax.php|$BODY_VAR_X:post_title";
+BasicRule wl:1315 "mz:$URL:/wp-admin/admin-ajax.php|$BODY_VAR_X:referreby";
+BasicRule wl:1310,1311 "mz:$URL:/wp-admin/admin-ajax.php|$BODY_VAR_X:tax_input\[[-_/a-z0-9]+\]|NAME";
+BasicRule wl:1000 "mz:$URL:/wp-admin/admin-ajax.php|$BODY_VAR:total_tables_count|NAME";
+
+# === /wp-admin/async-upload.php（メディアアップロード） ===
+BasicRule wl:20 "mz:$URL:/wp-admin/async-upload.php|FILE_EXT";
+BasicRule wl:1010 "mz:$URL:/wp-admin/async-upload.php|$BODY_VAR:name";
+BasicRule wl:1011 "mz:$URL:/wp-admin/async-upload.php|$BODY_VAR_X:name";
+
+# === /wp-admin/edit.php（一覧検索：?s=） ===
+BasicRule wl:1013 "mz:$URL:/wp-admin/edit.php|$ARGS_VAR:s";
+
+# === /wp-admin/edit-tags.php（タグ説明・リファラ） ===
+BasicRule wl:1314 "mz:$URL:/wp-admin/edit-tags.php|$BODY_VAR:description";
+BasicRule wl:1315 "mz:$URL:/wp-admin/edit-tags.php|$BODY_VAR:_wp_original_http_referer";
+
+# === /wp-admin/load-scripts.php / load-styles.php（load[]引数） ===
+BasicRule wl:1015,1310,1311 "mz:$URL:/wp-admin/load-scripts.php|$ARGS_VAR_X:load\[[-_/a-z0-9]+\]";
+BasicRule wl:1310,1311 "mz:$URL:/wp-admin/load-scripts.php|$ARGS_VAR_X:load\[[-_/a-z0-9]+\]|NAME";
+BasicRule wl:1000,1015 "mz:$URL:/wp-admin/load-styles.php|$ARGS_VAR_X:load\[[-_/a-z0-9]+\]";
+BasicRule wl:1310,1311 "mz:$URL:/wp-admin/load-styles.php|$ARGS_VAR_X:load\[[-_/a-z0-9]+\]|NAME";
+
+# === /wp-admin/options-general.php（設定保存） ===
+BasicRule wl:1000 "mz:$URL:/wp-admin/options-general.php|ARGS|NAME";
+BasicRule wl:1000 "mz:$URL:/wp-admin/options-general.php|$ARGS_VAR:ettings-updated|NAME";
+
+# === /wp-admin/post.php（投稿保存：ACF/タイトル/タクソノミー等） ===
+BasicRule wl:20 "mz:$URL:/wp-admin/post.php|BODY";
+BasicRule wl:1005 "mz:$URL:/wp-admin/post.php|$BODY_VAR:_acf_delete_fields";
+BasicRule wl:1000 "mz:$URL:/wp-admin/post.php|$BODY_VAR:_acf_delete_fields|NAME";
+BasicRule wl:1001,1002,1005,1008,1009,1010,1011,1015,1016,1100,1101,1302,1303,1312 "mz:$URL:/wp-admin/post.php|$BODY_VAR_X:acf\[[-_/a-z0-9]+\]";
+BasicRule wl:1000,1310,1311 "mz:$URL:/wp-admin/post.php|$BODY_VAR_X:acf\[[-_/a-z0-9]+\]|NAME";
+BasicRule wl:1000,1002,1013 "mz:$URL:/wp-admin/post.php|$BODY_VAR_X:acf\[field_[a-zA-Z0-9]+\]";
+BasicRule wl:1001,1302,1303 "mz:$URL:/wp-admin/post.php|$BODY_VAR_X:post_title";
+BasicRule wl:1315 "mz:$URL:/wp-admin/post.php|$BODY_VAR_X:referreby";
+BasicRule wl:1013 "mz:$URL:/wp-admin/post.php|$BODY_VAR_X:referredby";
+BasicRule wl:1310,1311 "mz:$URL:/wp-admin/post.php|$BODY_VAR_X:tax_input\[[-_/a-z0-9]+\]|NAME";
+
+# === /wp-admin/update.php（複数プラグインの一括操作） ===
+BasicRule wl:1015 "mz:$URL:/wp-admin/update.php|$ARGS_VAR_X:plugins\[[-_/a-z0-9]+\]";
+
+# === /wp-admin/user-edit.php / user-new.php（パスワード入力） ===
+BasicRule wl:1010,1011,1401 "mz:$URL:/wp-admin/user-edit.php|$BODY_VAR_X:pass[/a-z0-9]";
+BasicRule wl:1016 "mz:$URL:/wp-admin/user-edit.php|BODY";
+BasicRule wl:1010,1011,1016 "mz:$URL:/wp-admin/user-new.php|$BODY_VAR_X:pass[/a-z0-9]";
+
+# === 管理画面 サイト別設定 ===
+BasicRule wl:1010 "mz:$URL:/EAA62B67B8C912B13EFC63556EEC614BEB9BF16/|$BODY_VAR_X:pwd";
