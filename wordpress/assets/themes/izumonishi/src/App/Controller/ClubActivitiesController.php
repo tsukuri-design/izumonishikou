@@ -255,7 +255,7 @@ class ClubActivitiesController extends PlainPhpController
             [
                 'bracket' => '体力強化・スキルアップ！',
                 'club_name' => '女子バスケ部',
-                'captain_name' => '部長 山本 悠真 さん',
+                'captain_name' => '部長 野々村 風花 さん',
                 'image' => 'school-life/club-activities/sports9',
                 'comment' => '私たち女子バスケットボール部は、現在１年生２名で活動しています。経験者はもちろん、初心者の方も大歓迎です。少人数だからこそ１人ひとりが活躍できる部活ですので、高校から新しい挑戦をしたいという方は、ぜひ一緒に楽しく頑張りましょう！',
             ],
